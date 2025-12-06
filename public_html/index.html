@@ -17,7 +17,9 @@
     <nav class="navbar custom-navbar navbar-expand-md navbar-light fixed-top" data-spy="affix" data-offset-top="10">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="assets/imgs/logo.svg" alt="">
+                <!-- <img src="assets/imgs/logo.svg" alt="" class="logo-top"> -->
+                
+                <img src="assets/imgs/logo-dark.svg" alt="" class="logo-scroll"> 
             </a>
             <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -51,7 +53,7 @@
     <!-- Page Header -->
 <header class="header">
     <div class="overlay"></div>
-        <!-- Contenedor centrado -->
+
     <div style="
         height: 100vh;
         width: 100%;
@@ -61,10 +63,8 @@
         position: relative;
         z-index: 2;
     ">
-        <!-- Script de Lottie -->
         <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
 
-        <!-- Animación centrada y responsiva -->
         <dotlottie-wc 
             src="https://lottie.host/a006bab4-9329-4666-952b-1fa0d4114af2/tw3RihbOCW.lottie"
             style="
@@ -72,13 +72,22 @@
                 max-width: 2700px;
                 height: auto;
                 display: block;
+                /* Aseguramos que la animación esté detrás del texto si fuera necesario */
+                position: relative; 
+                z-index: 1;
             "
             autoplay
             loop>
         </dotlottie-wc>
-    </div>
 
-    <!-- La forma curva inferior del header -->
+            <div class="header-text-overlay">
+                <h1>
+                    El crecimiento no es suerte<br>
+                    <strong>Son operaciones alineadas</strong>
+                </h1>
+            </div>
+        </div>
+
     <div class="shape">
         <svg viewBox="0 0 1500 200">
             <path d="m 0,240 h 1500.4828 v -71.92164 c 0,0 -286.2763,-81.79324 -743.19024,-81.79324 C 300.37862,86.28512 0,168.07836 0,168.07836 Z"/>
@@ -91,75 +100,71 @@
     <!-- End Of Page Header -->
 
     <!-- Service Section -->
-    <section  id="service" class="section pt-0">
+<section id="service" class="section pt-0">
         <div class="container">
             <h6 class="section-title text-center">¿Presentas alguno de estos desafios?</h6>
             <h6 class="section-subtitle text-center mb-5 pb-3">Sí respondes si a alguno de estos, contactanos</h6>
 
             <div class="row">
                 <div class="col-md-4">
-                    <div class="card mb-4 mb-md-0">
+                    <div class="card mb-md-0 card-hover-effect">
                         <div class="card-body">
                             <small class="text-primary font-weight-bold">01</small>
-                            <h5 class="card-title mt-3"> Crecimiento impredescible<h5>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, cquasi cupiditate voluptate debitis saepe dolorem totam dolor repudiandae quo nihil, repellendus nesciunt ab fuga quae, minima reprehenderit sequi fugit.</p>
+                            <h5 class="card-title mt-0"> Crecimiento impredescible</h5>
+                            <img class="mb-0" src="assets/imgs/desafios/Recurso 1.svg" style="width: 120px; height: auto;">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card mb-4 mb-md-0">
+                    <div class="card mb-md-0 card-hover-effect">
                         <div class="card-body">
                             <small class="text-primary font-weight-bold">02</small>
-                            <h5 class="card-title mt-3">Puntos de fuga ciegos<h5>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, cquasi cupiditate voluptate debitis saepe dolorem totam dolor repudiandae quo nihil, repellendus nesciunt ab fuga quae, minima reprehenderit sequi fugit.</p>
+                            <h5 class="card-title mt-0">Puntos de fuga ciegos</h5>
+                            <img class="mb-0" src="assets/imgs/desafios/Recurso 2.svg" style="width: 120px; height: auto;">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card mb-4 mb-md-0">
+                    <div class="card mb-md-0 card-hover-effect">
                         <div class="card-body">
                             <small class="text-primary font-weight-bold">03</small>
-                            <h5 class="card-title mt-3">Bajo Rendimiento<h5>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, cquasi cupiditate voluptate debitis saepe dolorem totam dolor repudiandae quo nihil, repellendus nesciunt ab fuga quae, minima reprehenderit sequi fugit.</p>
+                            <h5 class="card-title mt-0">Bajo Rendimiento</h5>
+                            <img class="mb-0" src="assets/imgs/desafios/Recurso 3.svg" style="width: 120px; height: auto;">
                         </div>
                     </div>
                 </div>              
             </div>
 
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card mb-4 mb-md-0">
+            <div class="row mt-4"> <div class="col-md-4">
+                    <div class="card mb-4 mb-md-0 card-hover-effect">
                         <div class="card-body">
                             <small class="text-primary font-weight-bold">04</small>
-                            <h5 class="card-title mt-3"> Datos en el caos<h5>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, cquasi cupiditate voluptate debitis saepe dolorem totam dolor repudiandae quo nihil, repellendus nesciunt ab fuga quae, minima reprehenderit sequi fugit.</p>
+                            <h5 class="card-title mt-3"> Datos en el caos</h5>
+                            <img class="mb-0" src="assets/imgs/desafios/Recurso 4.svg" style="width: 120px; height: auto;">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card mb-4 mb-md-0">
+                    <div class="card mb-4 mb-md-0 card-hover-effect">
                         <div class="card-body">
                             <small class="text-primary font-weight-bold">05</small>
-                            <h5 class="card-title mt-3">Retención débil<h5>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, cquasi cupiditate voluptate debitis saepe dolorem totam dolor repudiandae quo nihil, repellendus nesciunt ab fuga quae, minima reprehenderit sequi fugit.</p>
+                            <h5 class="card-title mt-3">Retención débil</h5>
+                            <img class="mb-0" src="assets/imgs/desafios/Recurso 5.svg" style="width: 120px; height: auto;">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card mb-4 mb-md-0">
+                    <div class="card mb-4 mb-md-0 card-hover-effect">
                         <div class="card-body">
                             <small class="text-primary font-weight-bold">06</small>
-                            <h5 class="card-title mt-3">Capacitación Insuficiente<h5>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, cquasi cupiditate voluptate debitis saepe dolorem totam dolor repudiandae quo nihil, repellendus nesciunt ab fuga quae, minima reprehenderit sequi fugit.</p>
+                            <h5 class="card-title mt-3">Capacitación Insuficiente</h5>
+                            <img class="mb-0" src="assets/imgs/desafios/Recurso 6.svg" style="width: 120px; height: auto;">
                         </div>
                     </div>
                 </div>              
             </div>
         </div>
     </section>
-    <!-- End OF Service Section -->
-
-
 
 
 
@@ -478,18 +483,13 @@
             <div class="row align-items-center">
                 <div class="col-md-5 my-3">
                     <h4 class="mb-4">¿Estás listo para alinear tus Operaciones?</h4>
-                    <h6 class="mb-0">Phone</h6>
-                    <p class="mb-4">+ 123-456-7890</p>
-
-                    <h6 class="mb-0">Address</h6>
-                    <p class="mb-4">Buenos Aires, Argentina</p>
 
                     <!-- <h6 class="mb-0">Email</h6>
                     <p class="mb-0">info@osarevops.com</p>
                     <p></p> -->
                 </div>
                 <div class="col-md-7">
-                    <form>
+                    <form netlify>
                         <!-- <h4 class="mb-4">Drop Us A Line</h4> -->
                         <div class="form-row">
                             <div class="form-group col-sm-4">
@@ -505,7 +505,7 @@
                                 <textarea name="message" id="" cols="30" rows="4" class="form-control text-white rounded-0 bg-transparent" placeholder="Message"></textarea>
 
                             </div>
-                            <div class="form-group col-12 mb-0">
+                            <div class="form-group col-12 mb-32">
                                 <button type="submit" class="btn btn-primary rounded w-md mt-3">Send</button>
                             </div>                          
                         </div>                          
@@ -513,21 +513,70 @@
                 </div>
             </div>
             <!-- Page Footer -->
-            <footer class="mt-5 py-4 border-top border-secondary">
-                <div class="col-md-5 my-3">
-                    <h6 class="mb-0">Phone</h6>
-                    <p class="mb-4">+ 123-456-7890</p>
+<footer class="section site-footer border-top">
+    <div class="container">
+        <div class="row align-items-center">
+            
+            <div class="col-md-6 d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-start mb-4 mb-md-0">
+                <a href="#home" class="mr-md-4 mb-3 mb-md-0">
+                    <!-- <img src="assets/imgs/logo.svg" alt="Logo Principal" width="180"> -->
+                </a>
 
-                    <h6 class="mb-0">Address</h6>
-                    <p class="mb-4">Buenos Aires, Argentina</p>
-
-                    <h6 class="mb-0">Email</h6>
-                    <p class="mb-0">info@osarevops.com</p>
-                    <p></p>
+                <div class="d-flex align-items-center ml-5">
+                    <a href="https://www.salesforce.com" target="_blank" class="mx-2">
+                        <img src="assets/imgs/salesforce-with-type-logo.svg" alt="Salesforce" width="90">
+                    </a>
+                    
+                    <a href="#" target="_blank" class="mx-2 mt-2">
+                        <img src="assets/imgs/partner-logo.svg" alt="Partner" width="100">
+                    </a>
+                    
+                    <a href="https://www.hubspot.com" target="_blank" class="mx-2">
+                        <img src="assets/imgs/HubSpot_Logo.svg" alt="HubSpot" width="90">
+                    </a>
                 </div>
-                <div class="col-md-7">
-                       <p class="mb-0 small">&copy; <script>document.write(new Date().getFullYear())</script>, <a href="https://osaconsulting.io/" target="_blank">OSA Consulting Services</a>  All rights reserved </p>     
-            </footer>
+            </div>
+
+            <div class="col-md-6">
+                <div class="d-flex flex-row justify-content-center justify-content-md-end align-items-start">
+                    
+                    <div class="d-flex flex-col flex-column align-items-center mr-5 mt-4">
+                        <a href="https://www.linkedin.com/company/osa-crm-consulting/" target="_blank" class="mb-2">
+                            <img src="assets/imgs/linkedin.svg" width="35" alt="LinkedIn">
+                        </a>
+                        <a href="https://wa.me/5491124760567" target="_blank">
+                            <img src="assets/imgs/wassap.svg" width="35" alt="WhatsApp">
+                        </a>
+                    </div>
+
+                    <div class="text-left footer-contact-info">
+                        <a href="#form" class="d-flex align-items-center mb-2 text-dark text-decoration-none">
+                            <img src="assets/imgs/footer-mail.svg" width="15" class="mr-2" alt="">
+                            <small>info@osaconsulting.com</small>
+                        </a>
+
+                        <a href="https://wa.me/5491124760567" target="_blank" class="d-flex align-items-center mb-2 text-dark text-decoration-none">
+                            <img src="assets/imgs/footer-phone.svg" width="12" class="mr-2" alt="">
+                            <small>+54 9 11 2476-0567</small>
+                        </a>
+
+                        <a href="https://goo.su/ky1yU0l" target="_blank" class="d-flex align-items-start mb-2 text-dark text-decoration-none">
+                            <img src="assets/imgs/footer-address.svg" width="12" class="mr-2 mt-1" alt="">
+                            <small style="line-height: 1.2;">30 N Gould St, STE R, Sheridan,<br>WY 82801, Wyoming, USA</small>
+                        </a>
+
+                        <div class="mt-3">
+                            <small class="text-muted">
+                                2025 © OSA Consulting Services. All rights reserved.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
             <!-- End of Page Footer -->  
         </div>
     </section>

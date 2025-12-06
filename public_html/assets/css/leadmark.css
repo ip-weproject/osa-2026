@@ -4710,6 +4710,9 @@ input[type=button].btn-block {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   padding: 1.25rem;
+  background-color: var(--white);
+  border-radius: 1.5rem !important;
+  color: rgb(255, 255, 255);
 }
 
 .card-title {
@@ -4936,6 +4939,43 @@ input[type=button].btn-block {
 }
 .accordion > .card .card-header {
   margin-bottom: -1px;
+}
+
+/* =========================================
+   NUEVO: Efecto Hover para Cards de Servicios
+   ========================================= */
+
+/* 1. Configuración base de la animación */
+.card-hover-effect {
+    transition: all 0.4s ease-in-out; /* Suavidad del movimiento global */
+    overflow: hidden; /* IMPORTANTE: Para que el zoom de la imagen no se salga de la tarjeta */
+    cursor: pointer; /* Manito al pasar el mouse */
+    /* Mantenemos tu borde original o lo quitamos si prefieres: */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil para que se vea en fondo oscuro */
+}
+
+/* 2. Qué pasa con la TARJETA al pasar el mouse */
+.card-hover-effect:hover {
+    transform: translateY(-10px); /* Se eleva 10 pixeles */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Sombra profunda */
+    border-color: transparent; /* Opcional: desaparece el borde para priorizar la sombra */
+}
+
+/* 3. Configuración base de la IMAGEN dentro de la tarjeta */
+.card-hover-effect img {
+    transition: transform 0.5s ease; /* El zoom es un poco más lento que la elevación */
+    display: block;
+}
+
+/* 4. Qué pasa con la IMAGEN al pasar el mouse por la tarjeta */
+.card-hover-effect:hover img {
+    transform: scale(1.15); /* Zoom al 115% */
+}
+
+/* 5. (Opcional) Cambiar el color del número (01, 02...) al hacer hover */
+.card-hover-effect:hover small {
+    color: #fff !important; /* Se vuelve blanco brillante */
+    transition: color 0.3s;
 }
 
 .breadcrumb {
@@ -10673,6 +10713,13 @@ textarea.form-control {
   color: #0bffd4;
 }
 
+.navbar.custom-navbar.affix .navbar-brand img {
+    /* Esto invierte los colores matemáticamente (Negro -> Blanco) */
+    filter: invert(1); 
+    opacity: 1;
+
+}
+
 .pagination .page-item {
   margin: 0 4px;
 }
@@ -11113,4 +11160,58 @@ textarea.form-control {
   left: 50%;
   opacity: 1;
   visibility: visible;
+}
+
+/* --- Estilos para el texto centrado sobre la animación Lottie --- */
+
+.header-text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado exacto */
+    text-align: center;
+    z-index: 10;
+    width: 90%;
+    max-width: 500px; /* Controla el ancho máximo del bloque de texto */
+}
+
+.header-text-overlay h1 {
+    font-family: 'Poppins', sans-serif; /* Asegúrate de tener la fuente importada */
+    font-size: clamp(1.8rem, 5vw, 2.5rem); /* Escala fluida entre móvil y desktop */
+    font-weight: 600;
+    color: #000;
+    line-height: 1.2;
+    margin: 0;
+}
+
+/* Estilos del nuevo Footer */
+.site-footer {
+    padding: 3rem 0;
+    background-color: #fff; /* Fondo blanco como querías conservar */
+}
+
+.footer-contact-info a {
+    color: #fff; /* Color de texto del tema original */
+    transition: color 0.3s;
+}
+
+.footer-contact-info a:hover {
+    color: #ffffff; /* Color gris al pasar el mouse */
+    text-decoration: none;
+}
+
+.footer-contact-info small {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    .site-footer {
+        text-align: center;
+    }
+    .footer-contact-info {
+        text-align: left; /* Mantiene el texto alineado a la izq incluso en móvil para legibilidad */
+    }
 }
