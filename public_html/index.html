@@ -70,7 +70,7 @@
             style="
                 width: 100%;
                 max-width: 2700px;
-                height: auto;
+                height: 800px;
                 display: block;
                 /* Aseguramos que la animación esté detrás del texto si fuera necesario */
                 position: relative; 
@@ -101,70 +101,164 @@
 
     <!-- Service Section -->
 <section id="service" class="section pt-0">
-        <div class="container">
-            <h6 class="section-title text-center">¿Presentas alguno de estos desafios?</h6>
-            <h6 class="section-subtitle text-center mb-5 pb-3">Sí respondes si a alguno de estos, contactanos</h6>
+    <div class="container">
+        <h6 class="section-title text-center">¿Presentas alguno de estos desafíos?</h6>
+        <h6 class="section-subtitle text-center mb-5 pb-3">Si respondes sí a alguno de estos, contáctanos</h6>
 
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card mb-md-0 card-hover-effect">
-                        <div class="card-body">
-                            <small class="text-primary font-weight-bold">01</small>
-                            <h5 class="card-title mt-0"> Crecimiento impredescible</h5>
-                            <img class="mb-0" src="assets/imgs/desafios/Recurso 1.svg" style="width: 120px; height: auto;">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-md-0 card-hover-effect">
-                        <div class="card-body">
-                            <small class="text-primary font-weight-bold">02</small>
-                            <h5 class="card-title mt-0">Puntos de fuga ciegos</h5>
-                            <img class="mb-0" src="assets/imgs/desafios/Recurso 2.svg" style="width: 120px; height: auto;">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-md-0 card-hover-effect">
-                        <div class="card-body">
-                            <small class="text-primary font-weight-bold">03</small>
-                            <h5 class="card-title mt-0">Bajo Rendimiento</h5>
-                            <img class="mb-0" src="assets/imgs/desafios/Recurso 3.svg" style="width: 120px; height: auto;">
-                        </div>
-                    </div>
-                </div>              
-            </div>
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                
+                <div class="accordion leadmark-accordion" id="servicesAccordion">
 
-            <div class="row mt-4"> <div class="col-md-4">
-                    <div class="card mb-4 mb-md-0 card-hover-effect">
-                        <div class="card-body">
-                            <small class="text-primary font-weight-bold">04</small>
-                            <h5 class="card-title mt-3"> Datos en el caos</h5>
-                            <img class="mb-0" src="assets/imgs/desafios/Recurso 4.svg" style="width: 120px; height: auto;">
+                    <div class="card mb-3">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-block text-left d-flex align-items-center p-3 service-toggle collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    <span class="service-title flex-grow-1">01. Crecimiento impredecible</span>
+                                    <i class="fas fa-chevron-down accordion-chevron"></i>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#servicesAccordion">
+                            <div class="card-body">
+                                <p>Si tus proyecciones de ventas parecen una montaña rusa y te cuesta responder "¿cuánto vamos a cerrar este mes?", tienes un problema de previsibilidad.</p>
+                                <ul>
+                                    <li>Falta de confianza en los datos del pipeline.</li>
+                                    <li>Ingresos que fluctúan drásticamente.</li>
+                                    <li>Incapacidad para proyectar crecimiento.</li>
+                                </ul>
+                                <div>
+                                    <a href="#contact" class="btn-neon">Agendar llamada</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="card mb-3">
+                        <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                                <button class="btn btn-block text-left d-flex align-items-center p-3 service-toggle collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <span class="service-title flex-grow-1">02. Puntos de fuga ciegos</span>
+                                    <i class="fas fa-chevron-down accordion-chevron"></i>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#servicesAccordion">
+                            <div class="card-body">
+                                <p>Estás generando leads, pero no se convierten en clientes. Identificar y sellar estas fugas es la forma más rápida de aumentar ingresos.</p>
+                                <ul>
+                                    <li>Leads calificados que se enfrían.</li>
+                                    <li>Desconexión entre Marketing y Ventas.</li>
+                                    <li>Tasas de conversión bajas.</li>
+                                </ul>
+                                <div>
+                                    <a href="#contact" class="btn-neon">Agendar llamada</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-header" id="headingThree">
+                            <h2 class="mb-0">
+                                <button class="btn btn-block text-left d-flex align-items-center p-3 service-toggle collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <span class="service-title flex-grow-1">03. Bajo Rendimiento</span>
+                                    <i class="fas fa-chevron-down accordion-chevron"></i>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#servicesAccordion">
+                            <div class="card-body">
+                                <p>Tu equipo comercial trabaja muchas horas, pero los resultados no acompañan el esfuerzo debido a procesos manuales.</p>
+                                <ul>
+                                    <li>Demasiada carga manual en el CRM.</li>
+                                    <li>Falta de automatización.</li>
+                                    <li>Procesos lentos y burocráticos.</li>
+                                </ul>
+                                <div>
+                                    <a href="#contact" class="btn-neon">Agendar llamada</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-header" id="headingFour">
+                            <h2 class="mb-0">
+                                <button class="btn btn-block text-left d-flex align-items-center p-3 service-toggle collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <span class="service-title flex-grow-1">04. Datos en el caos</span>
+                                    <i class="fas fa-chevron-down accordion-chevron"></i>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#servicesAccordion">
+                            <div class="card-body">
+                                <p>Tienes herramientas por todas partes, pero no se hablan entre sí, creando silos de información.</p>
+                                <ul>
+                                    <li>Informes contradictorios.</li>
+                                    <li>Datos sucios o incompletos.</li>
+                                    <li>Imposibilidad de medir el ROI.</li>
+                                </ul>
+                                <div>
+                                    <a href="#contact" class="btn-neon">Agendar llamada</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-header" id="headingFive">
+                            <h2 class="mb-0">
+                                <button class="btn btn-block text-left d-flex align-items-center p-3 service-toggle collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    <span class="service-title flex-grow-1">05. Retención débil</span>
+                                    <i class="fas fa-chevron-down accordion-chevron"></i>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#servicesAccordion">
+                            <div class="card-body">
+                                <p>Conseguir un cliente nuevo cuesta más que mantener uno existente. Necesitas procesos de Customer Success proactivos.</p>
+                                <ul>
+                                    <li>Alta tasa de cancelación (Churn).</li>
+                                    <li>Pocas oportunidades de Upsell.</li>
+                                    <li>Onboarding deficiente.</li>
+                                </ul>
+                                <div>
+                                    <a href="#contact" class="btn-neon">Agendar llamada</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-header" id="headingSix">
+                            <h2 class="mb-0">
+                                <button class="btn btn-block text-left d-flex align-items-center p-3 service-toggle collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                    <span class="service-title flex-grow-1">06. Capacitación Insuficiente</span>
+                                    <i class="fas fa-chevron-down accordion-chevron"></i>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#servicesAccordion">
+                            <div class="card-body">
+                                <p>Si cada vendedor vende a su manera, falta un Playbook de Ventas y estandarización.</p>
+                                <ul>
+                                    <li>Ramp-up excesivo para nuevos.</li>
+                                    <li>Falta de material unificado.</li>
+                                    <li>Resultados dependientes del talento individual.</li>
+                                </ul>
+                                <div>
+                                    <a href="#contact" class="btn-neon">Agendar llamada</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 mb-md-0 card-hover-effect">
-                        <div class="card-body">
-                            <small class="text-primary font-weight-bold">05</small>
-                            <h5 class="card-title mt-3">Retención débil</h5>
-                            <img class="mb-0" src="assets/imgs/desafios/Recurso 5.svg" style="width: 120px; height: auto;">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 mb-md-0 card-hover-effect">
-                        <div class="card-body">
-                            <small class="text-primary font-weight-bold">06</small>
-                            <h5 class="card-title mt-3">Capacitación Insuficiente</h5>
-                            <img class="mb-0" src="assets/imgs/desafios/Recurso 6.svg" style="width: 120px; height: auto;">
-                        </div>
-                    </div>
-                </div>              
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 
 
@@ -176,15 +270,15 @@
                     <h6 class="section-title mb-0">Sobre Nosotros</h6>
                     <h6 class="section-subtitle mb-4">Consultores RevOps</h6>
                     <p >Somos una consultora especializada en Revenue Operations (RevOps), dedicada a transformar la operación de medianas y pequeñas empresas para que puedan escalar de forma predecible.</p>
-                    <img src="assets/imgs/about.jpg" alt="" class="w-100 mt-3 shadow-sm rounded">
+                    <!-- <img src="assets/imgs/services/Recurso 6.svg" alt="" class="w-100 mt-3 shadow-sm rounded"> -->
                 </div>
                 <div class="col-md-6 pl-md-5">
                     <div class="row">
                         <div class="col-6">
-                            <img src="assets/imgs/about-1.jpg" alt="" class="w-100 shadow-sm rounded">
+                            <img src="assets/imgs/services/Recurso 4.svg" alt="" class="w-100 shadow-sm rounded">
                         </div>
                         <div class="col-6">
-                            <img src="assets/imgs/about-2.jpg" alt="" class="w-100 shadow-sm rounded">
+                            <img src="assets/imgs/services/Recurso 5.svg" alt="" class="w-100 shadow-sm rounded">
                         </div>
                         <div class="col-12 mt-4">
                             <p>Nuestro valor no radica en la implementación de una herramienta (como Salesforce), sino en la alineación estratégica de sus equipos, procesos y tecnología. Le damos a su negocio la estructura y la visibilidad que necesita para convertir el caos en un flujo de ingresos constante.</p>

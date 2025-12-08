@@ -2674,7 +2674,7 @@ fieldset:disabled a.btn {
 }
 .btn-primary:hover {
   color: #000000;
-  background-color: #0bffd4;
+  background-color: #5de7e5;
   /* border-color: rgb(37.1428571429, 32.5714285714, 30.8571428571); */
 }
 .btn-primary:focus, .btn-primary.focus {
@@ -4710,9 +4710,11 @@ input[type=button].btn-block {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   padding: 1.25rem;
-  background-color: var(--white);
+  /* background-color: var(--white); */
   border-radius: 1.5rem !important;
   color: rgb(255, 255, 255);
+  margin-left: 3rem;
+  margin-right: 1rem;
 }
 
 .card-title {
@@ -4926,7 +4928,7 @@ input[type=button].btn-block {
 }
 .accordion > .card:not(:first-of-type):not(:last-of-type) {
   border-bottom: 0;
-  border-radius: 0;
+  border-radius: 1rem;
 }
 .accordion > .card:first-of-type {
   border-bottom: 0;
@@ -10549,11 +10551,11 @@ hr {
 }
 .btn.roundedheader {
   border-radius: 50px !important;
-  /* border-color: #0bffd4; */
+  /* border-color: #5de7e5; */
 }
 .btn.rounded {
   border-radius: 50px !important;
-  border-color: #0bffd4;
+  border-color: #5de7e5;
 }
 .btn.circle {
   width: 40px;
@@ -10710,7 +10712,7 @@ textarea.form-control {
   color: #fff;
 }
 .navbar.custom-navbar.affix .nav-link:hover {
-  color: #0bffd4;
+  color: #5de7e5;
 }
 
 .navbar.custom-navbar.affix .navbar-brand img {
@@ -11106,7 +11108,7 @@ textarea.form-control {
 .portfolio-section .filters a.active {
   opacity: 1;
   border-radius: 100px;
-  background: #0bffd4;
+  background: #5de7e5;
   color: #000;
 }
 .portfolio-section .portfolio-container .portfolio-item {
@@ -11214,4 +11216,110 @@ textarea.form-control {
     .footer-contact-info {
         text-align: left; /* Mantiene el texto alineado a la izq incluso en móvil para legibilidad */
     }
+}
+
+/* =========================================
+   NUEVO: Estilos para el Acordeón Oscuro
+   ========================================= */
+
+/* Contenedor de la tarjeta del acordeón */
+.custom-accordion.dark-theme .card {
+    background-color: rgba(255, 255, 255, 0.02); /* Fondo muy sutilmente más claro que el negro total */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil */
+    border-radius: 1rem; /* Bordes redondeados como en el ejemplo */
+    overflow: hidden;
+}
+
+.custom-accordion.dark-theme .card-header {
+    background-color: transparent;
+    border-bottom: none;
+}
+
+/* El botón que activa el despliegue */
+.service-toggle {
+    color: #fff; /* Texto blanco */
+    text-decoration: none !important; /* Quitar subrayado de enlace */
+    transition: all 0.3s ease;
+    border-radius: 1rem;
+}
+
+/* Efecto hover en toda la barra */
+.service-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+/* Estilo cuando el ítem está ABIERTO (no colapsado) */
+.service-toggle:not(.collapsed) {
+     /* Un toque sutil de tu color azul primario al estar abierto */
+    background-color: rgba(93, 231, 229, 0.1); 
+    color: #5de7e5; /* Cambia el texto al color neón */
+}
+
+/* Título del servicio */
+.service-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* --- MANEJO DE ICONOS --- */
+
+/* Tamaño base del icono (mucho más chico que antes) */
+.service-icon-small {
+    width: 60px; 
+    height: auto;
+    transition: transform 0.3s ease; /* Suavidad para el efecto hover */
+}
+
+/* Efecto: achicar icono al pasar el mouse por el botón */
+.service-toggle:hover .service-icon-small {
+    transform: scale(0.9); /* Se achica al 90% */
+}
+
+
+/* --- MANEJO DE LA FLECHA (CHEVRON) --- */
+
+.accordion-chevron {
+    transition: transform 0.3s ease;
+    color: #5de7e5; /* Color neón para la flecha */
+}
+
+/* Rotar la flecha 180 grados cuando está abierto */
+.service-toggle:not(.collapsed) .accordion-chevron {
+    transform: rotate(180deg);
+}
+
+/* El cuerpo de texto desplegable */
+.custom-accordion.dark-theme .card-body {
+    background-color: transparent;
+    /* Color de texto secundario (gris claro) para la descripción */
+    color: rgba(255, 255, 255, 0.7) !important; 
+    padding-top: 0;
+    padding-bottom: 1.5rem;
+}
+
+/*    Botón "Hablemos" */
+
+.leadmark-accordion .btn-neon {
+    border: 1px solid #5de7e5;  /* Borde Cyan */
+    color: #5de7e5;             /* Texto Cyan */
+    background: transparent;
+    border-radius: 50px;        /* Redondeado estilo píldora */
+    padding: 8px 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px; /* Separación de la lista de arriba */
+}
+
+/* Efecto Hover: Se rellena de color */
+.leadmark-accordion .btn-neon:hover {
+    background-color: #5de7e5;
+    color: #000; /* Texto negro para contraste */
+    box-shadow: 0 0 15px rgba(93, 231, 229, 0.4); /* Resplandor */
+    transform: translateY(-2px); /* Pequeña elevación */
 }
