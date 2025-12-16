@@ -9,52 +9,64 @@
     <!-- font icons -->
     <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
     <!-- Bootstrap main styles -->
-	<link rel="stylesheet" href="assets/css/leadmark.css">
+	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
 
-    <!-- page Navigation -->
-    <nav class="navbar custom-navbar navbar-expand-md navbar-light fixed-top" data-spy="affix" data-offset-top="10">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <!-- <img src="assets/imgs/logo.svg" alt="" class="logo-top"> -->
-                
-                <img src="assets/imgs/logo-dark.svg" alt="" class="logo-scroll"> 
-            </a>
-            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">                     
+<nav class="navbar custom-navbar navbar-expand-lg navbar-dark" data-offset-top="20">
+    <div class="container-fluid">
+        
+        <a class="navbar-brand" href="#">
+            <img src="assets/imgs/logo-dark.svg" alt="Logo" style="width: 80px;">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+            
+            <div class="nav-pill-container">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#service">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
                     <!-- <li class="nav-item">
-                        <a class="nav-link" href="#service">Revops</a>
+                        <a class="nav-link" href="#testmonial">Testimonial</a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">Sobre nosotros</a>
+                        <a class="nav-link" href="#blog">Packs</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">Servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#blog">Soluciones</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contacto</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="components.html" class="ml-4 nav-link2 btn btn-primary btn-sm roundedheader">CRM</a>
+                    <li class="nav-item ml-3">
+                        <a href="#contact" class="btn btn-neon-nav">Hablemos</a>
                     </li>
                 </ul>
             </div>
+
         </div>
-    </nav>
-    <!-- End Of Second Navigation -->
+
+        <!-- <div class="partner-logos d-none d-lg-flex align-items-center">
+            <img src="assets/imgs/salesforce-with-type-logo.svg" alt="Salesforce" style="height: 35px; margin-right: 15px;">
+            <img src="assets/imgs/HubSpot_Logo.svg" alt="HubSpot" style="height: 25px;">
+        </div> -->
+
+    </div>
+</nav>
 
     <!-- Page Header -->
-<header class="header">
+<header class="header" id="home">
     <div class="overlay"></div>
 
-    <div style="
+    <!-- <div style="
         height: 100vh;
         width: 100%;
         display: flex;
@@ -78,15 +90,40 @@
             "
             autoplay
             loop>
-        </dotlottie-wc>
+        </dotlottie-wc> -->
 
-            <div class="header-text-overlay">
-                <h1>
-                    El crecimiento no es suerte<br>
-                    <strong>Son operaciones alineadas</strong>
-                </h1>
+            <video autoplay muted loop playsinline class="video-bg">
+        <source src="assets/imgs/header.mp4" type="video/mp4">
+        <!-- Tu navegador no soporta video HTML5. -->
+    </video>
+
+    <div class="video-overlay"></div>
+
+<div class="header-text-overlay">
+    <div class="container">
+        <div class="row align-items-center">
+            
+            <div class="col-md-6 text-center text-md-left">
+                <div class="glass-button">
+                    <h1>
+                        El crecimiento no es suerte<br>
+                        <strong>Son operaciones alineadas</strong>
+                    </h1>
+                </div>
             </div>
+
+            <div class="col-md-6">
+                <div class="hero-animation-placeholder">
+                    <span>Animación/Imagen</span>
+                </div>
+            </div>
+
         </div>
+    </div>
+</div>
+
+
+    </div>
 
     <div class="shape">
         <svg viewBox="0 0 1500 200">
@@ -100,7 +137,7 @@
     <!-- End Of Page Header -->
 
     <!-- Service Section -->
-<section id="service" class="section pt-0">
+<section id="service" class="section pt-60">
     <div class="container">
         <h6 class="section-title text-center">¿Presentas alguno de estos desafíos?</h6>
         <h6 class="section-subtitle text-center mb-5 pb-3">Si respondes sí a alguno de estos, contáctanos</h6>
@@ -687,6 +724,10 @@
 
     <!-- LeadMark js -->
     <script src="assets/js/leadmark.js"></script>
+
+    <a href="#home" id="backToTop" class="back-to-top-btn" title="Volver al inicio">
+    <i class="ti-angle-up"></i>
+</a>
 
 </body>
 </html>
