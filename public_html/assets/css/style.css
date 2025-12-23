@@ -4728,8 +4728,8 @@ input[type=button].btn-block {
   /* background-color: var(--white); */
   border-radius: 1.5rem !important;
   color: rgb(255, 255, 255);
-  margin-left: 3rem;
-  margin-right: 1rem;
+  /* margin-left: 1rem;
+  margin-right: 1rem; */
 }
 
 .card-title {
@@ -10887,45 +10887,194 @@ textarea.form-control {
   }
 }
 /* =========================================
-   HEADER VIDEO BACKGROUND (Corregido)
+   SPLIT SCREEN HERO (Versión Caja Flotante)
    ========================================= */
 
-.header {
+.split-header {
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
     position: relative;
-    width: 100%;           /* Ocupa todo el ancho */
-    height: 100vh;         /* Ocupa el 100% de la altura de la ventana */
-    min-height: 500px;     /* Altura mínima para que no se aplaste en móviles */
-    overflow: hidden;      /* CRUCIAL: Corta cualquier sobrante del video */
-    display: flex;         /* Para centrar tu esfera perfectamente */
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
+    background: #ffffff; /* CAMBIO: Fondo general BLANCO para los huecos */
 }
 
-.video-bg {
-    position: absolute;
-    top: 50%;              /* Centramos verticalmente */
-    left: 50%;             /* Centramos horizontalmente */
-    transform: translate(-50%, -50%); /* Ajuste fino de centrado */
-    
-    min-width: 100%;       /* Asegura cubrir el ancho */
-    min-height: 100%;      /* Asegura cubrir el alto */
-    width: auto;
+/* --- LADO IZQUIERDO --- */
+.left-split {
+    background-color: #ffffff;
+    height: 100%;
+    position: relative;
+}
+
+.hero-logo-big {
+    width: 60%;
+    max-width: 400px;
     height: auto;
-    
-    /* Esta propiedad es la magia moderna, pero el código de arriba es el respaldo infalible */
-    object-fit: cover;     
-    
-    z-index: 0;            /* Al fondo */
+    display: block;
 }
 
-.video-overlay {
+/* --- LADO DERECHO (CONTENEDOR) --- */
+.right-split {
+    background-color: transparent !important; /* CAMBIO: Transparente */
+    height: 100%;
+    /* Quitamos el padding del contenedor padre para manejarlo en la caja */
+    padding: 0 !important; 
+}
+
+/* --- LA CAJA NEGRA FLOTANTE (NUEVO) --- */
+.black-floating-box {
+    background-color: #000000;
+    color: #fff;
+    width: 100%;
+    
+    /* LA MAGIA DEL CORTE: Altura del 75% de la pantalla */
+    height: 100vh; 
+    
+    /* TU PADDING PERSONALIZADO (Lo movimos aquí) */
+    padding-left: 120px !important; 
+    padding-right: 50px !important;
+    
+    /* Centrado del contenido */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    /* Estética: Bordes redondeados entrada izquierda */
+    /* border-top-left-radius: 320px;
+    border-bottom-left-radius: 320px; */
+    
+    /* Sombra suave a la izquierda */
+    box-shadow: -20px 0 40px rgba(0,0,0,0.1);
+    
+    position: relative;
+    z-index: 10;
+}
+
+/* RESPONSIVE: En celular volvemos al diseño apilado */
+@media (max-width: 991px) {
+    .black-floating-box {
+        height: auto; /* Altura automática */
+        border-radius: 0; /* Sin bordes redondos */
+        padding: 60px 30px !important; /* Menos padding */
+        text-align: center;
+    }
+    
+    .right-split {
+        height: auto;
+    }
+}
+
+/* =========================================
+   CORRECCIÓN DEL SHAPE (OLA)
+   ========================================= */
+
+/* 1. Aseguramos que el header sea el referente */
+.split-header {
+    position: relative; 
+    /* El resto de estilos que ya tenías... */
+}
+
+/* 2. Posicionamos la ola ENCIMA de los colores */
+.shape {
     position: absolute;
-    top: 0;
+    bottom: -1px; /* -1px para evitar líneas blancas finas por redondeo */
     left: 0;
     width: 100%;
-    height: 100%;
-    /* background: rgba(0, 0, 0, 0.5); Oscurece el video para que resalte la esfera */
-    z-index: 1;
+    z-index: 20; /* IMPORTANTE: Debe ser mayor que el contenido (que suele ser 1 o 2) */
+    pointer-events: none; /* Permite clickear cosas que estén "debajo" visualmente si fuera necesario */
+}
+
+/* 3. Estilo del SVG */
+.shape svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    fill: #000; /* Color de la ola (normalmente blanco para unir con la sección siguiente) */
+}
+
+/* 4. Ajuste del Mouse Icon para que también flote encima */
+.mouse-icon {
+    z-index: 21; /* Encima de la ola incluso */
+    border: 2px solid #000; /* Cyan para que resalte en lo negro/blanco */
+}
+
+.mouse-icon .wheel {
+    background: #000; /* La ruedita también cyan */
+}
+
+/* Títulos */
+.hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4rem;
+    font-weight: 400;
+    line-height: 1.1;
+    color: #fff;
+}
+
+/* Color 1: Cyan (Revenue) */
+.text-cyan {
+    color: #5de7e5;  /* Tu color neón original */
+    /* font-weight: 700; */
+    line-height: 1;  /* Ajuste para que queden bien pegaditas verticalmente */
+}
+
+/* Color 2: Azul Eléctrico (Operations) */
+.text-blue {
+    color: #2b70fa;  /* Azul vibrante (similar a la imagen de referencia) */
+    /* font-weight: 700; */
+    line-height: 1;
+}
+
+/* Ajuste opcional: Si quieres que 'Operations' sea un poco más oscuro, 
+   cambia el #2b70fa por #1e3480 (el azul oscuro que me pasaste antes),
+   pero ten cuidado de que se lea bien sobre fondo negro. */
+
+/* Footer de contacto */
+.hero-footer h6 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+}
+
+.hero-footer a {
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.hero-footer a:hover {
+    color: #5de7e5 !important;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 991px) {
+    .split-header {
+        height: auto;
+    }
+    
+    .left-split {
+        height: 350px; /* Altura fija para la zona del logo en celular */
+        padding: 40px;
+    }
+    
+    .hero-logo-big {
+        width: 50%; /* Logo más chico en celular */
+        max-width: 200px;
+    }
+    
+    .right-split {
+        padding: 60px 30px;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-footer {
+        text-align: center;
+    }
 }
 
 .header .overlay .subtitle {
@@ -11187,6 +11336,146 @@ textarea.form-control {
   visibility: visible;
 }
 
+/* =========================================
+   SECCIÓN PAQUETES (Botón alineado al fondo)
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+.pack-card {
+    height: 100%;
+    border-radius: 20px !important;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif !important;
+    transition: box-shadow 0.3s ease;
+    
+    /* Aseguramos que la tarjeta sea un contenedor flexible */
+    display: flex;
+    flex-direction: column;
+}
+
+/* NUEVO: Esto hace que el contenido se distribuya y empuje el botón */
+.pack-card .card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* El padding p-4 de Bootstrap en el HTML se encarga de la distancia al borde */
+}
+
+.pack-card:hover {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* --- ESTILOS DE TÍTULOS Y TEXTO (Base) --- */
+
+.pack-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    line-height: 1;
+    display: block;
+    opacity: 0.9;
+}
+
+.pack-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.pack-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    /* min-height ya no es estrictamente necesario con flexbox, pero ayuda a uniformidad visual */
+    min-height: 60px; 
+}
+
+.btn-pack-link {
+    font-family: 'Poppins', sans-serif;
+    padding: 8px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: inline-block;
+    /* box-shadow: 0 4px 6px rgba(0,0,0,0.1); */
+    transition: all 0.3s ease;
+    
+    /* LA CLAVE: Esto empuja el botón al fondo de la tarjeta */
+    margin-top: auto; 
+    align-self: flex-start; /* Para que no se estire a todo el ancho, sino a la izquierda */
+}
+
+/* ==================================================
+   CONFIGURACIÓN INDIVIDUAL DE COLORES (Fondo + Texto)
+   ================================================== */
+
+/* --- 1. AZUL (Izquierda) -> TEXTO BLANCO --- */
+.bg-pack-blue {
+    background-color: #007bff; 
+    border: none !important; 
+    color: #fff !important; 
+}
+
+.bg-pack-blue .pack-number, 
+.bg-pack-blue .pack-title { color: #fff !important; }
+.bg-pack-blue .pack-text { color: rgba(255, 255, 255, 0.8) !important; }
+
+.bg-pack-blue .btn-pack-link {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff !important;
+}
+.bg-pack-blue .btn-pack-link:hover {
+    background-color: #fff;
+    color: #007bff !important;
+}
+
+
+/* --- 2. DARK (Centro) -> TEXTO NEGRO --- */
+.bg-pack-dark {
+    background-color: #f5f5f5; 
+    border: none !important;
+    color: #000 !important; 
+}
+
+.bg-pack-dark .pack-number, 
+.bg-pack-dark .pack-title { color: #000 !important; }
+.bg-pack-dark .pack-text { color: rgba(0, 0, 0, 0.7) !important; }
+
+.bg-pack-dark .btn-pack-link {
+    background-color: rgba(0, 0, 0, 0.1); 
+    color: #000 !important;
+}
+.bg-pack-dark .btn-pack-link:hover {
+    background-color: #000;
+    color: #fff !important;
+}
+
+
+/* --- 3. CYAN (Derecha) -> TEXTO BLANCO --- */
+.bg-pack-cyan {
+    background-color: #35d6de;
+    border: none !important;
+    color: #fff !important; 
+}
+
+.bg-pack-cyan .pack-number, 
+.bg-pack-cyan .pack-title { color: #fff !important; }
+.bg-pack-cyan .pack-text { color: rgba(255, 255, 255, 0.9) !important; }
+
+.bg-pack-cyan .btn-pack-link {
+    background-color: rgba(255, 255, 255, 0.25);
+    color: #fff !important;
+}
+.bg-pack-cyan .btn-pack-link:hover {
+    background-color: #fff;
+    color: #35d6de !important;
+}
 /* --- Estilos para el texto centrado sobre la animación Lottie --- */
 
 .header-text-overlay {
