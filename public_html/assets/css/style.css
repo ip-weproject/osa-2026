@@ -118,6 +118,7 @@ ul,
 dl {
   margin-top: 0;
   margin-bottom: 1rem;
+  margin-left: 3em;
 }
 
 ol ol,
@@ -556,7 +557,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 80px;
+  /* margin-top: 80px; */
 }
 @media (min-width: 576px) {
   .container {
@@ -11289,7 +11290,7 @@ textarea.form-control {
   padding-right: 0;
   margin: 10px -5px;
   overflow: hidden;
-  border-radius: 0;
+  border-radius: 1.5rem !important;
 }
 .portfolio-section .portfolio-container .portfolio-item .content-holder {
   position: absolute;
@@ -11501,7 +11502,7 @@ textarea.form-control {
 
 /* Estilos del nuevo Footer */
 .site-footer {
-    padding: 3rem 0;
+    padding-bottom: 3em;
     background-color: #fff; /* Fondo blanco como querías conservar */
 }
 
@@ -11529,6 +11530,10 @@ textarea.form-control {
     .footer-contact-info {
         text-align: left; /* Mantiene el texto alineado a la izq incluso en móvil para legibilidad */
     }
+}
+
+.contact-wrapper{
+  margin-bottom: 3em !important;
 }
 
 /* =========================================
@@ -11605,7 +11610,7 @@ textarea.form-control {
 
 /* El cuerpo de texto desplegable */
 .custom-accordion.dark-theme .card-body {
-    background-color: transparent;
+    background-color: #fff;
     /* Color de texto secundario (gris claro) para la descripción */
     color: rgba(255, 255, 255, 0.7) !important; 
     padding-top: 0;
@@ -11826,4 +11831,212 @@ textarea.form-control {
     /* Opcional: Si quieres que desaparezca el espacio que ocupa el logo: */
     /* display: none; */ 
     /* (Pero 'display: none' elimina la suavidad de la animación, recomiendo dejar opacity) */
+}
+
+/* =========================================
+   ESTILOS DEL BANNER DE CLIENTES (Marquee)
+   ========================================= */
+
+.client-logo-section {
+    padding-top: 30px;
+    padding-bottom: 50px;
+    background-color: #fff; /* Un fondo gris clarito para separar secciones */
+    overflow: hidden; /* Vital: oculta los logos cuando salen de la pantalla */
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap; /* Asegura que todo quede en una sola línea */
+    position: relative;
+}
+
+.marquee-track {
+    display: flex; /* Pone los logos uno al lado del otro */
+    align-items: center;
+    /* LA ANIMACIÓN:
+       - Nombre: scroll-left
+       - Duración: 30s (ajusta esto: más alto = más lento)
+       - Tipo: linear (velocidad constante, sin acelerones)
+       - Repetición: infinite (nunca para)
+    */
+    animation: scroll-left 30s linear infinite;
+    width: max-content; /* La pista será tan ancha como la suma de todos sus logos */
+}
+
+/* Estilo de cada logo individual */
+.logo-item {
+    padding: 0 30px; /* Espacio horizontal entre logos */
+    /* Opcional: hace que los logos se vean en escala de grises hasta que pases el mouse */
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+/* Al pasar el mouse por un logo, se ve a color y nítido */
+.logo-item:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.logo-item img {
+    max-height: 90px; /* Controla la altura máxima de todos los logos para que se vean uniformes */
+    width: 140px; /* Mantiene la proporción */
+    display: block;
+}
+
+/* OPCIONAL: Pausar la animación si el usuario pasa el mouse sobre toda la pista */
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+/* --- LA DEFINICIÓN DE LA ANIMACIÓN --- */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* El truco matemático: Mueve la pista hacia la izquierda exactamente
+           la mitad de su ancho total. Como hemos duplicado los logos,
+           el final de la primera mitad es idéntico al principio de la segunda.
+        */
+        transform: translateX(-50%);
+    }
+}
+
+
+/* =========================================
+   PORTFOLIO CARDS (Altura Fija + Efecto Persiana)
+   ========================================= */
+
+/* 1. Estilo base de la tarjeta */
+.pack-card-hover {
+    position: relative;
+    overflow: hidden; /* Oculta la persiana cuando está abajo */
+    border-radius: 20px;
+    
+    /* ALTURA FIJA: Esto soluciona que se vean de distintos tamaños */
+    height: 380px; 
+    width: 100%;
+    
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente el contenido visible */
+    align-items: center;     /* Centra horizontalmente */
+    text-align: center;
+    
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Sombra al pasar el mouse por la tarjeta general */
+.pack-card-hover:hover {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* --- 2. CAPA VISIBLE (Número y Título) --- */
+.visible-content {
+    transition: transform 0.4s ease, opacity 0.3s ease;
+    z-index: 1;
+    width: 100%;
+}
+
+/* Aseguramos colores blancos para título y número */
+.pack-card-hover .pack-number,
+.pack-card-hover .pack-title {
+    color: #fff !important; 
+}
+
+/* --- 3. CAPA PERSIANA (Overlay Oculto) --- */
+.overlay-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Cubre toda la tarjeta */
+    
+    /* Fondo oscuro semitransparente para tapar el color de fondo */
+    background: rgba(0, 0, 0, 0.7); 
+    backdrop-filter: blur(2px); /* Un leve desenfoque elegante */
+    
+    /* Centrado del contenido oculto */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    
+    /* ESTADO INICIAL: Empujado hacia abajo (escondido) */
+    transform: translateY(100%); 
+    
+    /* Animación suave de entrada */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+}
+
+.overlay-content .pack-text {
+    color: #fff !important;
+    margin-bottom: 25px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* --- INTERACCIÓN HOVER --- */
+
+/* Al hacer hover, la persiana sube a la posición 0 */
+.pack-card-hover:hover .overlay-content {
+    transform: translateY(0);
+}
+
+/* Al hacer hover, el contenido visible sube un poco y se desvanece */
+.pack-card-hover:hover .visible-content {
+    transform: translateY(-30px);
+    opacity: 0; /* Lo desaparecemos suavemente para que no moleste visualmente atrás */
+}
+
+
+/* --- COLORES DE FONDO (Reutilizando tus clases) --- */
+.bg-pack-blue { background-color: #007bff; }
+.bg-pack-cyan { background-color: #35d6de; }
+
+/* IMPORTANTE: Ajuste para el JavaScript de tu plantilla */
+.portfolio-item {
+    margin-bottom: 30px; /* Espacio inferior para cuando se apilen en móvil */
+}
+
+/* =========================================
+   ESTILOS ESPECÍFICOS PARA TARJETA CLARA (ADVERTISING)
+   ========================================= */
+
+/* 1. Fondo Blanco y Borde sutil */
+.bg-pack-light {
+    background-color: #ffffff;
+    /* Opcional: un borde muy sutil para que no se pierda en el fondo blanco de la web */
+    border: 1px solid #eaeaea; 
+}
+
+/* 2. FORZAR TEXTO NEGRO en el contenido visible */
+.pack-card-hover.bg-pack-light .pack-number,
+.pack-card-hover.bg-pack-light .pack-title {
+    color: #000000 !important; /* Aquí está la clave */
+}
+
+/* 3. Ajuste de la Persiana (Overlay) para esta tarjeta */
+/* El texto dentro de la persiana sigue siendo BLANCO porque el fondo es oscuro */
+.pack-card-hover.bg-pack-light .overlay-content .pack-text {
+    color: #fff !important;
+}
+
+/* 4. Botón dentro de la persiana */
+/* Lo dejamos blanco/transparente porque está sobre fondo oscuro */
+.pack-card-hover.bg-pack-light .btn-pack-link {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff !important;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.pack-card-hover.bg-pack-light .btn-pack-link:hover {
+    background-color: #fff;
+    color: #000 !important;
 }
