@@ -9,25 +9,25 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   // Clase base para las imágenes: blancas por defecto, transición suave, y reseteo al hacer hover en el grupo
-  const logoImgClasses = "brightness-0 invert transition-all duration-300 group-hover:brightness-100 group-hover:invert-0";
+  const logoImgClasses = " transition-all duration-300";
 
   return (
     <footer className="bg-[#12141C] pt-16 pb-8 border-t border-white/10">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-20">
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           
           {/* COLUMNA 1: Información de Contacto (Sin cambios) */}
           <div className="text-center md:text-left">
             <div className="mb-4">
-              <h6 className="text-white font-bold mb-2 uppercase tracking-wide text-sm">E-mail</h6>
+              <h6 className="text-white font-bold tracking-wide text-sm">E-mail</h6>
               <p className="text-gray-400 hover:text-crypto-cian transition-colors">
                 <a href="mailto:info@osarevops.com">info@osarevops.com</a>
               </p>
             </div>
 
             <div className="mb-4">
-              <h6 className="text-white font-bold mb-2 uppercase tracking-wide text-sm">Phone</h6>
+              <h6 className="text-white font-bold tracking-wide text-sm">Phone</h6>
               <p className="text-gray-400">
                 <a href="https://wa.me/5491124760567" target="_blank" rel="noreferrer" className="hover:text-crypto-cian transition-colors">
                   +54 9 11 2476-0567
@@ -36,10 +36,9 @@ const Footer = () => {
             </div>
 
             <div className="mb-4">
-              <h6 className="text-white font-bold mb-2 uppercase tracking-wide text-sm">Address</h6>
+              <h6 className="text-white font-bold tracking-wide text-sm">Address</h6>
               <p className="text-gray-400 leading-relaxed">
-                Buenos Aires,<br />
-                Argentina
+                Buenos Aires, Argentina
               </p>
             </div>
 

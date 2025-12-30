@@ -47,7 +47,7 @@ const ContactForm = () => {
           
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-fade-in">
-              Hablemos de tu <span className="text-gradient">próximo nivel</span>
+              Hablemos de tu <span className="text-gradient-bc">próximo nivel</span>
             </h2>
             <p className="text-gray-300 text-lg max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
               Déjanos tus datos y analicemos cómo optimizar tus operaciones de Revenue.
@@ -57,8 +57,8 @@ const ContactForm = () => {
           {/* Lógica condicional: Mostrar Formulario o Mensaje de Éxito */}
           {status === 'success' ? (
             <div className="flex flex-col items-center justify-center py-12 animate-fade-in space-y-4 bg-white/5 rounded-xl border border-white/5">
-              <div className="h-16 w-16 bg-green-500/20 rounded-full flex items-center justify-center mb-2">
-                <CheckCircle2 className="h-8 w-8 text-green-500" />
+              <div className="h-16 w-16 bg-osa-blue/20 rounded-full flex items-center justify-center mb-2">
+                <CheckCircle2 className="h-8 w-8 text-osa-blue" />
               </div>
               <h3 className="text-2xl font-bold text-white">¡Mensaje Enviado!</h3>
               <p className="text-gray-400">Nos pondremos en contacto contigo en breve.</p>

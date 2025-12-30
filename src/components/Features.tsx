@@ -6,9 +6,9 @@ import { features } from '../data/featuresData';
 const Features = () => {
   return (
     <section id="features" className="py-24 bg-gradient-to-b from-osa-blak to-[#12141C]">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-20">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
+          <h2 className="text-3xl md:text-4xl font-bold !text-osa-blue mb-4 text-gradient">
             Powerful Features
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
@@ -23,7 +23,7 @@ const Features = () => {
               className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 hover:shadow-xl hover:shadow-osa-cian/5 group animate-on-scroll"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="bg-osa-cian/20 rounded-lg w-12 h-12 flex items-center justify-center mb-5 text-osa-cian group-hover:bg-osa-cian/30 transition-colors duration-300">
+              <div className="bg-osa-dark-blue rounded-lg w-12 h-12 flex items-center justify-center mb-5 text-osa-blue group-hover:bg-osa-light-blue transition-colors duration-300">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-semibold mb-3 text-white">{feature.title}</h3>

@@ -61,11 +61,18 @@
     @apply bg-gradient-to-r from-osa-cian to-osa-light-cian bg-clip-text text-transparent;
   }
   .text-gradient-b {
-    @apply bg-gradient-to-r from-osa-blue to-osa-light-cian bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-osa-blue to-osa-blue bg-clip-text text-transparent;
+  }
+  .text-gradient-bc {
+    @apply bg-gradient-to-r from-osa-blue to-osa-cian bg-clip-text text-transparent;
   }
 
   .bg-gradient-hero {
     @apply bg-gradient-to-br from-osa-black via-[#000000] to-[#000000];
+  }
+
+   .bg-gradient-bc {
+    @apply bg-gradient-to-br from-osa-blue to-osa-cian;
   }
 
   .hero-glow:after {

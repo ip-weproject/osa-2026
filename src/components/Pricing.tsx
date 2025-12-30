@@ -20,9 +20,9 @@ const Pricing = () => {
 
   return (
     <section id="pricing" className="py-24 bg-[#12141C]">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-20">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 !text-osa-blue">
             Simple, Transparent Pricing
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto mb-8">
@@ -32,7 +32,7 @@ const Pricing = () => {
           <div className="inline-flex p-1 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full">
             <button
               className={`px-4 py-2 rounded-full transition-colors ${
-                billingCycle === 'monthly' ? 'bg-osa-cian text-white' : 'text-gray-400'
+                billingCycle === 'monthly' ? 'bg-osa-blue text-white' : 'text-gray-400'
               }`}
               onClick={() => setBillingCycle('monthly')}
             >
@@ -55,13 +55,13 @@ const Pricing = () => {
               key={index} 
               className={`bg-white/5 backdrop-blur-sm border rounded-xl overflow-hidden animate-on-scroll ${
                 plan.highlighted 
-                  ? 'border-osa-cian relative shadow-xl shadow-osa-cian/10' 
+                  ? 'border-osa-blue relative shadow-xl shadow-osa-blue/10' 
                   : 'border-white/10'
               }`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               {plan.highlighted && (
-                <div className="bg-osa-cian text-white text-center py-1 text-sm font-medium">
+                <div className="bg-gradient-bc text-white text-center py-1 text-sm font-medium">
                   Most Popular
                 </div>
               )}
@@ -78,7 +78,7 @@ const Pricing = () => {
                 <Button 
                   className={`w-full mb-6 ${
                     plan.highlighted 
-                      ? 'bg-osa-cian hover:bg-osa-dark-cian' 
+                      ? 'bg-gradient-bc hover:bg-osa-dark-blue' 
                       : 'bg-white/10 hover:bg-white/20 text-white'
                   }`}
                 >
@@ -90,7 +90,7 @@ const Pricing = () => {
                   <ul className="space-y-3">
                     {plan.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <Check className="h-5 w-5 text-osa-cian mr-3 shrink-0" />
+                        <Check className="h-5 w-5 text-osa-blue mr-3 shrink-0" />
                         <span className="text-gray-400 text-sm">{feature}</span>
                       </li>
                     ))}

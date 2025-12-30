@@ -1,7 +1,7 @@
 
 import { ArrowRight, ArrowUpRight, ChevronRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-// import isoImage from '../../public/assets/iso1.svg';
+import isoImage from '../assets/iso4.svg';
 
 const Hero = () => {
   return (
@@ -15,22 +15,34 @@ const Hero = () => {
       <div className="container mx-auto px-20 py-20 relative z-10">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 animate-fade-in-left">
-            <div className="inline-flex items-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1.5 mb-6">
+            {/* <div className="inline-flex items-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1.5 mb-6">
               <span className="text-xs font-medium text-osa-cian mr-2">OSA</span>
               <span className="text-xs text-gray-300">Consulting Services</span>
-              {/* <ChevronRight className="h-4 w-4 text-gray-400 ml-1" /> */}
-            </div>
+              <ChevronRight className="h-4 w-4 text-gray-400 ml-1" />
+            </div> */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Expertos en <span className="text-gradient">Revenue Operations</span>
+              Expertos en <span className="text-gradient">Revenue </span><span className="text-gradient-b"> Operations</span>
             </h1>
             <p className="text-lg text-gray-300 mb-8 max-w-lg">
               Experience seamless osacurrency trading with real-time analytics, AI-powered insights, and zero commission fees.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-osa-cian hover:bg-osa-dark-cian text-white px-8 py-6">
-                Hablemos
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              <a href="#contact">
+      <Button 
+          size="lg" 
+          className="
+            bg-osa-white text-osa-black border px-8 py-6
+            transition-all duration-500 ease-out
+            hover:text-white
+            hover:border-transparent
+            hover:bg-gradient-to-r hover:from-osa-cian hover:via-osa-blue hover:to-osa-cian
+            hover:bg-[length:200%_auto]
+            hover:bg-right
+          " >
+          Hablemos
+          <ArrowRight className="ml-2 h-5 w-5" />
+</Button>
+              </a>
               <Button variant="outline" size="lg" className="border-gray-700 text-white hover:bg-white/5 py-6">
                 View Demo
                 <ArrowUpRight className="ml-2 h-5 w-5" />
@@ -57,7 +69,7 @@ const Hero = () => {
           <div className="lg:w-1/2 mt-12 lg:mt-0 animate-fade-in-right">
             <div className="relative max-w-md mx-auto animate-float">
               <img 
-                src="src/assets/iso4.svg"
+                src={isoImage}
                 alt="Trading platform dashboard" 
                 // className="rounded-xl shadow-2xl border border-white/10"
               />

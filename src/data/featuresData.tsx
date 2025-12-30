@@ -4,32 +4,32 @@ import { Activity, Lock, Zap, Compass, LineChart, Shield } from 'lucide-react';
 export const features = [
   {
     icon: <Activity className="h-6 w-6" />,
-    title: "Real-time Analytics",
-    description: "Monitor market movements with advanced charts and indicators updated in real-time."
+    title: "Consultoría",
+    description: "Diagnóstico y hoja de ruta para alinear tus equipos y eliminar silos operativos."
   },
   {
     icon: <Lock className="h-6 w-6" />,
-    title: "Bank-level Security",
-    description: "Your assets are protected with military-grade encryption and multi-factor authentication."
+    title: "RevOps como Servicio",
+    description: "Operamos y optimizamos tu infraestructura de ingresos como tu equipo externo dedicado."
   },
   {
     icon: <Zap className="h-6 w-6" />,
-    title: "Instant Execution",
-    description: "Execute trades in milliseconds with our high-performance trading engine."
+    title: "Implementación CRM",
+    description: "Despliegue técnico a medida en HubSpot/Salesforce enfocado en la adopción del usuario."
   },
   {
     icon: <Compass className="h-6 w-6" />,
-    title: "Smart Portfolio",
-    description: "Optimize your osa holdings with AI-powered portfolio suggestions."
+    title: "Data Quality",
+    description: "Higiene y enriquecimiento de datos para garantizar decisiones basadas en información real."
   },
   {
     icon: <LineChart className="h-6 w-6" />,
-    title: "Price Alerts",
-    description: "Never miss an opportunity with customizable price alerts and notifications."
+    title: "Capacitaciones",
+    description: "Entrenamos a tu equipo para dominar procesos y herramientas, maximizando la adopción."
   },
   {
     icon: <Shield className="h-6 w-6" />,
-    title: "Cold Storage",
-    description: "Majority of assets stored in offline cold wallets for maximum security."
+    title: "Servicio de Mantenimiento",
+    description: "Soporte continuo y auditorías para prevenir deuda técnica y asegurar la escalabilidad."
   }
 ];
