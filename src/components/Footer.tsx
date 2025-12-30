@@ -21,7 +21,7 @@ const Footer = () => {
           <div className="text-center md:text-left">
             <div className="mb-4">
               <h6 className="text-white font-bold mb-2 uppercase tracking-wide text-sm">E-mail</h6>
-              <p className="text-gray-400 hover:text-crypto-purple transition-colors">
+              <p className="text-gray-400 hover:text-crypto-cian transition-colors">
                 <a href="mailto:info@osarevops.com">info@osarevops.com</a>
               </p>
             </div>
@@ -29,7 +29,7 @@ const Footer = () => {
             <div className="mb-4">
               <h6 className="text-white font-bold mb-2 uppercase tracking-wide text-sm">Phone</h6>
               <p className="text-gray-400">
-                <a href="https://wa.me/5491124760567" target="_blank" rel="noreferrer" className="hover:text-crypto-purple transition-colors">
+                <a href="https://wa.me/5491124760567" target="_blank" rel="noreferrer" className="hover:text-crypto-cian transition-colors">
                   +54 9 11 2476-0567
                 </a>
               </p>

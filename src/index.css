@@ -58,11 +58,14 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-osa-purple to-osa-light-purple bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-osa-cian to-osa-light-cian bg-clip-text text-transparent;
+  }
+  .text-gradient-b {
+    @apply bg-gradient-to-r from-osa-blue to-osa-light-cian bg-clip-text text-transparent;
   }
 
   .bg-gradient-hero {
-    @apply bg-gradient-to-br from-osa-blue via-[#000000] to-[#000000];
+    @apply bg-gradient-to-br from-osa-black via-[#000000] to-[#000000];
   }
 
   .hero-glow:after {
@@ -92,4 +95,15 @@
 .animate-on-scroll.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+html {
+  /* 1. Hace que el scroll se deslice suavemente en lugar de saltar */
+  scroll-behavior: smooth;
+}
+
+section {
+  /* 2. PRO TIP: Esto evita que el Navbar fijo tape el título de la sección */
+  /* Ajusta los 100px según la altura de tu Navbar */
+  scroll-margin-top: 100px; 
 }

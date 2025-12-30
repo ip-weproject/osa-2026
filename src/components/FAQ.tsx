@@ -8,7 +8,7 @@ import { faqItems } from "../data/faqData"; // Asegúrate que la ruta sea correc
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-24 bg-gradient-to-b from-[#12141C] to-osa-blue">
+    <section id="faq" className="py-24 bg-gradient-to-b from-[#12141C] to-osa-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
@@ -28,7 +28,7 @@ const FAQ = () => {
                 className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden animate-on-scroll"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <AccordionTrigger className="px-6 py-4 text-white hover:text-osa-purple hover:no-underline text-left">
+                <AccordionTrigger className="px-6 py-4 text-white hover:text-osa-cian hover:no-underline text-left">
                   {item.question}
                 </AccordionTrigger>
                 

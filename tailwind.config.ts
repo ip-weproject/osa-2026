@@ -69,11 +69,12 @@ export default {
 				},
 				// Custom osa colors
 				osa: {
-					blue: '#000',
-					purple: '#5de7e5',
-					'light-purple': '#b4fcf8',
-					'dark-purple': '#29b7b0',
-					accent: '#fff',
+					blue: '#0077FC',
+					cian: '#35D6DE',
+					'light-cian': '#b4fcf8',
+					'dark-cian': '#29b7b0',
+					white: '#fff',
+					black: '#000',
 				}
 			},
 			fontFamily: {

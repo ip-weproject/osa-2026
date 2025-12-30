@@ -5,7 +5,7 @@ import { features } from '../data/featuresData';
 
 const Features = () => {
   return (
-    <section id="features" className="py-24 bg-gradient-to-b from-osa-blue to-[#12141C]">
+    <section id="features" className="py-24 bg-gradient-to-b from-osa-blak to-[#12141C]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
@@ -20,10 +20,10 @@ const Features = () => {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 hover:shadow-xl hover:shadow-osa-purple/5 group animate-on-scroll"
+              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 hover:shadow-xl hover:shadow-osa-cian/5 group animate-on-scroll"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="bg-osa-purple/20 rounded-lg w-12 h-12 flex items-center justify-center mb-5 text-osa-purple group-hover:bg-osa-purple/30 transition-colors duration-300">
+              <div className="bg-osa-cian/20 rounded-lg w-12 h-12 flex items-center justify-center mb-5 text-osa-cian group-hover:bg-osa-cian/30 transition-colors duration-300">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-semibold mb-3 text-white">{feature.title}</h3>

@@ -1,4 +1,4 @@
-export const testimonials = [
+export const about = [
     {
       quote: "osaFlow has completely transformed my osa trading experience. The real-time analytics and AI recommendations have significantly improved my returns.",
       author: "Michael Chen",

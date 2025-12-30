@@ -32,7 +32,7 @@ const Pricing = () => {
           <div className="inline-flex p-1 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full">
             <button
               className={`px-4 py-2 rounded-full transition-colors ${
-                billingCycle === 'monthly' ? 'bg-osa-purple text-white' : 'text-gray-400'
+                billingCycle === 'monthly' ? 'bg-osa-cian text-white' : 'text-gray-400'
               }`}
               onClick={() => setBillingCycle('monthly')}
             >
@@ -40,7 +40,7 @@ const Pricing = () => {
             </button>
             <button
               className={`px-4 py-2 rounded-full transition-colors ${
-                billingCycle === 'annual' ? 'bg-osa-purple text-white' : 'text-gray-400'
+                billingCycle === 'annual' ? 'bg-osa-cian text-white' : 'text-gray-400'
               }`}
               onClick={() => setBillingCycle('annual')}
             >
@@ -55,13 +55,13 @@ const Pricing = () => {
               key={index} 
               className={`bg-white/5 backdrop-blur-sm border rounded-xl overflow-hidden animate-on-scroll ${
                 plan.highlighted 
-                  ? 'border-osa-purple relative shadow-xl shadow-osa-purple/10' 
+                  ? 'border-osa-cian relative shadow-xl shadow-osa-cian/10' 
                   : 'border-white/10'
               }`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               {plan.highlighted && (
-                <div className="bg-osa-purple text-white text-center py-1 text-sm font-medium">
+                <div className="bg-osa-cian text-white text-center py-1 text-sm font-medium">
                   Most Popular
                 </div>
               )}
@@ -78,7 +78,7 @@ const Pricing = () => {
                 <Button 
                   className={`w-full mb-6 ${
                     plan.highlighted 
-                      ? 'bg-osa-purple hover:bg-osa-dark-purple' 
+                      ? 'bg-osa-cian hover:bg-osa-dark-cian' 
                       : 'bg-white/10 hover:bg-white/20 text-white'
                   }`}
                 >
@@ -90,7 +90,7 @@ const Pricing = () => {
                   <ul className="space-y-3">
                     {plan.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <Check className="h-5 w-5 text-osa-purple mr-3 shrink-0" />
+                        <Check className="h-5 w-5 text-osa-cian mr-3 shrink-0" />
                         <span className="text-gray-400 text-sm">{feature}</span>
                       </li>
                     ))}

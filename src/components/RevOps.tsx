@@ -1,11 +1,11 @@
 
 import { Button } from "@/components/ui/button";
-import { steps } from "../data/howItWorks";
+import { steps } from "../data/revopsData";
 
 
-const HowItWorks = () => {
+const RevOps = () => {
   return (
-    <section id="how-it-works" className="py-24 bg-gradient-to-b from-[#12141C] to-osa-blue">
+    <section id="how-it-works" className="py-24 bg-gradient-to-b from-[#12141C] to-osa-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
@@ -23,10 +23,10 @@ const HowItWorks = () => {
               className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 animate-on-scroll"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <span className="absolute -top-4 -left-4 bg-osa-blue border rounded-md border-osa-purple/30 text-osa-purple font-bold  text-xl px-3 py-1">
+              <span className="absolute -top-4 -left-4 bg-osa-black border rounded-md border-osa-cian/30 text-osa-cian font-bold  text-xl px-3 py-1">
                 {step.number}
               </span>
-              <div className="bg-osa-purple/20 rounded-xl w-12 h-12 flex items-center justify-center mb-6 text-osa-purple">
+              <div className="bg-osa-cian/20 rounded-xl w-12 h-12 flex items-center justify-center mb-6 text-osa-cian">
                 {step.icon}
               </div>
               <h3 className="text-xl font-semibold mb-4 text-white">{step.title}</h3>
@@ -36,7 +36,7 @@ const HowItWorks = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <Button size="lg" className="bg-osa-purple hover:bg-osa-dark-purple text-white px-8">
+          <Button size="lg" className="bg-osa-cian hover:bg-osa-dark-cian text-white px-8">
             Create Free Account
           </Button>
         </div>
@@ -45,4 +45,4 @@ const HowItWorks = () => {
   );
 };
 
-export default HowItWorks;
+export default RevOps;
