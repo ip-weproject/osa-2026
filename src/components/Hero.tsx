@@ -12,7 +12,7 @@ const Hero = () => {
         <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-osa-light-cian/10 rounded-full filter blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
       </div>
 
-      <div className="container mx-auto px-20 py-20 relative z-10">
+      <div className="container px-4 md:px-10 lg:px-20 py-20 relative z-10">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 animate-fade-in-left">
             {/* <div className="inline-flex items-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1.5 mb-6">
@@ -27,9 +27,13 @@ const Hero = () => {
               Experience seamless osacurrency trading with real-time analytics, AI-powered insights, and zero commission fees.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#contact">
+              <a 
+                href="https://meetings.hubspot.com/osa-consulting" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
       <Button 
-          size="lg" 
+          size="lg"
           className="
             bg-osa-white text-osa-black border px-8 py-6
             transition-all duration-500 ease-out
@@ -41,10 +45,10 @@ const Hero = () => {
           " >
           Hablemos
           <ArrowRight className="ml-2 h-5 w-5" />
-</Button>
+        </Button>
               </a>
-              <Button variant="outline" size="lg" className="border-gray-700 text-white hover:bg-white/5 py-6">
-                View Demo
+              <Button variant="outline" size="lg" className="px-8 py-6 border-gray-700 text-white hover:bg-white/5">
+                Soluciones
                 <ArrowUpRight className="ml-2 h-5 w-5" />
               </Button>
             </div>

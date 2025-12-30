@@ -38,7 +38,7 @@ const Navbar = () => {
     <nav className={`
   fixed z-50 transition-all duration-300 
   left-1/2 -translate-x-1/2  
-  w-[95%] max-w-7xl          
+  w-[80%] max-w-7xl          
   rounded-3xl                
   border border-white/20     
   
@@ -47,7 +47,7 @@ const Navbar = () => {
     : 'top-6 bg-osa-black/40 backdrop-blur-sm py-4'             
   }
 `}>
-      <div className="container mx-auto px-4 flex justify-between items-center">
+      <div className="container mx-auto px-20 flex justify-between items-center">
         <div className="flex items-center">
           {/* Logo link al top */}
           <a href="#">
@@ -64,8 +64,8 @@ const Navbar = () => {
           <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Inicio</a></li>
           <li><a href="#faq" className="text-gray-300 hover:text-white transition-colors">Desafíos</a></li>
           <li><a href="#about" className="text-gray-300 hover:text-white transition-colors">Nosotros</a></li>
-          <li><a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a></li>
-          <li><a href="#pricing" className="text-gray-300 hover:text-white transition-colors">Servicios</a></li>
+          <li><a href="#features" className="text-gray-300 hover:text-white transition-colors">Servicios</a></li>
+          <li><a href="#pricing" className="text-gray-300 hover:text-white transition-colors">Soluciones</a></li>
           <li><a href="#how-it-works" className="text-gray-300 hover:text-white transition-colors">Revops</a></li>
         </ul>
 
@@ -86,14 +86,14 @@ const Navbar = () => {
 
       {/* ================= MOBILE MENU ================= */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-osa-blue/95 backdrop-blur-lg absolute top-full left-0 w-full py-4 shadow-lg h-screen">
+        <div className="lg:hidden bg-osa-black backdrop-blur-lg absolute top-full left-0 w-full py-4 shadow-lg h-screen">
           <div className="container mx-auto px-4">
             <ul className="flex flex-col space-y-4">
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors block py-2" onClick={handleNavClick}>Inicio</a></li>
               <li><a href="#faq" className="text-gray-300 hover:text-white transition-colors block py-2" onClick={handleNavClick}>Desafíos</a></li>
               <li><a href="#about" className="text-gray-300 hover:text-white transition-colors block py-2" onClick={handleNavClick}>Nosotros</a></li>
-              <li><a href="#features" className="text-gray-300 hover:text-white transition-colors block py-2" onClick={handleNavClick}>Features</a></li>
-              <li><a href="#pricing" className="text-gray-300 hover:text-white transition-colors block py-2" onClick={handleNavClick}>Servicios</a></li>
+              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors block py-2" onClick={handleNavClick}></a>Servicios</li>
+              <li><a href="#pricing" className="text-gray-300 hover:text-white transition-colors block py-2" onClick={handleNavClick}></a>Soluciones</li>
               <li><a href="#how-it-works" className="text-gray-300 hover:text-white transition-colors block py-2" onClick={handleNavClick}>Revops</a></li>
 
               {/* BOTÓN MÓVIL (Actualizado y corregido) */}

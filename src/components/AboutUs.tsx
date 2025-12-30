@@ -93,12 +93,12 @@ const AboutUs = () => {
         <div className="absolute bottom-1/4 -right-10 w-72 h-72 bg-osa-purple/5 rounded-full filter blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto px-20 relative z-10">
+      <div className="container mx-auto md:px-10 lg:px-20 relative z-10">
         
         {/* Encabezado de la sección */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-            Más que consultores, somos tus <span className="text-gradient">Aliados Estratégicos</span>
+            Más que consultores, somos tus <span className="text-osa-cian">Aliados Estratégicos</span>
           </h2>
           <p className="text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed">
             En OSA, entendemos que el crecimiento no es cuestión de suerte, sino de diseño. 

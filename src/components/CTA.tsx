@@ -34,7 +34,7 @@ const ContactForm = () => {
   const inputClasses = "w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-crypto-cian/50 focus:border-crypto-cian transition-all duration-300 backdrop-blur-sm";
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-b from-crypto-blue to-[#12141C] relative overflow-hidden">
+    <section id="contact" className="py-24 md:px-10 lg:px-20 bg-gradient-to-b from-crypto-blue to-[#12141C] relative overflow-hidden">
       
       {/* Background Elements (Manteniendo los blobs originales) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -47,7 +47,7 @@ const ContactForm = () => {
           
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-fade-in">
-              Hablemos de tu <span className="text-gradient-bc">próximo nivel</span>
+              Hablemos de tu <span className="text-osa-blue">próximo nivel</span>
             </h2>
             <p className="text-gray-300 text-lg max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
               Déjanos tus datos y analicemos cómo optimizar tus operaciones de Revenue.

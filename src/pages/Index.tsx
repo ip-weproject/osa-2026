@@ -10,6 +10,7 @@ import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
+import Clients from '@/components/Clients';
 import useScrollAnimation from '@/utils/useScrollAnimation';
 
 const Index = () => {
@@ -27,6 +28,7 @@ const Index = () => {
       <Hero />
       <FAQ />
       <AboutUs />
+      <Clients/>
       <Features />
       <Pricing />
       <RevOps />

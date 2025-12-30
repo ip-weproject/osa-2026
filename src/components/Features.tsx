@@ -6,7 +6,7 @@ import { features } from '../data/featuresData';
 const Features = () => {
   return (
     <section id="features" className="py-24 bg-gradient-to-b from-osa-blak to-[#12141C]">
-      <div className="container mx-auto px-20">
+      <div className="container mx-auto md:px-10 lg:px-20">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold !text-osa-blue mb-4 text-gradient">
             Powerful Features
