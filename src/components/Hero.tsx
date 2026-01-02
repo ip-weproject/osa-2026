@@ -1,27 +1,21 @@
-
 import { ArrowRight, ArrowUpRight, ChevronRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import isoImage from '../assets/iso4.svg';
+// import isoImage from '../assets/iso4.svg';
+import { HeroVideo } from './HeroVideo';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-gradient-hero hero-glow">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-10 w-72 h-72 bg-osa-cian/10 rounded-full filter blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-osa-light-cian/10 rounded-full filter blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
-      </div>
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-transparent">
+      
+      {/* AQUÍ ESTÁ EL CAMBIO: Insertamos el Video Hero como fondo */}
+      {/* Reemplaza a los divs de "Animated Background Elements" anteriores */}
+      <HeroVideo />
     
       <div className="container px-4 md:px-10 lg:px-20 py-20 relative z-10">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 animate-fade-in-left">
-            {/* <div className="inline-flex items-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1.5 mb-6">
-              <span className="text-xs font-medium text-osa-cian mr-2">OSA</span>
-              <span className="text-xs text-gray-300">Consulting Services</span>
-              <ChevronRight className="h-4 w-4 text-gray-400 ml-1" />
-            </div> */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Expertos en <span className="text-gradient">Revenue </span><span className="text-gradient-b"> Operations</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gradient">
+              Expertos en <span className="text-gradient">Revenue </span><span className="text-gradient"> Operations</span>
             </h1>
             <p className="text-lg text-gray-300 mb-8 max-w-lg">
               Integramos CRM y datos con IA para escalar tus operaciones y garantizar ingresos predecibles.
@@ -32,78 +26,29 @@ const Hero = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
               >
-      <Button 
-          size="lg"
-          className="
-            bg-osa-white text-osa-black border px-8 py-6
-            transition-all duration-500 ease-out
-            hover:text-white
-            hover:border-transparent
-            hover:bg-gradient-to-r hover:from-osa-cian hover:via-osa-blue hover:to-osa-cian
-            hover:bg-[length:200%_auto]
-            hover:bg-right
-          " >
-          Hablemos
-          <ArrowRight className="ml-2 h-5 w-5" />
-        </Button>
+                <Button 
+                  size="lg"
+                  className=" group
+                    bg-osa-white text-osa-black rounded-full px-8 py-6">
+                  Hablemos
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </Button>
               </a>
               <a href="#solutions">
-              <Button variant="outline" size="lg" className="px-8 py-6 border-gray-700 text-white hover:bg-white/5">
-                Soluciones
-                <ArrowUpRight className="ml-2 h-5 w-5" />
-              </Button>
+                <Button variant="outline" size="lg" className=" group px-8 py-6 border-gray-700 text-white rounded-full">
+                  Soluciones
+                  <ArrowUpRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                </Button>
               </a>
             </div>
-            {/* <div className="mt-8 flex items-center space-x-6">
-              <div>
-                <p className="text-2xl font-bold text-white">$2.5B+</p>
-                <p className="text-sm text-gray-400">Trading Volume</p>
-              </div>
-              <div className="h-12 w-px bg-gray-700"></div>
-              <div>
-                <p className="text-2xl font-bold text-white">120K+</p>
-                <p className="text-sm text-gray-400">Active Traders</p>
-              </div>
-              <div className="h-12 w-px bg-gray-700"></div>
-              <div>
-                <p className="text-2xl font-bold text-white">50+</p>
-                <p className="text-sm text-gray-400">Global Markets</p>
-              </div>
-            </div> */}
           </div>
 
           <div className="lg:w-1/2 mt-12 lg:mt-0 animate-fade-in-right">
             <div className="relative max-w-md mx-auto animate-float">
-              <img 
+              {/* <img 
                 src={isoImage}
                 alt="Trading platform dashboard" 
-              />
-              {/* <div className="absolute -right-6 -bottom-6 bg-osa-cian/20 backdrop-blur-md rounded-lg p-4 border border-osa-cian/30 shadow-lg">
-                <div className="flex items-center space-x-3">
-                  <div className="h-10 w-10 bg-green-500/20 rounded-full flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-400">24h Change</p>
-                    <p className="text-lg font-bold text-green-500">+12.34%</p>
-                  </div>
-                </div>
-              </div> */}
-              {/* <div className="absolute -left-6 -top-6 bg-osa-cian/20 backdrop-blur-md rounded-lg p-4 border border-osa-cian/30 shadow-lg">
-                <div className="flex items-center space-x-3">
-                  <div className="h-10 w-10 bg-osa-cian/20 rounded-full flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-osa-cian" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-400">Security Level</p>
-                    <p className="text-lg font-bold text-white">Enterprise</p>
-                  </div>
-                </div>
-              </div> */}
+              /> */}
             </div>
           </div>
         </div>

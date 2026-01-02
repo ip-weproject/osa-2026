@@ -1,38 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* Importamos Inter Tight de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  /* ... MANTÉN TUS VARIABLES DE COLORES AQUÍ (root, etc) IGUAL QUE ANTES ... */
   :root {
     --background: 240 10% 4%;
     --foreground: 210 40% 98%;
-    --card: 240 10% 6%;
-    --card-foreground: 210 40% 98%;
-    --popover: 240 10% 6%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 263 75% 75%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* ... resto de variables ... */
+    --radius: 0.5rem;
   }
 }
 
@@ -41,46 +20,47 @@
     @apply border-border;
   }
 
-  /* Aplica Poppins al body */
+  /* APLICAMOS INTER TIGHT A TODO EL SITIO */
   body {
     @apply bg-background text-foreground;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter Tight', sans-serif;
+    /* Estas propiedades mejoran la legibilidad de Inter */
     font-feature-settings: "rlig" 1, "calt" 1;
+    letter-spacing: -0.02em; /* Un toque "tight" extra para que quede igual a CodeFus */
   }
 
-  /* 👇 AGREGA ESTO: Fuerza a los elementos rebeldes a usar Poppins */
+  /* Forzamos Inter Tight en encabezados y botones */
   h1, h2, h3, h4, h5, h6, 
-  input, textarea, button, select, 
-  .font-sans {
-    font-family: 'Poppins', sans-serif !important;
+  input, textarea, button, select {
+    font-family: 'Inter Tight', sans-serif !important;
   }
 }
 
 @layer utilities {
+  /* ESTILO NUEVO: Efecto "Titanio/Acero" (CodeFus Style) */
+  /* Va desde blanco arriba (from-white) hacia el gris que me pasaste abajo (to-[#B3B0BC]) */
   .text-gradient {
-    @apply bg-gradient-to-r from-osa-cian to-osa-light-cian bg-clip-text text-transparent;
-  }
-  .text-gradient-b {
-    @apply bg-gradient-to-r from-osa-blue to-osa-blue bg-clip-text text-transparent;
-  }
-  .text-gradient-bc {
-    @apply bg-gradient-to-r from-osa-blue to-osa-cian bg-clip-text text-transparent;
+    @apply bg-gradient-to-b from-white to-[#B3B0BC] bg-clip-text text-transparent;
   }
 
-  .bg-gradient-hero {
-    @apply bg-gradient-to-br from-osa-black via-[#000000] to-[#000000];
+  /* ESTILO SECUNDARIO: Para subtítulos o textos menos importantes */
+  .text-gradient-sub {
+    @apply bg-gradient-to-b from-[#E9E9E9] to-[#9192A1] bg-clip-text text-transparent;
   }
-
-   .bg-gradient-bc {
-    @apply bg-gradient-to-br from-osa-blue to-osa-cian;
-  }
-
+  
+  /* Mantenemos el glow de fondo si te gustaba, o lo puedes quitar */
   .hero-glow:after {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.15), transparent 70%);
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05), transparent 70%);
     pointer-events: none;
+  }
+
+  /* Clase para forzar la fuente de código si la necesitas */
+  .font-code {
+    font-family: 'Inter Tight', monospace !important; 
+    /* O 'Fira Code' si lograste cargarla */
   }
 }
 
@@ -105,12 +85,9 @@
 }
 
 html {
-  /* 1. Hace que el scroll se deslice suavemente en lugar de saltar */
   scroll-behavior: smooth;
 }
 
 section {
-  /* 2. PRO TIP: Esto evita que el Navbar fijo tape el título de la sección */
-  /* Ajusta los 100px según la altura de tu Navbar */
   scroll-margin-top: 100px; 
 }

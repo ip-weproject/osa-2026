@@ -8,7 +8,7 @@ const RevOps = () => {
     <section id="how-it-works" className="py-24 bg-gradient-to-b from-[#12141C] to-osa-black">
       <div className="container mx-auto md:px-10 lg:px-20">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
+          <h2 className="text-3xl md:text-5xl mb-4 text-gradient">
             Revenue Operations
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
@@ -20,13 +20,13 @@ const RevOps = () => {
           {steps.map((step, index) => (
             <div 
               key={index}
-              className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 animate-on-scroll"
+              className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all duration-300 hover:-translate-y-2 animate-on-scroll"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <span className="absolute -top-4 -left-4 bg-osa-black border rounded-md border-osa-cian/30 text-osa-cian font-bold  text-xl px-3 py-1">
                 {step.number}
               </span>
-              <div className="bg-osa-cian/20 rounded-xl w-12 h-12 flex items-center justify-center mb-6 text-osa-cian">
+              <div className="bg-osa-white/5 rounded-xl w-12 h-12 flex items-center justify-center mb-6 text-osa-cian">
                 {step.icon}
               </div>
               <h3 className="text-xl font-semibold mb-4 text-white">{step.title}</h3>

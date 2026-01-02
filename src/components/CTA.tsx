@@ -46,8 +46,8 @@ const ContactForm = () => {
         <div className="max-w-4xl mx-auto bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8 md:p-12">
           
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-fade-in">
-              Hablemos de tu <span className="text-osa-blue">próximo nivel</span>
+            <h2 className="text-3xl md:text-5xl text-gradient  mb-4 animate-fade-in">
+              Hablemos de tu <span className="text-gradient">próximo nivel</span>
             </h2>
             <p className="text-gray-300 text-lg max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
               Déjanos tus datos y analicemos cómo optimizar tus operaciones de Revenue.

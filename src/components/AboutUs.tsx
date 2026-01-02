@@ -97,8 +97,8 @@ const AboutUs = () => {
         
         {/* Encabezado de la sección */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-            Más que consultores, somos tus <span className="text-osa-cian">Aliados Estratégicos</span>
+          <h2 className="text-3xl md:text-5xl mb-6 text-gradient">
+            Más que consultores, somos tus <span className="text-gradient">Aliados Estratégicos</span>
           </h2>
           <p className="text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed">
             En OSA, entendemos que el crecimiento no es cuestión de suerte, sino de diseño. 
@@ -111,12 +111,12 @@ const AboutUs = () => {
           {values.map((item, index) => (
             <div 
               key={index} 
-              className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all duration-300 hover:-translate-y-2"
+              className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all duration-300 hover:-translate-y-2 animate-on-scroll"
             >
-              <div className="mb-6 p-3 bg-white/5 rounded-lg inline-block group-hover:scale-110 transition-transform duration-300 border border-white/5">
+              <div className="mb-6 p-3 bg-white/5 rounded-lg inline-block  border-white/5">
                 {item.icon}
               </div>
-              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-osa-cian transition-colors">
+              <h3 className="text-xl font-bold text-white mb-4  transition-colors">
                 {item.title}
               </h3>
               <p className="text-gray-400 leading-relaxed">

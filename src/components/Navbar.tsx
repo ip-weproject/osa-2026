@@ -23,7 +23,7 @@ const Navbar = () => {
 
   // Clases compartidas para el botón "Hablemos" para no repetir código
   const buttonClasses = `
-    inline-flex items-center justify-center rounded-xl text-sm font-medium
+    inline-flex items-center justify-center rounded-full text-sm font-medium
     bg-osa-white text-osa-black border px-8 py-3 
     transition-all duration-500 ease-out
     cursor-pointer
@@ -39,7 +39,7 @@ const Navbar = () => {
   fixed z-50 transition-all duration-300 
   left-1/2 -translate-x-1/2  
   w-[80%] max-w-7xl          
-  rounded-3xl                
+  rounded-full                
   border border-white/20     
   
   ${isScrolled 
@@ -54,7 +54,7 @@ const Navbar = () => {
             <img 
               src={logo} 
               alt="OSA-logo" 
-              className="w-14 md-w-10 h-auto rounded-xl shadow-2xl border border-white/10" 
+              className="w-14 md-w-10 h-auto rounded-xl shadow-2xl " 
             />
           </a>
         </div>
