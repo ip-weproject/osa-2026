@@ -64,8 +64,8 @@ const Navbar = () => {
           <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Inicio</a></li>
           <li><a href="#faq" className="text-gray-300 hover:text-white transition-colors">Desafíos</a></li>
           <li><a href="#about" className="text-gray-300 hover:text-white transition-colors">Nosotros</a></li>
-          <li><a href="#features" className="text-gray-300 hover:text-white transition-colors">Servicios</a></li>
-          <li><a href="#pricing" className="text-gray-300 hover:text-white transition-colors">Soluciones</a></li>
+          <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Servicios</a></li>
+          {/* <li><a href="#solutions" className="text-gray-300 hover:text-white transition-colors">Soluciones</a></li> */}
           <li><a href="#how-it-works" className="text-gray-300 hover:text-white transition-colors">Revops</a></li>
         </ul>
 
@@ -93,7 +93,7 @@ const Navbar = () => {
               <li><a href="#faq" className="text-gray-300 hover:text-white transition-colors block py-2" onClick={handleNavClick}>Desafíos</a></li>
               <li><a href="#about" className="text-gray-300 hover:text-white transition-colors block py-2" onClick={handleNavClick}>Nosotros</a></li>
               <li><a href="#services" className="text-gray-300 hover:text-white transition-colors block py-2" onClick={handleNavClick}></a>Servicios</li>
-              <li><a href="#pricing" className="text-gray-300 hover:text-white transition-colors block py-2" onClick={handleNavClick}></a>Soluciones</li>
+              {/* <li><a href="#solutions" className="text-gray-300 hover:text-white transition-colors block py-2" onClick={handleNavClick}></a>Soluciones</li> */}
               <li><a href="#how-it-works" className="text-gray-300 hover:text-white transition-colors block py-2" onClick={handleNavClick}>Revops</a></li>
 
               {/* BOTÓN MÓVIL (Actualizado y corregido) */}

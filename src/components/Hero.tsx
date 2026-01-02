@@ -11,7 +11,7 @@ const Hero = () => {
         <div className="absolute top-1/4 left-10 w-72 h-72 bg-osa-cian/10 rounded-full filter blur-3xl animate-pulse-slow"></div>
         <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-osa-light-cian/10 rounded-full filter blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
       </div>
-
+    
       <div className="container px-4 md:px-10 lg:px-20 py-20 relative z-10">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 animate-fade-in-left">
@@ -24,7 +24,7 @@ const Hero = () => {
               Expertos en <span className="text-gradient">Revenue </span><span className="text-gradient-b"> Operations</span>
             </h1>
             <p className="text-lg text-gray-300 mb-8 max-w-lg">
-              Experience seamless osacurrency trading with real-time analytics, AI-powered insights, and zero commission fees.
+              Integramos CRM y datos con IA para escalar tus operaciones y garantizar ingresos predecibles.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a 
@@ -47,10 +47,12 @@ const Hero = () => {
           <ArrowRight className="ml-2 h-5 w-5" />
         </Button>
               </a>
+              <a href="#solutions">
               <Button variant="outline" size="lg" className="px-8 py-6 border-gray-700 text-white hover:bg-white/5">
                 Soluciones
                 <ArrowUpRight className="ml-2 h-5 w-5" />
               </Button>
+              </a>
             </div>
             {/* <div className="mt-8 flex items-center space-x-6">
               <div>
@@ -75,7 +77,6 @@ const Hero = () => {
               <img 
                 src={isoImage}
                 alt="Trading platform dashboard" 
-                // className="rounded-xl shadow-2xl border border-white/10"
               />
               {/* <div className="absolute -right-6 -bottom-6 bg-osa-cian/20 backdrop-blur-md rounded-lg p-4 border border-osa-cian/30 shadow-lg">
                 <div className="flex items-center space-x-3">

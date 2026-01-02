@@ -12,7 +12,7 @@ export const about = [
       avatar: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=100&h=100&fit=crop"
     },
     {
-      quote: "The security features on osaFlow are unmatched. I feel confident keeping my assets on their platform, and the trading fees are the most competitive I've found.",
+      quote: "The security services on osaFlow are unmatched. I feel confident keeping my assets on their platform, and the trading fees are the most competitive I've found.",
       author: "David Rodriguez",
       role: "Cybersecurity Specialist",
       avatar: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=100&h=100&fit=crop"

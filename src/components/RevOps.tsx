@@ -9,7 +9,7 @@ const RevOps = () => {
       <div className="container mx-auto md:px-10 lg:px-20">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
-            How It Works
+            Revenue Operations
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
             Getting started with osaFlow is easy. Follow these simple steps to begin your osa journey.
@@ -36,9 +36,25 @@ const RevOps = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <Button size="lg" className="bg-osa-cian hover:bg-osa-dark-cian text-white px-8">
-            desp vemops bo..
-          </Button>
+             <a 
+                href="https://meetings.hubspot.com/osa-consulting" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+      <Button 
+          size="lg"
+          className="
+            bg-osa-white text-osa-black border px-8 py-6
+            transition-all duration-500 ease-out
+            hover:text-white
+            hover:border-transparent
+            hover:bg-gradient-to-r hover:from-osa-cian hover:via-osa-blue hover:to-osa-cian
+            hover:bg-[length:200%_auto]
+            hover:bg-right
+          " >
+          Hablemos
+        </Button>
+              </a>
         </div>
       </div>
     </section>

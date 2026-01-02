@@ -1,7 +1,7 @@
 import React from 'react';
 import { Activity, Lock, Zap, Compass, LineChart, Shield } from 'lucide-react';
 
-export const features = [
+export const services = [
   {
     icon: <Activity className="h-6 w-6" />,
     title: "Consultoría",

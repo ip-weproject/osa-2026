@@ -89,8 +89,8 @@ const AboutUs = () => {
       
       {/* Elementos decorativos de fondo */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-10 w-72 h-72 bg-osa-cian/5 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-1/4 -right-10 w-72 h-72 bg-osa-purple/5 rounded-full filter blur-3xl"></div>
+        <div className="absolute top-1/4 -left-10 w-72 h-72 bg-osa-cian/10 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-1/4 -right-10 w-72 h-72 bg-osa-blue/10 rounded-full filter blur-3xl"></div>
       </div>
 
       <div className="container mx-auto md:px-10 lg:px-20 relative z-10">

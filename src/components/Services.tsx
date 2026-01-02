@@ -1,15 +1,15 @@
 
 import { Activity, Lock, Zap, Compass, LineChart, Shield } from 'lucide-react';
-import { features } from '../data/featuresData';
+import { services } from '../data/servicesData';
 
 
-const Features = () => {
+const Services = () => {
   return (
-    <section id="features" className="py-24 bg-gradient-to-b from-osa-blak to-[#12141C]">
+    <section id="services" className="py-24 bg-gradient-to-b from-osa-blak to-[#12141C]">
       <div className="container mx-auto md:px-10 lg:px-20">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold !text-osa-blue mb-4 text-gradient">
-            Powerful Features
+            Servicios
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
             osaFlow gives you the edge with advanced tools designed for both beginners and professional traders.
@@ -17,7 +17,7 @@ const Features = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {features.map((feature, index) => (
+          {services.map((feature, index) => (
             <div 
               key={index}
               className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 hover:shadow-xl hover:shadow-osa-cian/5 group animate-on-scroll"
@@ -36,4 +36,4 @@ const Features = () => {
   );
 };
 
-export default Features;
+export default Services;
