@@ -40,7 +40,7 @@
   /* ESTILO NUEVO: Efecto "Titanio/Acero" (CodeFus Style) */
   /* Va desde blanco arriba (from-white) hacia el gris que me pasaste abajo (to-[#B3B0BC]) */
   .text-gradient {
-    @apply bg-gradient-to-b from-white to-[#B3B0BC] bg-clip-text text-transparent;
+    @apply bg-gradient-to-b from-[#8e8c93] to-white bg-clip-text text-transparent;
   }
 
   /* ESTILO SECUNDARIO: Para subtítulos o textos menos importantes */

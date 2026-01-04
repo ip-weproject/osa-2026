@@ -1,147 +1,156 @@
-import { useState } from 'react';
-import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, Loader2 } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { Button } from "@/components/ui/button"; 
+import { ChevronRight, Loader2 } from 'lucide-react';
+import FormSuccess from './FormSuccess';
 
 const ContactForm = () => {
-  // Estado para manejar los datos del formulario
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const [status, setStatus] = useState<'idle' | 'loading'>('idle');
+  const [showSuccess, setShowSuccess] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  // Estado para manejar el proceso de envío (idle | loading | success)
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     setStatus('loading');
-
-    // Simulamos una petición al backend (espera 2 segundos)
-    setTimeout(() => {
-      setStatus('success');
-      // Aquí iría tu lógica real de envío a API o servicio de email
-      setFormData({ name: '', email: '', message: '' });
-    }, 2000);
   };
 
-  // Clases compartidas para los inputs para mantener consistencia y limpieza
-  const inputClasses = "w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-crypto-cian/50 focus:border-crypto-cian transition-all duration-300 backdrop-blur-sm";
+  const handleIframeLoad = () => {
+    if (status === 'loading') {
+      setStatus('idle');
+      setShowSuccess(true);
+      if (formRef.current) formRef.current.reset();
+    }
+  };
+
+const inputClasses = `
+    w-full rounded-xl px-4 py-3 text-white placeholder:text-gray-500 font-medium
+    
+    /* ESTADO BASE */
+    bg-[#11131A] 
+    border border-white/10 
+    transition-all duration-300 
+    
+    /* FOCUS */
+    focus:outline-none 
+    focus:ring-2 focus:ring-osa-cian/50 
+    focus:border-osa-cian 
+    
+    /* --- HACK AUTOFILL DEFINITIVO --- */
+    
+    /* 1. Fondo: Sombra interna (Mantenemos esto igual) */
+    [&:-webkit-autofill]:shadow-[0_0_0_1000px_#11131A_inset] 
+    
+    /* 2. Texto: APLASTANTE */
+    /* Usamos !important en todos los estados posibles para que no haya "glitch" */
+    [&:-webkit-autofill]:[-webkit-text-fill-color:#ffffff_!important]
+    [&:-webkit-autofill:hover]:[-webkit-text-fill-color:#ffffff_!important]
+    [&:-webkit-autofill:focus]:[-webkit-text-fill-color:#ffffff_!important]
+    [&:-webkit-autofill:active]:[-webkit-text-fill-color:#ffffff_!important]
+    
+    /* 3. TRANSICIÓN (AQUÍ ESTABA EL ERROR) */
+    /* Solo retrasamos el cambio de FONDO. */
+    /* Al quitar 'color' de aquí, permitimos que nuestro '-webkit-text-fill-color' se aplique de inmediato */
+    [&:-webkit-autofill]:transition-[background-color] 
+    [&:-webkit-autofill]:duration-[500000s]
+    
+    /* 4. Caret blanco */
+    [&:-webkit-autofill]:caret-white
+    
+    /* --- VALIDACIÓN --- */
+    [&:not(:placeholder-shown):valid]:border-osa-cian
+  `;
+
+  const labelClasses = "text-sm font-semibold text-gray-300 ml-1 mb-2 block";
 
   return (
-    <section id="contact" className="py-24 md:px-10 lg:px-20 bg-gradient-to-b from-crypto-blue to-[#12141C] relative overflow-hidden">
+    <section id="contact" className="py-24 md:px-10 lg:px-20 bg-gradient-to-b from-osa-black to-[#12141C] relative overflow-hidden">
       
-      {/* Background Elements (Manteniendo los blobs originales) */}
+      <FormSuccess isOpen={showSuccess} onClose={() => setShowSuccess(false)} />
+
+      <iframe name="hidden_iframe" id="hidden_iframe" className="hidden" onLoad={handleIframeLoad}></iframe>
+
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-crypto-cian/10 rounded-full filter blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-crypto-light-cian/10 rounded-full filter blur-3xl animate-pulse-slow" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-osa-cian/10 rounded-full filter blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-osa-blue/10 rounded-full filter blur-3xl animate-pulse-slow" style={{ animationDelay: '1.5s' }}></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8 md:p-12">
-          
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-5xl text-gradient  mb-4 animate-fade-in">
-              Hablemos de tu <span className="text-gradient">próximo nivel</span>
-            </h2>
-            <p className="text-gray-300 text-lg max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Déjanos tus datos y analicemos cómo optimizar tus operaciones de Revenue.
-            </p>
-          </div>
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-5xl text-gradient mb-4">
+             Hablemos de tu <span className="text-gradient">Operación</span>
+          </h2>
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+             Completa el formulario para agendar un diagnóstico RevOps.
+          </p>
+        </div>
 
-          {/* Lógica condicional: Mostrar Formulario o Mensaje de Éxito */}
-          {status === 'success' ? (
-            <div className="flex flex-col items-center justify-center py-12 animate-fade-in space-y-4 bg-white/5 rounded-xl border border-white/5">
-              <div className="h-16 w-16 bg-osa-blue/20 rounded-full flex items-center justify-center mb-2">
-                <CheckCircle2 className="h-8 w-8 text-osa-blue" />
+        {/* CONTENEDOR PRINCIPAL DEL FORMULARIO */}
+        <div className="max-w-3xl mx-auto bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] p-8 md:p-12 shadow-2xl">
+          
+          <form 
+            ref={formRef}
+            action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dam00001W5cLV" 
+            method="POST" 
+            target="hidden_iframe"
+            className="space-y-6"
+            onSubmit={handleSubmit}
+          >
+            <input type="hidden" name="oid" value="00Dam00001W5cLV" />
+            <input type="hidden" name="retURL" value="https://www.osarevops.com"/>
+            <input type="hidden" name="lead_source" value="Web" />
+
+            {/* Fila 1 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="first_name" className={labelClasses}>Nombre</label>
+                <input id="first_name" name="first_name" maxLength={40} type="text" required placeholder="Tu nombre" className={inputClasses} />
               </div>
-              <h3 className="text-2xl font-bold text-white">¡Mensaje Enviado!</h3>
-              <p className="text-gray-400">Nos pondremos en contacto contigo en breve.</p>
-              <Button 
-                variant="ghost" 
-                className="text-crypto-cian hover:text-white mt-4"
-                onClick={() => setStatus('idle')}
-              >
-                Enviar otro mensaje
+              <div>
+                <label htmlFor="last_name" className={labelClasses}>Apellido</label>
+                <input id="last_name" name="last_name" maxLength={80} type="text" required placeholder="Tu apellido" className={inputClasses} />
+              </div>
+            </div>
+
+            {/* Fila 2 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="email" className={labelClasses}>Email Corporativo</label>
+                <input id="email" name="email" maxLength={80} type="email" required placeholder="nombre@empresa.com" className={inputClasses} />
+              </div>
+              <div>
+                <label htmlFor="company" className={labelClasses}>Empresa</label>
+                <input id="company" name="company" maxLength={40} type="text" required placeholder="Nombre de tu organización" className={inputClasses} />
+              </div>
+            </div>
+
+            {/* Fila 3 (Textarea) */}
+                <div className="w-full">
+                  <label htmlFor="description" className={labelClasses}>¿Cómo podemos ayudarte?</label>
+                  <textarea 
+                    id="description" 
+                    name="description" 
+                    rows={4} 
+                    required // <--- IMPORTANTE: Para que la validación funcione
+                    placeholder="Cuéntanos brevemente sobre tus desafíos actuales..." 
+                    className={`${inputClasses} resize-none h-32`} 
+                  />
+                </div>
+
+            <div className="pt-2 flex justify-center w-full">
+              <Button variant="glow" size="lg" type="submit" className="w-full md:w-auto px-12" disabled={status === 'loading'}>
+                {status === 'loading' ? (
+                  <>
+                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                    Enviando...
+                  </>
+                ) : (
+                  <>
+                    Enviar Consulta
+                    <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </>
+                )}
               </Button>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="max-w-xl mx-auto space-y-6 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-gray-300 ml-1">Nombre</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Tu nombre"
-                    className={inputClasses}
-                  />
-                </div>
-                
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-gray-300 ml-1">Email Corporativo</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="nombre@empresa.com"
-                    className={inputClasses}
-                  />
-                </div>
-              </div>
 
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-gray-300 ml-1">¿En qué podemos ayudarte?</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Cuéntanos brevemente sobre tus desafíos actuales..."
-                  className={`${inputClasses} resize-none`}
-                />
-              </div>
-
-              <div className="pt-4">
-                <Button 
-                  type="submit" 
-                  disabled={status === 'loading'}
-                  className="w-full bg-crypto-cian hover:bg-crypto-dark-cian text-white py-6 text-lg transition-all duration-300 shadow-lg shadow-crypto-cian/20"
-                >
-                  {status === 'loading' ? (
-                    <>
-                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                      Enviando...
-                    </>
-                  ) : (
-                    <>
-                      Agendar Demo
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </>
-                  )}
-                </Button>
-              </div>
-
-              <p className="text-center text-sm text-gray-500 animate-fade-in pt-2" style={{ animationDelay: '0.6s' }}>
-                Tus datos están seguros. Sin spam, prometido.
-              </p>
-            </form>
-          )}
+          </form>
 
         </div>
       </div>

@@ -52,7 +52,7 @@ const Footer = () => {
           {/* COLUMNA 2: Logos de Partners (CON CAMBIOS DE COLOR) */}
           <div className="flex flex-col items-center md:items-end">
             
-            <div className="flex flex-wrap justify-center md:justify-end items-center gap-8 bg-white/5 p-6 rounded-2xl border border-white/5 backdrop-blur-sm">
+            <div className="flex flex-wrap justify-center md:justify-end items-center gap-8 bg-white/5 py-4 px-6 rounded-[40px] border border-white/5 backdrop-blur-sm">
               
               {/* HubSpot */}
               {/* 1. Agregamos 'group' al anchor <a> */}

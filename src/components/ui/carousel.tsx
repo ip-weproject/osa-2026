@@ -2,7 +2,7 @@ import * as React from "react"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react"
-import { ArrowLeft, ArrowRight } from "lucide-react"
+import { ArrowLeft, ChevronRight } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -88,7 +88,7 @@ const Carousel = React.forwardRef<
         if (event.key === "ArrowLeft") {
           event.preventDefault()
           scrollPrev()
-        } else if (event.key === "ArrowRight") {
+        } else if (event.key === "ChevronRight") {
           event.preventDefault()
           scrollNext()
         }
@@ -243,7 +243,7 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight className="h-4 w-4" />
+      <ChevronRight className="h-4 w-4" />
       <span className="sr-only">Next slide</span>
     </Button>
   )

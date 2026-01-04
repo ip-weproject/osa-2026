@@ -11,7 +11,7 @@ export function HeroVideo() {
         playsInline
       >
         {/* <source src="../../../" type="video/mp4"/></video> */}
-      <source src="https://www.pexels.com/download/video/3141210" type="video/mp4" /></video>
+      <source src="" type="video/mp4" /></video>
       {/* Opcional: Una capa oscura encima para que se lea el texto */}
       <div className="absolute inset-0 bg-black/40"></div> 
     </div>
