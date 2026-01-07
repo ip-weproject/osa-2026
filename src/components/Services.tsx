@@ -1,9 +1,9 @@
 import { Activity, Database, GitBranch, Zap, Globe, Cpu, CheckCircle2 } from 'lucide-react';
 import { services } from '../data/servicesData'; 
-import Chart from '../assets/Chart.svg';
-import Auto from '../assets/Auto.svg';
-import Inte from '../assets/Inte.svg';
-import Esca from '../assets/Esca.svg';
+import Chart from '../assets/Chart.png';
+import Auto from '../assets/Auto.png';
+import Inte from '../assets/Inte.png';
+import Esca from '../assets/Esca.png';
 
 const Services = () => {
   return (
@@ -49,8 +49,8 @@ const Services = () => {
                     // Mobile: w-[20rem] -right-8 (más pequeña y escondida)
                     // Desktop (md:): TUS VALORES ORIGINALES (w-[34rem] -right-0)
                     className="absolute max-w-none
-                               w-[20rem] -bottom-4 -right-8
-                               md:-bottom-2 md:-right-0 md:w-[34rem]" 
+                               w-[20rem] -bottom-4 -right
+                               md:-bottom-[12rem] md:-right-[11rem] md:w-[40rem] rotate-[10deg]" 
                   />
           </div>
 
@@ -64,7 +64,7 @@ const Services = () => {
                 <div className="flex items-center gap-3">
                   <h3 className="text-xl text-white">Implementación CRM</h3>
                 </div>
-                <span className="text-xs font-mono text-gray-500 bg-white/5 px-2 py-1 rounded">v2.4.0</span>
+                {/* <span className="text-xs font-mono text-gray-500 bg-white/5 px-2 py-1 rounded">v2.4.0</span> */}
               </div>
               <p className="text-gray-400 text-sm mb-6 max-w-sm">
                 Configuraciones que escalan. Flujos de trabajo automatizados que eliminan el trabajo manual.
@@ -73,11 +73,11 @@ const Services = () => {
               {/* Visual: Lista de actividad */}
               <div className="space-y-3 mt-6">
                 {[
-                  { user: "HubSpot", action: "Deal stage updated", time: "2m ago", color: "bg-orange-500" },
-                  { user: "Stripe", action: "Payment captured", time: "15m ago", color: "bg-indigo-500" },
-                  { user: "Slack", action: "Notification sent", time: "1h ago", color: "bg-emerald-500" }
+                  { user: "Salesforce", action: "", time: "", color: "bg-cyan-500" },
+                  { user: "HubSpot", action: "", time: "", color: "bg-orange-500" }
+                  // { user: "Slack", action: "Notification sent", time: "1h ago", color: "bg-emerald-500" }
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 group-hover:translate-x-2 transition-transform duration-300" style={{ transitionDelay: `${i * 50}ms` }}>
+                  <div key={i} className="flex items-center gap-3 p-3 rounded-full bg-white/5 border border-white/5 group-hover:translate-x-2 transition-transform duration-300" style={{ transitionDelay: `${i * 50}ms` }}>
                     <div className={`w-2 h-2 rounded-full ${item.color}`} />
                     <div className="flex-1 text-sm text-gray-300">
                       <span className="font-semibold text-white">{item.user}</span> {item.action}
@@ -109,7 +109,7 @@ const Services = () => {
                     // Desktop (md:): TUS VALORES ORIGINALES (right-[4rem], -bottom-[6rem])
                     className="absolute max-w-none
                                w-[14rem] -bottom-4 -right-4
-                               md:-bottom-[6rem] md:right-[4rem] md:w-[18rem]" 
+                               md:-bottom-[2rem] md:right-[1rem] md:w-[22rem] rotate-[0deg]" 
                   />
             </div>
           </div>
@@ -136,7 +136,7 @@ const Services = () => {
                     // Desktop (md:): TUS VALORES ORIGINALES (-right-[4rem])
                     className="absolute max-w-none
                                w-[16rem] -bottom-8 -right-4
-                               md:-bottom-[8rem] md:-right-[4rem] md:w-[18rem]" 
+                               md:-bottom-[3rem] md:-right-[14rem] md:w-[38rem]" 
                   />
               </div>
             </div>
@@ -163,7 +163,7 @@ const Services = () => {
                     // Desktop (md:): TUS VALORES ORIGINALES (-right-[2rem])
                     className="absolute max-w-none
                                w-[18rem] -bottom-8 -right-8
-                               md:-bottom-[8rem] md:-right-[2rem] md:w-[22rem]" 
+                               md:-bottom-[10rem] md:-right-[2rem] md:w-[22rem]" 
                   />
             </div>
           </div>

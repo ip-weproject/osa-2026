@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Target, Users, Lightbulb } from 'lucide-react';
-import Mision from "../assets/Mision.svg";
-import Filo from "../assets/Filo.svg";
-import Team from "../assets/Team.svg";
+import Mision from "../assets/Mision.png";
+import Filo from "../assets/Filo.png";
+import Team from "../assets/Team.png";
 
 // --- COMPONENTE AUXILIAR ---
 const AnimatedCounter = ({ end, duration = 2000, prefix = "", suffix = "" }) => {
@@ -61,7 +61,7 @@ const AboutUs = () => {
         <div className="absolute bottom-1/4 -right-10 w-72 h-72 bg-osa-blue/10 rounded-full filter blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto px-6 md:px-10 lg:px-20 relative z-10">
+      <div className="container mx-auto px-6 md:px-10 lg:px-32 relative z-10">
         
         {/* Encabezado */}
         <div className="text-center mb-16">
@@ -131,9 +131,9 @@ const AboutUs = () => {
                   // Mobile: w-[18rem], pegada abajo y derecha (-bottom-8, -right-8)
                   // Desktop (lg:): TUS VALORES ORIGINALES (-bottom-[18rem], right-0)
                   // NOTA: 'right-0' en lg es clave para sobreescribir el '-right-8' de mobile
-                  className="absolute max-w-none brightness-150 contrast-125 rotate-[95deg]
+                  className="absolute max-w-none brightness-100 contrast-100 saturate-200 rotate-[95deg]
                              w-[18rem] -bottom-8 -right-8
-                             lg:w-[32rem] lg:-bottom-[10rem] lg:right-0 lg:rotate-[10deg]"
+                             lg:w-[32rem] lg:-bottom-[22rem] lg:right-0 lg:rotate-[90deg]"
                 />
                 </div>
               </div>
@@ -146,7 +146,7 @@ const AboutUs = () => {
           <div className="relative overflow-hidden rounded-3xl lg:col-span-2 group min-h-[350px] lg:min-h-0">
             <div className="absolute inset-px bg-white/5 backdrop-blur-sm rounded-3xl lg:rounded-br-[40px] lg:rounded-tr-2xl lg:rounded-tl-2xl lg:rounded-bl-2xl" />
             
-            <div className="flex flex-1 items-end justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2"></div>
+            <div className="flex flex-1 items-end justify-center px-8 max-lg:pt-10 max-lg:pb-0 sm:px-10 lg:pb-0"></div>
 
             <div className="relative flex h-full flex-col overflow-hidden rounded-3xl lg:rounded-br-[40px] lg:rounded-tr-2xl lg:rounded-tl-2xl lg:rounded-bl-2xl">
               <div className="px-8 pt-8 sm:px-10 sm:pt-10 flex flex-col sm:flex-row-reverse justify-between items-start gap-4 relative z-10">
@@ -159,8 +159,8 @@ const AboutUs = () => {
                   // Desktop (lg:): TUS VALORES ORIGINALES (right-9, -bottom-[3rem])
                   // NOTA: Importante lg:right-9 para recuperar tu posición original
                   className="absolute max-w-none 
-                             w-[14rem] bottom-0 right-0
-                             lg:w-[18rem] lg:-bottom-[7rem] lg:right-9"
+                             w-[14rem] -bottom-0 right-0
+                             lg:w-[34rem] lg:-bottom-[4rem] lg:right-0"
                 />
                 </div>
                 <div className="max-w-xl w-full">

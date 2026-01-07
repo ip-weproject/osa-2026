@@ -16,7 +16,7 @@ const RevOps = () => {
 
   return (
     <section id="how-it-works" className="py-24 bg-gradient-to-b from-[#12141C] to-osa-black">
-      <div className="container mx-auto md:px-10 lg:px-20">
+      <div className="container mx-auto md:px-10 lg:px-32">
         
         {/* Header */}
         <div className="text-center mb-16">

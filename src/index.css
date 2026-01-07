@@ -47,6 +47,11 @@
   .text-gradient-sub {
     @apply bg-gradient-to-b from-[#E9E9E9] to-[#9192A1] bg-clip-text text-transparent;
   }
+
+  /* ESTILO SECUNDARIO: Para subtítulos o textos menos importantes */
+  .text-gradient-cian {
+    @apply bg-gradient-to-b from-[#E9E9E9] to-osa-cian bg-clip-text text-transparent;
+  }
   
   /* Mantenemos el glow de fondo si te gustaba, o lo puedes quitar */
   .hero-glow:after {
