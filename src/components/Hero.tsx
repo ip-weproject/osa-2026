@@ -65,7 +65,7 @@ const Hero = () => {
               />
           </div>
             <p className="text-sm text-gray-500 font-medium tracking-wide mb- relative z-20">
-            Nuestros Aliados Tecnológicos
+            Nuestros aliados tecnológicos:
           </p>
 
           {/* --- NUEVA SECCIÓN: LOGOS PARTNERS --- */}

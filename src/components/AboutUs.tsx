@@ -173,11 +173,6 @@ const AboutUs = () => {
                 </div>
               </div>
               <div className="relative min-h-[60px] w-full grow overflow-hidden">
-                 <div className="absolute -bottom-6 left-10 flex gap-4 opacity-20">
-                    <div className="w-20 h-20 rounded-full border border-white/30"></div>
-                    <div className="w-20 h-20 rounded-full border border-white/30"></div>
-                    <div className="w-20 h-20 rounded-full border border-white/30"></div>
-                 </div>
               </div>
             </div>
 
