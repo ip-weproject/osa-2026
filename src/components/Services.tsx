@@ -34,10 +34,10 @@ const Services = () => {
               {/* 1. CONTENIDO DE TEXTO */}
               <div className="p-8 pb-0 relative z-10">
                 <div className="flex items-center gap-3 mb-4">
-                  <h3 className="text-xl text-white">Auditoría & Datos</h3>
+                  <h3 className="text-lg text-white">Auditoría & Datos</h3>
                 </div>
                 <p className="text-gray-400 text-sm mb-6 max-w-sm">
-                  Visibilidad total de tu pipeline. Transformamos datos crudos en dashboards de decisión ejecutiva.
+                  Diagnóstico de punta a punta y visibilidad del pipeline. Convertimos datos dispersos en dashboards y métricas accionables para que puedas decidir rápido.
                 </p>
               </div>
                   
@@ -62,12 +62,12 @@ const Services = () => {
             <div className="p-8">
               <div className="flex justify-between items-start mb-4">
                 <div className="flex items-center gap-3">
-                  <h3 className="text-xl text-white">Implementación CRM</h3>
+                  <h3 className="text-lg text-white">Implementación CRM</h3>
                 </div>
                 {/* <span className="text-xs font-mono text-gray-500 bg-white/5 px-2 py-1 rounded">v2.4.0</span> */}
               </div>
               <p className="text-gray-400 text-sm mb-6 max-w-sm">
-                Configuraciones que escalan. Flujos de trabajo automatizados que eliminan el trabajo manual.
+                 Implementación y optimización del CRM para que tu equipo venda con orden. Flujos simples y una base lista para escalar.
               </p>
               
               {/* Visual: Lista de actividad */}
@@ -98,8 +98,8 @@ const Services = () => {
               <div className="flex items-center gap-3 mb-3">
                  <h3 className="text-lg text-white">Automatización</h3>
               </div>
-              <p className="text-gray-400 text-xs mb-8 relative z-10">
-                Reduce el ciclo de ventas eliminando tareas repetitivas.
+              <p className="text-gray-400 text-sm mb-8 relative z-10">
+                Eliminamos tareas repetitivas y errores manuales. Aceleramos el ciclo comercial.
               </p>
                   <img
                     src={Auto}
@@ -121,7 +121,7 @@ const Services = () => {
             min-h-[300px] md:min-h-0">
              <div className="p-6 h-full flex flex-col items-center text-center">
               <h3 className="text-lg text-white mb-2">Integraciones</h3>
-              <p className="text-gray-400 text-xs mb-6 relative z-10">
+              <p className="text-gray-400 text-sm mb-6 relative z-10">
                 Conecta tu stack tecnológico en un ecosistema unificado.
               </p>
 
@@ -151,8 +151,8 @@ const Services = () => {
               <div className="flex items-center gap-3 mb-3">
                  <h3 className="text-lg text-white">Escalabilidad</h3>
               </div>
-              <p className="text-gray-400 text-xs mb-6 relative z-10">
-                Infraestructura lista para soportar crecimiento global.
+              <p className="text-gray-400 text-sm mb-6 relative z-10">
+                Arquitectura y gobernanza para un crecimiento sostenido. Estandarización, documentación y mejoras continuas.
               </p>
 
                    <img

@@ -35,7 +35,7 @@ const Hero = () => {
               <RotatingText />
             </h1>
             <p className="text-lg md:text-lg text-gray-300 mb-0 max-w-2xl mx-auto">
-              Integramos CRM y datos con IA para escalar tus operaciones y garantizar ingresos predecibles.
+              Convertimos tu CRM en un motor de ventas: procesos claros, automatización y datos para un pipeline medible e ingresos predecibles.
             </p>
           </div>
             

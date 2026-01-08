@@ -69,8 +69,7 @@ const AboutUs = () => {
             Más que consultores, somos tus <span className="text-gradient">Aliados Estratégicos</span>
           </h2>
           <p className="text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed">
-            En OSA, entendemos que el crecimiento no es cuestión de suerte, sino de diseño. 
-            Nacimos para cerrar la brecha entre Marketing, Ventas y Servicio.
+            En OSA creemos que el crecimiento no es suerte: son operaciones bien diseñadas. Alineamos equipos, procesos y tecnología para cerrar la brecha entre Marketing, Ventas y Servicio, y convertir el crecimiento en un proceso medible y predecible.
           </p>
         </div>
 
@@ -88,7 +87,7 @@ const AboutUs = () => {
                   Nuestra Misión
                 </p>
                 <p className="mt-2 max-w-lg text-sm/6 text-gray-400 max-lg:text-center">
-                  Transformar la complejidad de los datos en estrategias de ingresos claras y ejecutables.
+                  Alinear equipos, procesos y tecnología con transparencia, para que tu operación comercial sea clara, ejecutable y genere impacto real.
                 </p>
               </div>
               
@@ -119,7 +118,7 @@ const AboutUs = () => {
                     Nuestra Filosofía
                   </p>
                   <p className="mt-2 text-sm/6 text-gray-400 max-lg:text-center">
-                    La tecnología debe trabajar para el equipo comercial, no al revés. Eliminamos la fricción operativa.
+                    La tecnología debe simplificar el trabajo del equipo, no complicarlo. Diseñamos procesos que se sostienen en el tiempo, eliminamos la fricción operativa.
                   </p>
                 </div>
                 
@@ -168,7 +167,7 @@ const AboutUs = () => {
                     El Equipo
                   </p>
                   <p className="mt-2 text-sm/6 text-gray-400 max-lg:text-center">
-                    Somos una alianza de arquitectos de datos, <br className="hidden sm:block"/>estrategas de ventas y expertos en automatización.
+                    Somos una alianza de especialistas en RevOps: <br className="hidden sm:block"/>estrategia comercial, arquitectura de CRM y analítica. 
                   </p>
                 </div>
               </div>
