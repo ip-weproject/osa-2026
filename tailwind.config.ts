@@ -71,7 +71,7 @@ export default {
                     blue: '#0077FC',
                     'light-blue': '#475c99',
                     'dark-blue': '#0f1f4c',
-                    cian: '#35D6DE',
+                    cian: '#3ac6ad',
                     'light-cian': '#b4fcf8',
                     'dark-cian': '#29b7b0',
                     white: '#fff',

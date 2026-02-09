@@ -22,11 +22,14 @@ const buttonVariants = cva(
         // 👇 TU NUEVA VARIANTE GLOW
         // Tiene fondo transparente (bg-osa-white/0), borde semitransparente inicial y la sombra blanca al hover
         glow: "bg-white/10 text-grey-300 border border-white/15 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all duration-300",
+        // Tiene fondo transparente (bg-osa-white/0), borde semitransparente inicial y la sombra blanca al hover
+        ghablemos: "bg-cyan-900 text-grey-300 border border-white/15 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all duration-300",
+        gform: "bg-white/0 text-grey-300 border border-white/15 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all duration-300",
       },
       size: {
         // 👇 TAMAÑO LG PERSONALIZADO
         // Aquí metemos el 'rounded-full' y el 'py-6' para que sea idéntico a tu snippet
-        lg: "h-6 px-8 py-6 rounded-full text-base", 
+        lg: "h-6 px-5 py-5 rounded-full text-base", 
         
         default: "h-10 px-4 rounded-full py-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]",
         nav: "h-10 px-4 rounded-full py-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]",

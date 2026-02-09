@@ -26,9 +26,9 @@ const Index = () => {
     <div className="min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
+      {/* <Clients/> */}
       <FAQ />
       <AboutUs />
-      {/* <Clients/> */}
       <Services />
       {/* <Solutions /> */}
       <RevOps />

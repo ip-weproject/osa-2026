@@ -1,18 +1,18 @@
 export const about = [
     {
-      quote: "osaFlow has completely transformed my osa trading experience. The real-time analytics and AI recommendations have significantly improved my returns.",
+      quote: "Osa has completely transformed my osa  experience. The real-time analytics and AI recommendations have significantly improved my returns.",
       author: "Michael Chen",
       role: "Full-time Trader",
       avatar: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=100&h=100&fit=crop"
     },
     {
-      quote: "As a beginner, I was intimidated by osa trading until I found osaFlow. Their intuitive interface and educational resources made it easy to start investing confidently.",
+      quote: "As a beginner, I was intimidated by osa  until I found Osa. Their intuitive interface and educational resources made it easy to start investing confidently.",
       author: "Sarah Johnson",
       role: "Tech Entrepreneur",
       avatar: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=100&h=100&fit=crop"
     },
     {
-      quote: "The security services on osaFlow are unmatched. I feel confident keeping my assets on their platform, and the trading fees are the most competitive I've found.",
+      quote: "The security services on Osa are unmatched. I feel confident keeping my assets on their platform, and the  fees are the most competitive I've found.",
       author: "David Rodriguez",
       role: "Cybersecurity Specialist",
       avatar: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=100&h=100&fit=crop"

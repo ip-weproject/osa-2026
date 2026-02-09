@@ -19,8 +19,8 @@ const Hero = () => {
       
       {/* 1. ELEMENTOS DECORATIVOS */}
       {/* <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-[30%] -left-[7%] w-[800px] h-[100px] bg-cyan-500/30 rounded-[85% 15% 20% 80% / 29% 33% 67% 71%] blur-[70px] rotate-[40deg]"></div>
-        <div className="absolute top-[37%] left-[40%] w-[800px] h-[100px] bg-cyan-500/30 rounded-[85% 15% 20% 80% / 29% 33% 67% 71%] blur-[70px] rotate-[140deg]"></div>
+        <div className="absolute top-[38rem] -left-[7%] w-[800px] h-[100px] bg-cyan-500/30 rounded-[48% 52% 52% 48% / 48% 49% 51% 52%] blur-[70px] rotate-[0deg]"></div>
+        <div className="absolute top-[38rem] left-[40%] w-[800px] h-[100px] bg-cyan-500/30 rounded-[48% 52% 52% 48% / 48% 49% 51% 52%] blur-[70px] rotate-[0deg]"></div>
       </div> */}
 
       {/* 2. CONTENIDO */}
@@ -30,8 +30,17 @@ const Hero = () => {
           
           {/* Bloque Texto */}
           <div className="w-full max-w-4xl animate-fade-in-up text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6 tracking-tight flex flex-col md:block items-center justify-center gap-x-3">
-              <span className="text-gradient">Expertos en </span><br />
+            
+            {/* TÍTULO H1: ESTRUCTURA DE 2 LÍNEAS */}
+            {/* 1. 'flex flex-col': Fuerza que sean dos bloques, uno arriba del otro. */}
+            {/* 2. 'gap-2': Controla la separación entre "Expertos en" y el texto rotativo. */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6 tracking-tight flex flex-col items-center justify-center gap-2">
+              
+              {/* LÍNEA 1: ESTÁTICA */}
+              <span className="text-gradient">Expertos en</span>
+              
+              {/* LÍNEA 2: DINÁMICA (Sin <br>, en su propio bloque) */}
+              {/* El componente ya tiene su altura, así que encajará perfecto debajo */}
               <RotatingText />
             </h1>
             <p className="text-lg md:text-lg text-gray-300 mb-0 max-w-2xl mx-auto">
@@ -39,38 +48,43 @@ const Hero = () => {
             </p>
           </div>
             
-          {/* Botones (z-20 para estar encima de la imagen) */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-20">
-            <a href="https://meetings.hubspot.com/osa-consulting" target="_blank" rel="noopener noreferrer">
-              <Button variant="glow" size="lg">
-                Hablemos
-                <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </a>
-            <a href="#services">
-              <Button variant="glow" size="lg">
-                Soluciones
-                <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </a>
-          </div>
+            {/* Botones: 
+              1. z-50: Prioridad máxima de capa.
+              2. relative: Para que z-50 funcione.
+              */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-50">
+                <a href="https://meetings.hubspot.com/osa-consulting" target="_blank" rel="noopener noreferrer">
+                  {/* Agregamos 'bg-black' o tu color de fondo para que el botón no sea transparente */}
+                  <Button variant="ghablemos" size="lg" className="bg-[#050505] hover:bg-[#0a0a0a]"> 
+                    Hablemos
+                    <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </a>
+                <a href="#services">
+                  {/* Lo mismo para el segundo botón */}
+                  <Button variant="glow" size="lg" className="bg-[#050505] hover:bg-[#0a0a0a]">
+                    Soluciones
+                    <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </a>
+              </div>
 
           {/* Bloque Imagen Central (Hero) */}
           {/* pointer-events-none permite clicks a través de la imagen si se solapa */}
-          <div className="w-full flex justify-center relative -mt-[4rem] lg:-mt-[6rem] pointer-events-none">
-              <img
-                src={HeroPng}
-                alt="Hero-png"
-                className="w-full max-w-[20rem] md:max-w-[30rem] lg:max-w-[30rem] h-auto object-contain animate-fade-in"
-              />
-          </div>
-            <p className="text-sm text-gray-500 font-medium tracking-wide mb- relative z-20">
+            <div className="w-full flex justify-center relative -mt-[6rem] lg:-mt-[4rem] pointer-events-none z-0">
+                <img
+                  src={HeroPng}
+                  alt="Hero-png"
+                  className="w-full max-w-[20rem] md:max-w-[30rem] lg:max-w-[30rem] h-auto object-contain animate-fade-in"
+                />
+            </div>
+            <p className="text-sm text-gray-500 font-medium tracking-wide -mt-6 relative z-20">
             Nuestros aliados tecnológicos:
           </p>
 
           {/* --- NUEVA SECCIÓN: LOGOS PARTNERS --- */}
           {/* Ajustamos mt (margen superior) negativo o positivo según qué tan pegado lo quieras a la imagen */}
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-8 relative z-20 -mt-8 pb-10">
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-6 relative z-20 -mt-8 pb-10">
 
             
              {/* HubSpot */}
@@ -90,15 +104,6 @@ const Hero = () => {
                   className={`h-12 w-auto ${logoImgClasses}`} 
                 />
               </a>
-
-              {/* Partner Logo */}
-              {/* <a href="https://cambalachetechnologies.github.io/landing/?gad_source=1&gad_campaignid=23026496148&gbraid=0AAAABBTN5CYgiXAMNeiYM_WsQAz8jaFv6&gclid=Cj0KCQiAgvPKBhCxARIsAOlK_EqY8Ju9qHhaU1mWYKqqfEFbTyUrglqLFZv39YJL516kZ71PM7YD9tQaAlo8EALw_wcB" target="_blank" rel="noreferrer" className="group">
-                <img 
-                  src={partnerLogo} 
-                  alt="Partner" 
-                  className={`h-16 w-auto ${logoImgClasses}`} 
-                />
-              </a> */}
 
           </div>
 

@@ -9,10 +9,12 @@ import { faqItems } from "../data/faqData";
 const FAQ = () => {
   return (
     <section id="faq" className="py-24 bg-gradient-to-b from-[#12141C] to-osa-black">
-      <div className="container mx-auto md:px-10 lg:px-20">
+      <div className="container mx-auto md:px-10 lg:px-32">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl mb-4 text-gradient">
+            <span className="text-gradient inline box-decoration-clone pb-2">
             ¿Te suenan estos desafíos?
+            </span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
             Si te ves reflejado en alguno de estos puntos, tu problema no es de esfuerzo: es de operación.

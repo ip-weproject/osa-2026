@@ -83,7 +83,7 @@ const inputClasses = `
         </div>
 
         {/* CONTENEDOR PRINCIPAL DEL FORMULARIO */}
-        <div className="max-w-3xl mx-auto bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] p-8 md:p-12 shadow-2xl">
+        <div className="max-w-5xl mx-auto bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] p-8 md:p-12 shadow-2xl">
           
           <form 
             ref={formRef}
@@ -135,7 +135,7 @@ const inputClasses = `
                 </div>
 
             <div className="pt-2 flex justify-center w-full">
-              <Button variant="glow" size="lg" type="submit" className="w-full md:w-auto px-12" disabled={status === 'loading'}>
+              <Button variant="gform" size="nav" type="submit" className="w-full md:w-auto px-4" disabled={status === 'loading'}>
                 {status === 'loading' ? (
                   <>
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" />

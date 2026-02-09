@@ -1,4 +1,4 @@
-# osaFlow – One Page Template
+# Osa – One Page Template
 #### Preview
 
  - [Demo](https://themewagon.github.io/osaflow/)

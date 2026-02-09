@@ -4,11 +4,12 @@ import Chart from '../assets/Chart.png';
 import Auto from '../assets/Auto.png';
 import Inte from '../assets/Inte.png';
 import Esca from '../assets/Esca.png';
+import Crm from '../assets/CRM.png';
 
 const Services = () => {
   return (
     <section id="services" className="py-24 bg-gradient-to-b from-osa-black to-[#12141C]">
-      <div className="container mx-auto px-6 md:px-6 lg:px-20 max-w-7xl">
+      <div className="container mx-auto px-6 md:px-6 lg:px-32 max-w-7xl">
         
         {/* Header Section */}
         <div className="text-center mb-20">
@@ -49,8 +50,8 @@ const Services = () => {
                     // Mobile: w-[20rem] -right-8 (más pequeña y escondida)
                     // Desktop (md:): TUS VALORES ORIGINALES (w-[34rem] -right-0)
                     className="absolute max-w-none
-                               w-[20rem] -bottom-4 -right
-                               md:-bottom-[12rem] md:-right-[11rem] md:w-[40rem] rotate-[10deg]" 
+                               w-[40rem] -bottom-[14rem] -right-[11rem]
+                               md:-bottom-[16rem] md:-right-[11rem] md:w-[40rem] rotate-[10deg]" 
                   />
           </div>
 
@@ -72,19 +73,16 @@ const Services = () => {
               
               {/* Visual: Lista de actividad */}
               <div className="space-y-3 mt-6">
-                {[
-                  { user: "Salesforce", action: "", time: "", color: "bg-cyan-500" },
-                  { user: "HubSpot", action: "", time: "", color: "bg-orange-500" }
-                  // { user: "Slack", action: "Notification sent", time: "1h ago", color: "bg-emerald-500" }
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 p-3 rounded-full bg-white/5 border border-white/5 group-hover:translate-x-2 transition-transform duration-300" style={{ transitionDelay: `${i * 50}ms` }}>
-                    <div className={`w-2 h-2 rounded-full ${item.color}`} />
-                    <div className="flex-1 text-sm text-gray-300">
-                      <span className="font-semibold text-white">{item.user}</span> {item.action}
-                    </div>
-                    <span className="text-xs text-gray-600 font-mono">{item.time}</span>
-                  </div>
-                ))}
+                <img
+                    src={Crm}
+                    alt="Crm-png"
+                    // RESPONSIVE:
+                    // Mobile: w-[14rem], abajo a la derecha
+                    // Desktop (md:): TUS VALORES ORIGINALES (right-[4rem], -bottom-[6rem])
+                    className="absolute max-w-none
+                               w-[22rem] bottom-5 -right-[0rem]
+                               md:-bottom-[1rem] md:right-[0rem] md:w-[31rem]" 
+                  />
               </div>
             </div>
           </div>
@@ -108,7 +106,7 @@ const Services = () => {
                     // Mobile: w-[14rem], abajo a la derecha
                     // Desktop (md:): TUS VALORES ORIGINALES (right-[4rem], -bottom-[6rem])
                     className="absolute max-w-none
-                               w-[14rem] -bottom-4 -right-4
+                               w-[22rem] -bottom-6 -right-[0rem]
                                md:-bottom-[2rem] md:right-[1rem] md:w-[22rem] rotate-[0deg]" 
                   />
             </div>
@@ -135,7 +133,7 @@ const Services = () => {
                     // Mobile: w-[16rem], centrado/abajo
                     // Desktop (md:): TUS VALORES ORIGINALES (-right-[4rem])
                     className="absolute max-w-none
-                               w-[16rem] -bottom-8 -right-4
+                               w-[34rem] -bottom-[3rem] -right-[11rem]
                                md:-bottom-[3rem] md:-right-[14rem] md:w-[38rem]" 
                   />
               </div>
@@ -154,17 +152,16 @@ const Services = () => {
               <p className="text-gray-400 text-sm mb-6 relative z-10">
                 Arquitectura y gobernanza para un crecimiento sostenido. Estandarización, documentación y mejoras continuas.
               </p>
-
-                   <img
-                    src={Esca}
-                    alt="Esca-svg"
-                    // RESPONSIVE:
-                    // Mobile: w-[18rem], esquina
-                    // Desktop (md:): TUS VALORES ORIGINALES (-right-[2rem])
-                    className="absolute max-w-none
-                               w-[18rem] -bottom-8 -right-8
-                               md:-bottom-[10rem] md:-right-[2rem] md:w-[22rem]" 
-                  />
+                <img
+                src={Esca}
+                alt="Esca-svg"
+                // RESPONSIVE:
+                // Mobile: w-[18rem], esquina
+                // Desktop (md:): TUS VALORES ORIGINALES (-right-[2rem])
+                className="absolute max-w-none
+                            w-[18rem] -bottom-24 -right-8
+                            md:-bottom-[10rem] md:-right-[2rem] md:w-[22rem]" 
+              />
             </div>
           </div>
                   

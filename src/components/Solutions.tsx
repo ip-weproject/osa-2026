@@ -31,7 +31,7 @@ const Solutions = () => {
 
           <p className="text-gray-400 max-w-2xl mx-auto mb-8">
 
-            Choose the plan that best fits your trading needs. All plans include our core platform services.
+            Choose the plan that best fits your  needs. All plans include our core platform services.
 
           </p>
           </div>

@@ -5,7 +5,8 @@ export const RotatingText = () => {
     "Revenue Operations",
     "Sales Alignment",
     "Marketing Automation",
-    "Data Intelligence"
+    "Data Intelligence",
+    "Customer Experience",
   ];
   
   const [index, setIndex] = useState(0);
@@ -18,7 +19,8 @@ export const RotatingText = () => {
   }, []);
 
   return (
-    <span className="inline-flex flex-col h-[calc(theme(fontSize.4xl)*1.2)] md:h-[calc(theme(fontSize.5xl)*1.2)] lg:h-[calc(theme(fontSize.6xl)*1.2)] overflow-hidden align-top">
+    // CAMBIO 1: Ajustamos la altura para que no sea excesiva
+    <span className="inline-flex flex-col h-[calc(theme(fontSize.4xl)*1.4)] md:h-[calc(theme(fontSize.5xl)*1.4)] lg:h-[calc(theme(fontSize.6xl)*1.4)] overflow-hidden align-middle">
       
       <style>{`
         @keyframes slideUpSmooth {
@@ -45,7 +47,9 @@ export const RotatingText = () => {
       
       <span 
         key={index} 
-        className="text-gradient-cian pb-2 block animate-smooth-entry"
+        // CAMBIO 2: Usamos 'py-2' (Arriba y Abajo) en lugar de solo 'pb-4'.
+        // Esto centra el texto verticalmente y evita que se vea "subido".
+        className="text-gradient-cyan block animate-smooth-entry py-2"
       >
         {words[index]}
       </span>

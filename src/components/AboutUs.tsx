@@ -65,8 +65,10 @@ const AboutUs = () => {
         
         {/* Encabezado */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl mb-6 text-gradient">
-            Más que consultores, somos tus <span className="text-gradient">Aliados Estratégicos</span>
+          <h2 className="text-3xl md:text-5xl mb-6 text-center leading-tight">
+            <span className="text-gradient inline box-decoration-clone pb-2">
+              Más que consultores, somos tus Aliados Estratégicos
+            </span>
           </h2>
           <p className="text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed">
             En OSA creemos que el crecimiento no es suerte: son operaciones bien diseñadas. Alineamos equipos, procesos y tecnología para cerrar la brecha entre Marketing, Ventas y Servicio, y convertir el crecimiento en un proceso medible y predecible.
@@ -99,7 +101,7 @@ const AboutUs = () => {
                     // Mobile (Clases base): w-[20rem] -right-8 translate-y-12 (Más chica y controlada)
                     // Desktop (lg:): TUS VALORES ORIGINALES INTACTOS (w-[32rem], etc)
                     className="absolute bottom-0 max-w-none
-                               w-[20rem] -right-8 translate-y-12
+                               w-[30rem] -right-8 translate-y-20
                                lg:w-[32rem] lg:-right-[4rem] lg:translate-y-32"
                   />
                 </div>
@@ -130,8 +132,8 @@ const AboutUs = () => {
                   // Mobile: w-[18rem], pegada abajo y derecha (-bottom-8, -right-8)
                   // Desktop (lg:): TUS VALORES ORIGINALES (-bottom-[18rem], right-0)
                   // NOTA: 'right-0' en lg es clave para sobreescribir el '-right-8' de mobile
-                  className="absolute max-w-none brightness-100 contrast-100 saturate-200 rotate-[95deg]
-                             w-[18rem] -bottom-8 -right-8
+                  className="absolute max-w-none brightness-100 contrast-100 saturate-200 rotate-[125deg]
+                             w-[28rem] -bottom-[16rem] -right-8
                              lg:w-[32rem] lg:-bottom-[22rem] lg:right-0 lg:rotate-[90deg]"
                 />
                 </div>
@@ -142,38 +144,46 @@ const AboutUs = () => {
           </div>
 
           {/* CARD 3: EL EQUIPO (Abajo Derecha) */}
-          <div className="relative overflow-hidden rounded-3xl lg:col-span-2 group min-h-[350px] lg:min-h-0">
-            <div className="absolute inset-px bg-white/5 backdrop-blur-sm rounded-3xl lg:rounded-br-[40px] lg:rounded-tr-2xl lg:rounded-tl-2xl lg:rounded-bl-2xl" />
-            
-            <div className="flex flex-1 items-end justify-center px-8 max-lg:pt-10 max-lg:pb-0 sm:px-10 lg:pb-0"></div>
+            <div className="relative overflow-hidden rounded-3xl lg:col-span-2 group min-h-[350px] lg:min-h-0">
+              <div className="absolute inset-px bg-white/5 backdrop-blur-sm rounded-3xl lg:rounded-br-[40px] lg:rounded-tr-2xl lg:rounded-tl-2xl lg:rounded-bl-2xl" />
 
-            <div className="relative flex h-full flex-col overflow-hidden rounded-3xl lg:rounded-br-[40px] lg:rounded-tr-2xl lg:rounded-tl-2xl lg:rounded-bl-2xl">
-              <div className="px-8 pt-8 sm:px-10 sm:pt-10 flex flex-col sm:flex-row-reverse justify-between items-start gap-4 relative z-10">
-                <div className="flex items-center justify-center p-4 self-center sm:self-start">
-                  <img
-                  src={Team}
-                  alt="Team-svg"
-                  // === ARREGLO RESPONSIVE ===
-                  // Mobile: w-[14rem], bottom-0, right-0
-                  // Desktop (lg:): TUS VALORES ORIGINALES (right-9, -bottom-[3rem])
-                  // NOTA: Importante lg:right-9 para recuperar tu posición original
-                  className="absolute max-w-none 
-                             w-[14rem] -bottom-0 right-0
-                             lg:w-[34rem] lg:-bottom-[4rem] lg:right-0"
-                />
+              <div className="relative flex h-full flex-col overflow-hidden rounded-3xl lg:rounded-br-[40px] lg:rounded-tr-2xl lg:rounded-tl-2xl lg:rounded-bl-2xl">
+                
+                {/* 1. TEXTO (Le damos z-20 para que quede ENCIMA de la imagen) */}
+                {/* Nota: Quité la imagen de aquí adentro */}
+                <div className="px-8 pt-8 sm:px-10 sm:pt-10 flex flex-col justify-between items-start gap-4 relative z-20">
+                  <div className="max-w-xl w-full">
+                    <p className="mt-2 text-lg tracking-tight text-white max-lg:text-center">
+                      El Equipo
+                    </p>
+                    <p className="mt-2 text-sm/6 text-gray-400 max-lg:text-center">
+                      Somos una alianza de especialistas en RevOps: <br className="hidden sm:block"/>estrategia comercial, arquitectura de CRM y analítica. 
+                    </p>
+                  </div>
                 </div>
-                <div className="max-w-xl w-full">
-                  <p className="mt-2 text-lg tracking-tight text-white max-lg:text-center">
-                    El Equipo
-                  </p>
-                  <p className="mt-2 text-sm/6 text-gray-400 max-lg:text-center">
-                    Somos una alianza de especialistas en RevOps: <br className="hidden sm:block"/>estrategia comercial, arquitectura de CRM y analítica. 
-                  </p>
+
+                {/* 2. IMAGEN (Ahora está afuera, directo en la tarjeta) */}
+                {/* Al estar aquí, 'bottom-0' y 'right-0' se refieren a LA TARJETA, no al texto.
+                    - z-10: Para quedar detrás del texto (el texto tiene z-20 arriba).
+                    - pointer-events-none: Para que no moleste si tapas botones (opcional).
+                */}
+                <img
+                    src={Team}
+                    alt="Team-svg"
+                    className="absolute z-10 max-w-none 
+                              /* === CLASES BASE (MÓVIL) === */
+                              w-[58rem] -right-[19rem] bottom-0 
+                              rotate-[90deg]  /* <-- AQUÍ ROTAS EL MÓVIL (puedes usar -rotate-12, rotate-[15deg], etc.) */
+
+                              /* === CLASES DESKTOP (LG) === */
+                              lg:w-fill lg:-bottom-[4rem] lg:-right-8 
+                              lg:rotate-0 /* <-- IMPORTANTE: AQUÍ RESETEAS LA ROTACIÓN EN DESKTOP */
+                              
+                              pointer-events-none"
+                  />
+                <div className="relative min-h-[60px] w-full grow overflow-hidden">
                 </div>
               </div>
-              <div className="relative min-h-[60px] w-full grow overflow-hidden">
-              </div>
-            </div>
 
             <div className="pointer-events-none absolute inset-px shadow-sm ring-1 ring-white/10 rounded-3xl lg:rounded-br-[40px] lg:rounded-tr-2xl lg:rounded-tl-2xl lg:rounded-bl-2xl" />
           </div>
