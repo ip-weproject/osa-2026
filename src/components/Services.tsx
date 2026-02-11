@@ -1,23 +1,43 @@
 import { Activity, Database, GitBranch, Zap, Globe, Cpu, CheckCircle2 } from 'lucide-react';
-import { services } from '../data/servicesData'; 
 import Chart from '../assets/Chart.png';
 import Auto from '../assets/Auto.png';
 import Inte from '../assets/Inte.png';
 import Esca from '../assets/Esca.png';
 import Crm from '../assets/CRM.png';
+import { useLanguage } from '../context/LanguageContext';
 
 const Services = () => {
+  const { t } = useLanguage();
+
+  // Clases compartidas para las Cards
+  // Light Mode: Fondo oscuro antracita -> Negro puro en hover
+  // Dark Mode: Mantiene tu configuración original de transparencia
+  const cardBaseClasses = `
+    group relative overflow-hidden transition-all duration-500
+    bg-[#262525] hover:bg-[#050505] 
+    dark:bg-white/5 dark:hover:bg-white/10
+    border border-white/5 dark:border-white/10
+  `;
+
+  // El texto es blanco/gris claro siempre porque el fondo de la card es oscuro en ambos modos
+  const textTitle = "transition-colors duration-500 text-white";
+  const textDesc = "transition-colors duration-500 text-gray-400 group-hover:text-gray-300";
+  
+  // Clases para las imágenes: Visibles pero con escala leve en hover
+  // Mantenemos opacity-100 para que no se vea "vacío" el bento
+  const imgSpace = "transition-all duration-700 opacity-100 scale-[0.98] group-hover:scale-100 pointer-events-none";
+
   return (
-    <section id="services" className="py-24 bg-gradient-to-b from-osa-black to-[#12141C]">
-      <div className="container mx-auto px-6 md:px-6 lg:px-32 max-w-7xl">
+    <section id="services" className="py-24 bg-background transition-colors duration-300">
+      <div className="container mx-auto px-6 md:px-12 lg:px-32">
         
         {/* Header Section */}
         <div className="text-center mb-20">
           <h2 className="text-3xl md:text-5xl mb-6 text-gradient">
-            Potenciamos tu <span className="text-gradient">Motor de Ingresos</span>
+            {t.services.title} <span className="text-gradient">{t.services.titleHighlight}</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            Infraestructura diseñada para la escalabilidad. Cada pieza de tu operación, optimizada y conectada.
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg transition-colors">
+            {t.services.subtitle}
           </p>
         </div>
 
@@ -25,144 +45,70 @@ const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-rows-2 gap-6">
 
           {/* === CARD 1: DASHBOARD / ANALYTICS === */}
-            <div className="
-              md:col-span-3 row-span-1 group 
-              relative overflow-hidden  
-              rounded-tl-[40px] rounded-tr-2xl rounded-bl-2xl rounded-br-2xl 
-              bg-white/5 border border-white/10 transition-colors
-              min-h-[350px] md:min-h-0
-            ">
-              {/* 1. CONTENIDO DE TEXTO */}
-              <div className="p-8 pb-0 relative z-10">
-                <div className="flex items-center gap-3 mb-4">
-                  <h3 className="text-lg text-white">Auditoría & Datos</h3>
-                </div>
-                <p className="text-gray-400 text-sm mb-6 max-w-sm">
-                  Diagnóstico de punta a punta y visibilidad del pipeline. Convertimos datos dispersos en dashboards y métricas accionables para que puedas decidir rápido.
-                </p>
-              </div>
-                  
-                  {/* 2. IMAGEN */}
-                  <img
-                    src={Chart}
-                    alt="Chart-svg"
-                    // RESPONSIVE:
-                    // Mobile: w-[20rem] -right-8 (más pequeña y escondida)
-                    // Desktop (md:): TUS VALORES ORIGINALES (w-[34rem] -right-0)
-                    className="absolute max-w-none
-                               w-[40rem] -bottom-[14rem] -right-[11rem]
-                               md:-bottom-[16rem] md:-right-[11rem] md:w-[40rem] rotate-[10deg]" 
-                  />
-          </div>
-
-          {/* === CARD 2: ACTIVITY FEED / CRM (Grande - Derecha) === */}
-          <div className="md:col-span-3 row-span-1 group relative overflow-hidden 
-            rounded-tr-[40px] rounded-tl-2xl rounded-bl-2xl rounded-br-2xl 
-            bg-white/5 border border-white/10 transition-colors
-            min-h-[350px] md:min-h-0">
-            <div className="p-8">
-              <div className="flex justify-between items-start mb-4">
-                <div className="flex items-center gap-3">
-                  <h3 className="text-lg text-white">Implementación CRM</h3>
-                </div>
-                {/* <span className="text-xs font-mono text-gray-500 bg-white/5 px-2 py-1 rounded">v2.4.0</span> */}
-              </div>
-              <p className="text-gray-400 text-sm mb-6 max-w-sm">
-                 Implementación y optimización del CRM para que tu equipo venda con orden. Flujos simples y una base lista para escalar.
-              </p>
-              
-              {/* Visual: Lista de actividad */}
-              <div className="space-y-3 mt-6">
-                <img
-                    src={Crm}
-                    alt="Crm-png"
-                    // RESPONSIVE:
-                    // Mobile: w-[14rem], abajo a la derecha
-                    // Desktop (md:): TUS VALORES ORIGINALES (right-[4rem], -bottom-[6rem])
-                    className="absolute max-w-none
-                               w-[22rem] bottom-5 -right-[0rem]
-                               md:-bottom-[1rem] md:right-[0rem] md:w-[31rem]" 
-                  />
-              </div>
+          <div className={`${cardBaseClasses} md:col-span-3 row-span-1 rounded-tl-[40px] rounded-tr-2xl rounded-bl-2xl rounded-br-2xl min-h-[350px] md:min-h-0`}>
+            <div className="p-8 pb-0 relative z-10">
+              <h3 className={`text-lg mb-4 font-medium ${textTitle}`}>{t.services.cards.audit.title}</h3>
+              <p className={`text-sm max-w-sm ${textDesc}`}>{t.services.cards.audit.desc}</p>
             </div>
+            <img
+              src={Chart}
+              alt="Chart"
+              className={`${imgSpace} absolute max-w-none w-[40rem] -bottom-[14rem] -right-[11rem] md:-bottom-[11rem] md:-right-[5rem] md:w-[32rem] rotate-[13deg]`} 
+            />
           </div>
 
-          {/* === CARD 3: AUTOMATION (Pequeña - Izquierda) === */}
-          <div className="md:col-span-2 row-span-1 group relative overflow-hidden 
-            rounded-bl-[40px] rounded-tl-2xl rounded-tr-2xl rounded-br-2xl 
-            bg-white/5 border border-white/10 transition-colors
-            min-h-[300px] md:min-h-0">
-            <div className="p-6 h-full flex flex-col">
-              <div className="flex items-center gap-3 mb-3">
-                 <h3 className="text-lg text-white">Automatización</h3>
-              </div>
-              <p className="text-gray-400 text-sm mb-8 relative z-10">
-                Eliminamos tareas repetitivas y errores manuales. Aceleramos el ciclo comercial.
-              </p>
-                  <img
-                    src={Auto}
-                    alt="Auto-svg"
-                    // RESPONSIVE:
-                    // Mobile: w-[14rem], abajo a la derecha
-                    // Desktop (md:): TUS VALORES ORIGINALES (right-[4rem], -bottom-[6rem])
-                    className="absolute max-w-none
-                               w-[22rem] -bottom-6 -right-[0rem]
-                               md:-bottom-[2rem] md:right-[1rem] md:w-[22rem] rotate-[0deg]" 
-                  />
+          {/* === CARD 2: CRM === */}
+          <div className={`${cardBaseClasses} md:col-span-3 row-span-1 rounded-tr-[40px] rounded-tl-2xl rounded-bl-2xl rounded-br-2xl min-h-[350px] md:min-h-0`}>
+            <div className="p-8 relative z-10">
+              <h3 className={`text-lg mb-4 font-medium ${textTitle}`}>{t.services.cards.crm.title}</h3>
+              <p className={`text-sm max-w-sm ${textDesc}`}>{t.services.cards.crm.desc}</p>
             </div>
+            <img
+              src={Crm}
+              alt="Crm"
+              className={`${imgSpace} absolute max-w-none w-[22rem] bottom-5 -right-[0rem] md:-bottom-[0rem] md:-right-[0.5rem] md:w-[24rem]`} 
+            />
           </div>
 
-          {/* === CARD 4: INTEGRATIONS (Pequeña - Centro) === */}
-          <div className="md:col-span-2 row-span-1 group relative overflow-hidden 
-            rounded-2xl 
-            bg-white/5 border border-white/10 transition-colors
-            min-h-[300px] md:min-h-0">
-             <div className="p-6 h-full flex flex-col items-center text-center">
-              <h3 className="text-lg text-white mb-2">Integraciones</h3>
-              <p className="text-gray-400 text-sm mb-6 relative z-10">
-                Conecta tu stack tecnológico en un ecosistema unificado.
-              </p>
+          {/* === CARD 3: AUTOMATION === */}
+          <div className={`${cardBaseClasses} md:col-span-2 row-span-1 rounded-bl-[40px] rounded-tl-2xl rounded-tr-2xl rounded-br-2xl min-h-[300px] md:min-h-0`}>
+            <div className="p-6 h-full flex flex-col relative z-10">
+              <h3 className={`text-lg mb-3 font-medium ${textTitle}`}>{t.services.cards.automation.title}</h3>
+              <p className={`text-sm mb-8 ${textDesc}`}>{t.services.cards.automation.desc}</p>
+            </div>
+            <img
+              src={Auto}
+              alt="Auto"
+              className={`${imgSpace} absolute max-w-none w-[22rem] -bottom-6 -right-[0rem] md:-bottom-[2rem] md:-right-[3rem] md:w-[22rem]`} 
+            />
+          </div>
 
-              {/* Visual: Orbit System */}
+          {/* === CARD 4: INTEGRATIONS === */}
+          <div className={`${cardBaseClasses} md:col-span-2 row-span-1 rounded-2xl min-h-[300px] md:min-h-0`}>
+            <div className="p-6 h-full flex flex-col items-center text-center relative z-10">
+              <h3 className={`text-lg mb-2 font-medium ${textTitle}`}>{t.services.cards.integrations.title}</h3>
+              <p className={`text-sm mb-6 ${textDesc}`}>{t.services.cards.integrations.desc}</p>
               <div className="relative w-40 h-40 mt-auto flex items-center justify-center">
-
                 <img
-                    src={Inte}
-                    alt="Inte-svg"
-                    // RESPONSIVE:
-                    // Mobile: w-[16rem], centrado/abajo
-                    // Desktop (md:): TUS VALORES ORIGINALES (-right-[4rem])
-                    className="absolute max-w-none
-                               w-[34rem] -bottom-[3rem] -right-[11rem]
-                               md:-bottom-[3rem] md:-right-[14rem] md:w-[38rem]" 
-                  />
+                  src={Inte}
+                  alt="Inte"
+                  className={`${imgSpace} absolute max-w-none w-[34rem] -bottom-[3rem] -right-[11rem] md:-bottom-[3rem] md:-right-[14rem] md:w-[38rem]`} 
+                />
               </div>
             </div>
           </div>
 
-          {/* === CARD 5: NETWORK / SCALE (Pequeña - Derecha) === */}
-          <div className="md:col-span-2 row-span-1 group relative overflow-hidden 
-            rounded-br-[40px] rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl 
-            bg-white/5 border border-white/10 transition-colors
-            min-h-[300px] md:min-h-0">
-            <div className="p-6 h-full flex flex-col">
-              <div className="flex items-center gap-3 mb-3">
-                 <h3 className="text-lg text-white">Escalabilidad</h3>
-              </div>
-              <p className="text-gray-400 text-sm mb-6 relative z-10">
-                Arquitectura y gobernanza para un crecimiento sostenido. Estandarización, documentación y mejoras continuas.
-              </p>
-                <img
-                src={Esca}
-                alt="Esca-svg"
-                // RESPONSIVE:
-                // Mobile: w-[18rem], esquina
-                // Desktop (md:): TUS VALORES ORIGINALES (-right-[2rem])
-                className="absolute max-w-none
-                            w-[18rem] -bottom-24 -right-8
-                            md:-bottom-[10rem] md:-right-[2rem] md:w-[22rem]" 
-              />
+          {/* === CARD 5: NETWORK / SCALE === */}
+          <div className={`${cardBaseClasses} md:col-span-2 row-span-1 rounded-br-[40px] rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl min-h-[300px] md:min-h-0`}>
+            <div className="p-6 h-full flex flex-col relative z-10">
+              <h3 className={`text-lg mb-3 font-medium ${textTitle}`}>{t.services.cards.scalability.title}</h3>
+              <p className={`text-sm mb-6 ${textDesc}`}>{t.services.cards.scalability.desc}</p>
             </div>
+            <img
+              src={Esca}
+              alt="Esca"
+              className={`${imgSpace} absolute max-w-none w-[18rem] -bottom-24 -right-8 md:-bottom-[13rem] md:-right-[2rem] md:w-[22rem]`} 
+            />
           </div>
                   
         </div>

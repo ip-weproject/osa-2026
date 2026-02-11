@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
-import { Target, Users, Lightbulb } from 'lucide-react';
 import Mision from "../assets/Mision.png";
 import Filo from "../assets/Filo.png";
 import Team from "../assets/Team.png";
+import { useLanguage } from '../context/LanguageContext';
 
-// --- COMPONENTE AUXILIAR ---
 const AnimatedCounter = ({ end, duration = 2000, prefix = "", suffix = "" }) => {
   const [count, setCount] = useState(0);
   const countRef = useRef(null);
@@ -16,10 +15,9 @@ const AnimatedCounter = ({ end, duration = 2000, prefix = "", suffix = "" }) => 
         const [entry] = entries;
         if (entry.isIntersecting && !hasAnimated) {
           setHasAnimated(true);
-          let start = 0;
+          let currentCount = 0;
           const totalFrames = (duration / 1000) * 60;
           const increment = end / totalFrames;
-          let currentCount = 0;
           const timer = setInterval(() => {
             currentCount += increment;
             if (currentCount >= end) {
@@ -44,163 +42,125 @@ const AnimatedCounter = ({ end, duration = 2000, prefix = "", suffix = "" }) => 
 };
 
 const AboutUs = () => {
+  const { t } = useLanguage();
+
+  // Lógica de Fondo Oscuro Base:
+  // Light: Antracita -> Negro puro en hover.
+  // Dark: Vidrio (white/5) -> Brillo extra (white/10).
+  const cardBgClasses = `
+    absolute inset-0 transition-all duration-500 ease-in-out -z-10
+    bg-[#1a1c23] group-hover:bg-[#050505] 
+    dark:bg-white/5 dark:group-hover:bg-white/10
+  `;
+
+  // El texto es blanco/gris claro siempre porque el fondo de la card es oscuro en ambos modos
+  const textTitle = "transition-colors duration-500 text-white";
+  const textSub = "transition-colors duration-500 text-gray-400 group-hover:text-gray-300";
+
+  // Las imágenes espaciales son visibles por defecto para no dejar vacíos,
+  // y reaccionan levemente al hover.
+  const imgClasses = "transition-all duration-700 opacity-100 scale-[0.98] group-hover:scale-100 pointer-events-none";
+
   const stats = [
-    { value: 5, prefix: "+", suffix: "", label: "Años de Experiencia" },
-    { value: 30, prefix: "+", suffix: "", label: "Proyectos RevOps" },
-    { value: 100, prefix: "", suffix: "%", label: "Enfoque en Datos" },
-    { value: 24, prefix: "", suffix: "/7", label: "Soporte Dedicado" },
+    { value: 5, prefix: "+", suffix: "", label: t.about.stats.experience },
+    { value: 30, prefix: "+", suffix: "", label: t.about.stats.projects },
+    { value: 100, prefix: "", suffix: "%", label: t.about.stats.dataFocus },
+    { value: 24, prefix: "", suffix: "/7", label: t.about.stats.support },
   ];
 
   return (
-    <section id="about" className="py-24 bg-gradient-to-b from-osa-black to-[#12141C] relative overflow-hidden">
-      
-      {/* Elementos decorativos de fondo */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        {/* RESPONSIVE: Left negativo en móvil para que no tape, valor original en lg */}
-        <div className="absolute -left-20 lg:left-[15rem] bottom-[15rem] w-72 h-72 bg-osa-cian/10 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-1/4 -right-10 w-72 h-72 bg-osa-blue/10 rounded-full filter blur-3xl"></div>
-      </div>
-
-      <div className="container mx-auto px-6 md:px-10 lg:px-32 relative z-10">
+    <section id="about" className="py-24 relative overflow-hidden bg-background transition-colors duration-300">
+      <div className="container mx-auto px-6 md:px-12 lg:px-32 relative z-10">
         
-        {/* Encabezado */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl mb-6 text-center leading-tight">
             <span className="text-gradient inline box-decoration-clone pb-2">
-              Más que consultores, somos tus Aliados Estratégicos
+              {t.about.title}
             </span>
           </h2>
-          <p className="text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed">
-            En OSA creemos que el crecimiento no es suerte: son operaciones bien diseñadas. Alineamos equipos, procesos y tecnología para cerrar la brecha entre Marketing, Ventas y Servicio, y convertir el crecimiento en un proceso medible y predecible.
+          <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed transition-colors">
+            {t.about.description}
           </p>
         </div>
 
-        {/* --- BENTO GRID --- */}
         <div className="mt-10 grid gap-4 lg:grid-cols-3 lg:grid-rows-2 mb-16">
-          
-          {/* CARD 1: NUESTRA MISIÓN (Izquierda) */}
-          {/* AGREGADO: min-h-[400px] solo para móvil para dar espacio a la imagen */}
-          <div className="relative lg:row-span-2 group min-h-[400px] lg:min-h-0">
-            <div className="absolute inset-px bg-white/5 backdrop-blur-sm rounded-3xl lg:rounded-l-[40px] lg:rounded-r-2xl" />
+
+          {/* CARD 1 */}
+          <div className="relative lg:row-span-2 group">
+            <div className={cn(cardBgClasses, "rounded-3xl lg:rounded-l-[40px] lg:rounded-r-2xl")} />
             
-            <div className="relative flex h-full flex-col overflow-hidden rounded-5xl lg:rounded-l-[40px] lg:rounded-r-2xl ">
-              <div className="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0 relative z-10">
-                <p className="mt-2 text-lg tracking-tight text-white max-lg:text-center">
-                  Nuestra Misión
-                </p>
-                <p className="mt-2 max-w-lg text-sm/6 text-gray-400 max-lg:text-center">
-                  Alinear equipos, procesos y tecnología con transparencia, para que tu operación comercial sea clara, ejecutable y genere impacto real.
-                </p>
+            <div className="relative flex h-full flex-col overflow-hidden rounded-3xl lg:rounded-l-[40px] lg:rounded-r-2xl">
+              <div className="px-8 pt-8 sm:px-10 relative z-10">
+                <p className={`mt-2 text-lg font-medium ${textTitle}`}>{t.about.missionTitle}</p>
+                <p className={`mt-2 text-sm/6 ${textSub}`}>{t.about.missionText}</p>
+              </div>
+
+              <div className="absolute inset-0 flex items-end justify-end">
+                <img
+                  src={Mision}
+                  alt="Mision"
+                  className={`${imgClasses} max-w-none w-[30rem] -mr-8 mb-[-5rem] lg:w-[32rem] lg:-mr-[4rem] lg:mb-[-8rem]`}
+                />
+              </div>
+            </div>
+            <div className="pointer-events-none absolute inset-0 ring-1 ring-white/5 dark:ring-white/10 rounded-3xl lg:rounded-l-[40px] lg:rounded-r-2xl" />
+          </div>
+
+          {/* CARD 2: NUESTRA FILOSOFÍA (CENTRADOR) */}
+          <div className="relative lg:col-span-2 group">
+            <div className={cn(cardBgClasses, "rounded-3xl lg:rounded-tr-[40px] lg:rounded-tl-2xl lg:rounded-bl-2xl lg:rounded-br-2xl")} />
+            
+            <div className="relative flex h-full flex-col justify-center overflow-hidden rounded-3xl lg:rounded-tr-[40px] lg:rounded-tl-2xl lg:rounded-bl-2xl lg:rounded-br-2xl">
+              <div className="px-8 py-8 sm:px-10 flex flex-col sm:flex-row justify-between items-center relative z-10">
+                <div className="max-w-md">
+                  <p className={`mt-2 text-lg font-medium ${textTitle}`}>{t.about.philosophyTitle}</p>
+                  <p className={`mt-2 text-sm/6 ${textSub}`}>{t.about.philosophyText}</p>
+                </div>
+
+                <div className="relative w-full h-40 sm:h-32 overflow-visible">
+                  <img
+                    src={Filo}
+                    alt="Filo"
+                    className={`${imgClasses} absolute max-w-none rotate-[125deg] w-[28rem] -bottom-[12rem] -right-8 lg:w-[32rem] lg:-bottom-[18rem] lg:-right-12 lg:rotate-[90deg]`}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="pointer-events-none absolute inset-0 ring-1 ring-white/5 dark:ring-white/10 rounded-3xl lg:rounded-tr-[40px] lg:rounded-tl-2xl lg:rounded-bl-2xl lg:rounded-br-2xl" />
+          </div>
+
+          {/* CARD 3 */}
+          <div className="relative lg:col-span-2 group">
+            <div className={cn(cardBgClasses, "rounded-3xl lg:rounded-br-[40px] lg:rounded-tr-2xl lg:rounded-tl-2xl lg:rounded-bl-2xl")} />
+            
+            <div className="relative flex h-full flex-col overflow-hidden rounded-3xl lg:rounded-br-[40px] lg:rounded-tr-2xl lg:rounded-tl-2xl lg:rounded-bl-2xl">
+              <div className="px-8 pt-8 sm:px-10 relative z-20">
+                <div className="max-w-xl">
+                  <p className={`mt-2 text-lg font-medium ${textTitle}`}>{t.about.teamTitle}</p>
+                  <p className={`mt-2 text-sm/6 ${textSub}`}>
+                    {t.about.teamText} <br className="hidden sm:block" /> {t.about.teamExtra}
+                  </p>
+                </div>
               </div>
               
-                <div className="absolute inset-0 pointer-events-none">
-                  <img
-                    src={Mision}
-                    alt="Mision-svg"
-                    // === ARREGLO RESPONSIVE ===
-                    // Mobile (Clases base): w-[20rem] -right-8 translate-y-12 (Más chica y controlada)
-                    // Desktop (lg:): TUS VALORES ORIGINALES INTACTOS (w-[32rem], etc)
-                    className="absolute bottom-0 max-w-none
-                               w-[30rem] -right-8 translate-y-20
-                               lg:w-[32rem] lg:-right-[4rem] lg:translate-y-32"
-                  />
-                </div>
+              <img
+                src={Team}
+                alt="Team"
+                className={`${imgClasses} absolute z-10 max-w-none w-[58rem] -right-[19rem] bottom-0 rotate-[90deg] lg:w-fill lg:-bottom-[4rem] lg:-right-8 lg:rotate-0`}
+              />
             </div>
-
-            <div className="pointer-events-none absolute inset-px shadow-sm ring-1 ring-white/10 rounded-3xl lg:rounded-l-[40px] lg:rounded-r-2xl" />
-          </div>
-
-          {/* CARD 2: NUESTRA FILOSOFÍA (Arriba Derecha) */}
-          <div className="relative lg:col-span-2 group min-h-[350px] lg:min-h-0">
-            <div className="absolute inset-px bg-white/5 backdrop-blur-sm rounded-3xl lg:rounded-tr-[40px] lg:rounded-tl-2xl lg:rounded-bl-2xl lg:rounded-br-2xl" />
-            <div className="relative flex h-full flex-col overflow-hidden rounded-3xl lg:rounded-tr-[40px] lg:rounded-tl-2xl lg:rounded-bl-2xl lg:rounded-br-2xl">
-              <div className="px-8 pt-8 sm:px-10 sm:pt-10 flex flex-col sm:flex-row justify-between items-start gap-4 relative z-10">
-                <div className="max-w-md w-full">
-                   <p className="mt-2 text-lg tracking-tight text-white max-lg:text-center">
-                    Nuestra Filosofía
-                  </p>
-                  <p className="mt-2 text-sm/6 text-gray-400 max-lg:text-center">
-                    La tecnología debe simplificar el trabajo del equipo, no complicarlo. Diseñamos procesos que se sostienen en el tiempo, eliminamos la fricción operativa.
-                  </p>
-                </div>
-                
-                <div className="flex items-center justify-center p-4 self-center sm:self-start">
-                  <img
-                  src={Filo}
-                  alt="Filo-svg"
-                  // === ARREGLO RESPONSIVE ===
-                  // Mobile: w-[18rem], pegada abajo y derecha (-bottom-8, -right-8)
-                  // Desktop (lg:): TUS VALORES ORIGINALES (-bottom-[18rem], right-0)
-                  // NOTA: 'right-0' en lg es clave para sobreescribir el '-right-8' de mobile
-                  className="absolute max-w-none brightness-100 contrast-100 saturate-200 rotate-[125deg]
-                             w-[28rem] -bottom-[16rem] -right-8
-                             lg:w-[32rem] lg:-bottom-[22rem] lg:right-0 lg:rotate-[90deg]"
-                />
-                </div>
-              </div>
-            </div>
-
-            <div className="pointer-events-none absolute inset-px shadow-sm ring-1 ring-white/10 rounded-3xl lg:rounded-tr-[40px] lg:rounded-tl-2xl lg:rounded-bl-2xl lg:rounded-br-2xl" />
-          </div>
-
-          {/* CARD 3: EL EQUIPO (Abajo Derecha) */}
-            <div className="relative overflow-hidden rounded-3xl lg:col-span-2 group min-h-[350px] lg:min-h-0">
-              <div className="absolute inset-px bg-white/5 backdrop-blur-sm rounded-3xl lg:rounded-br-[40px] lg:rounded-tr-2xl lg:rounded-tl-2xl lg:rounded-bl-2xl" />
-
-              <div className="relative flex h-full flex-col overflow-hidden rounded-3xl lg:rounded-br-[40px] lg:rounded-tr-2xl lg:rounded-tl-2xl lg:rounded-bl-2xl">
-                
-                {/* 1. TEXTO (Le damos z-20 para que quede ENCIMA de la imagen) */}
-                {/* Nota: Quité la imagen de aquí adentro */}
-                <div className="px-8 pt-8 sm:px-10 sm:pt-10 flex flex-col justify-between items-start gap-4 relative z-20">
-                  <div className="max-w-xl w-full">
-                    <p className="mt-2 text-lg tracking-tight text-white max-lg:text-center">
-                      El Equipo
-                    </p>
-                    <p className="mt-2 text-sm/6 text-gray-400 max-lg:text-center">
-                      Somos una alianza de especialistas en RevOps: <br className="hidden sm:block"/>estrategia comercial, arquitectura de CRM y analítica. 
-                    </p>
-                  </div>
-                </div>
-
-                {/* 2. IMAGEN (Ahora está afuera, directo en la tarjeta) */}
-                {/* Al estar aquí, 'bottom-0' y 'right-0' se refieren a LA TARJETA, no al texto.
-                    - z-10: Para quedar detrás del texto (el texto tiene z-20 arriba).
-                    - pointer-events-none: Para que no moleste si tapas botones (opcional).
-                */}
-                <img
-                    src={Team}
-                    alt="Team-svg"
-                    className="absolute z-10 max-w-none 
-                              /* === CLASES BASE (MÓVIL) === */
-                              w-[58rem] -right-[19rem] bottom-0 
-                              rotate-[90deg]  /* <-- AQUÍ ROTAS EL MÓVIL (puedes usar -rotate-12, rotate-[15deg], etc.) */
-
-                              /* === CLASES DESKTOP (LG) === */
-                              lg:w-fill lg:-bottom-[4rem] lg:-right-8 
-                              lg:rotate-0 /* <-- IMPORTANTE: AQUÍ RESETEAS LA ROTACIÓN EN DESKTOP */
-                              
-                              pointer-events-none"
-                  />
-                <div className="relative min-h-[60px] w-full grow overflow-hidden">
-                </div>
-              </div>
-
-            <div className="pointer-events-none absolute inset-px shadow-sm ring-1 ring-white/10 rounded-3xl lg:rounded-br-[40px] lg:rounded-tr-2xl lg:rounded-tl-2xl lg:rounded-bl-2xl" />
+            <div className="pointer-events-none absolute inset-0 ring-1 ring-white/5 dark:ring-white/10 rounded-3xl lg:rounded-br-[40px] lg:rounded-tr-2xl lg:rounded-tl-2xl lg:rounded-bl-2xl" />
           </div>
 
         </div>
 
-        {/* Sección de Estadísticas */}
-        <div className="border-t border-white/10 pt-12">
+        {/* Stats */}
+        <div className="border-t border-gray-200 dark:border-white/10 pt-12 transition-colors">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((stat, index) => (
               <div key={index}>
                 <p className="text-3xl md:text-5xl text-gradient mb-1 tabular-nums">
-                  <AnimatedCounter 
-                    end={stat.value} 
-                    prefix={stat.prefix} 
-                    suffix={stat.suffix} 
-                  />
+                  <AnimatedCounter end={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                 </p>
                 <p className="text-sm text-gray-500 uppercase tracking-wider">{stat.label}</p>
               </div>
@@ -212,5 +172,9 @@ const AboutUs = () => {
     </section>
   );
 };
+
+function cn(...classes) {
+  return classes.filter(Boolean).join(' ');
+}
 
 export default AboutUs;

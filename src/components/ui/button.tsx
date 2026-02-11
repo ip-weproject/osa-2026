@@ -4,7 +4,6 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  // Agregamos 'group' aquí para que las flechas animadas funcionen siempre
   "group inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
@@ -19,22 +18,42 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         
-        // 👇 TU NUEVA VARIANTE GLOW
-        // Tiene fondo transparente (bg-osa-white/0), borde semitransparente inicial y la sombra blanca al hover
-        glow: "bg-white/10 text-grey-300 border border-white/15 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all duration-300",
-        // Tiene fondo transparente (bg-osa-white/0), borde semitransparente inicial y la sombra blanca al hover
-        ghablemos: "bg-cyan-900 text-grey-300 border border-white/15 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all duration-300",
-        gform: "bg-white/0 text-grey-300 border border-white/15 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all duration-300",
+        // 👇 VARIANTE GLOW (Adaptada)
+        // Light: Fondo gris muy suave, texto oscuro, sombra negra sutil.
+        // Dark: Fondo transparente blanco, texto gris claro, sombra blanca neón.
+        glow: `
+            bg-gray-100/50 text-gray-700 border border-gray-300 hover:border-gray-500 hover:shadow-[0_0_30px_rgba(0,0,0,0.1)] 
+            dark:bg-white/10 dark:text-gray-300 dark:border-white/15 dark:hover:border-white/40 dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] 
+            transition-all duration-300
+        `,
+
+        // 👇 VARIANTE GHABLEMOS (Primary Tech)
+        // Light: Fondo Teal muy suave, texto Teal oscuro, borde Teal.
+        // Dark: Fondo Teal oscuro, texto claro, borde y sombra Teal neón.
+        ghablemos: `
+            bg-teal-50 text-teal-900 border border-teal-200 hover:bg-teal-100 hover:border-teal-300 hover:shadow-[0_0_30px_rgba(45,212,191,0.2)]
+            dark:bg-teal-900/40 dark:text-gray-200 dark:border-teal-500/30 dark:hover:border-teal-400/60 dark:hover:shadow-[0_0_30px_rgba(45,212,191,0.4)] 
+            transition-all duration-300
+        `,
+
+        // 👇 VARIANTE GFORM (Formularios)
+        // Light: Transparente, texto oscuro, borde gris visible.
+        // Dark: Transparente, texto claro, borde blanco sutil.
+        gform: `
+            bg-transparent text-gray-700 border border-gray-300 hover:border-gray-800 hover:shadow-[0_0_20px_rgba(0,0,0,0.1)]
+            dark:bg-white/0 dark:text-gray-300 dark:border-white/15 dark:hover:border-white/40 dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] 
+            transition-all duration-300
+        `,
       },
       size: {
-        // 👇 TAMAÑO LG PERSONALIZADO
-        // Aquí metemos el 'rounded-full' y el 'py-6' para que sea idéntico a tu snippet
+        // 👇 TAMAÑO LG
         lg: "h-6 px-5 py-5 rounded-full text-base", 
         
-        default: "h-10 px-4 rounded-full py-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]",
-        nav: "h-10 px-4 rounded-full py-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]",
+        // 👇 TAMAÑOS CON SOMBRA ADAPTATIVA
+        // Hemos cambiado la sombra fija blanca por una sombra que cambia según el tema
+        default: "h-10 px-4 rounded-full py-2 hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]",
+        nav: "h-10 px-4 rounded-full py-2 hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]",
         icon: "h-10 w-10",
-        
       },
     },
     defaultVariants: {

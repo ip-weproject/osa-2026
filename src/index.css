@@ -1,4 +1,4 @@
-/* Importamos Inter Tight de Google Fonts */
+/* Importamos Inter Tight de Google Fonts (MANTENIDO) */
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 
 @tailwind base;
@@ -6,12 +6,69 @@
 @tailwind utilities;
 
 @layer base {
-  /* ... MANTÉN TUS VARIABLES DE COLORES AQUÍ (root, etc) IGUAL QUE ANTES ... */
   :root {
-    --background: 240 10% 4%;
-    --foreground: 210 40% 98%;
-    /* ... resto de variables ... */
+    /* --- MODO CLARO (LIGHT) --- */
+    /* Usamos valores RGB puros para que Tailwind pueda usar opacidades (bg-background/50) */
+    --background: 255 255 255; /* Blanco puro */
+    --foreground: 18 20 28;    /* Tu color oscuro (#12141C) */
+    
+    --card: 255 255 255;
+    --card-foreground: 18 20 28;
+ 
+    --popover: 255 255 255;
+    --popover-foreground: 18 20 28;
+ 
+    --primary: 15 23 42;
+    --primary-foreground: 248 250 252;
+ 
+    --secondary: 241 245 249;
+    --secondary-foreground: 15 23 42;
+ 
+    --muted: 241 245 249;
+    --muted-foreground: 100 116 139;
+ 
+    --accent: 241 245 249;
+    --accent-foreground: 15 23 42;
+ 
+    --destructive: 239 68 68;
+    --destructive-foreground: 248 250 252;
+
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 18 20 28;
+ 
     --radius: 0.5rem;
+  }
+ 
+  .dark {
+    /* --- MODO OSCURO (DARK - TUS COLORES ORIGINALES) --- */
+    --background: 0 0 0;    /* #12141C */
+    --foreground: 255 255 255; /* Blanco */
+ 
+    --card: 18 20 28;
+    --card-foreground: 255 255 255;
+ 
+    --popover: 18 20 28;
+    --popover-foreground: 255 255 255;
+ 
+    --primary: 248 250 252;
+    --primary-foreground: 15 23 42;
+ 
+    --secondary: 30 41 59;
+    --secondary-foreground: 248 250 252;
+ 
+    --muted: 30 41 59;
+    --muted-foreground: 148 163 184;
+ 
+    --accent: 30 41 59;
+    --accent-foreground: 248 250 252;
+ 
+    --destructive: 127 29 29;
+    --destructive-foreground: 248 250 252;
+ 
+    --border: 30 41 59; /* Un poco más claro que el fondo para que se vea */
+    --input: 30 41 59;
+    --ring: 212 212 216;
   }
 }
 
@@ -20,16 +77,16 @@
     @apply border-border;
   }
 
-  /* APLICAMOS INTER TIGHT A TODO EL SITIO */
+  /* APLICAMOS INTER TIGHT A TODO EL SITIO (MANTENIDO IGUAL) */
   body {
-    @apply bg-background text-foreground;
+    /* Aquí conectamos las variables RGB */
+    @apply bg-[rgb(var(--background))] text-[rgb(var(--foreground))];
     font-family: 'Inter Tight', sans-serif;
-    /* Estas propiedades mejoran la legibilidad de Inter */
     font-feature-settings: "rlig" 1, "calt" 1;
-    letter-spacing: -0.02em; /* Un toque "tight" extra para que quede igual a CodeFus */
+    letter-spacing: -0.02em; 
   }
 
-  /* Forzamos Inter Tight en encabezados y botones */
+  /* Forzamos Inter Tight en encabezados y botones (MANTENIDO) */
   h1, h2, h3, h4, h5, h6, 
   input, textarea, button, select {
     font-family: 'Inter Tight', sans-serif !important;
@@ -37,35 +94,36 @@
 }
 
 @layer utilities {
-  /* ESTILO NUEVO: Efecto "Titanio/Acero" (CodeFus Style) */
-  /* Va desde blanco arriba (from-white) hacia el gris que me pasaste abajo (to-[#B3B0BC]) */
+  /* ESTILO TITULOS ADAPTATIVO */
   .text-gradient {
-    @apply bg-gradient-to-b from-[#8e8c93] to-white bg-clip-text text-transparent;
+    @apply bg-clip-text text-transparent bg-gradient-to-b;
+    /* Modo Claro: De Gris Oscuro a Negro */
+    @apply from-gray-500 to-black; 
   }
 
-  /* ESTILO SECUNDARIO: Para subtítulos o textos menos importantes */
+  /* Modo Oscuro: De Gris a Blanco (Tu original) */
+  .dark .text-gradient {
+    @apply from-[#8e8c93] to-white;
+  }
+
+  /* ESTILO SUBTITULOS ADAPTATIVO */
   .text-gradient-sub {
-    @apply bg-gradient-to-b from-[#E9E9E9] to-[#9192A1] bg-clip-text text-transparent;
-  }
-
-  /* ESTILO SECUNDARIO: Para subtítulos o textos menos importantes */
-  .text-gradient-cyan {
-    @apply bg-gradient-to-b from-[#E9E9E9] to-[#3ac6ad] bg-clip-text text-transparent;
+    @apply bg-clip-text text-transparent bg-gradient-to-b;
+    /* Modo Claro */
+    @apply from-gray-400 to-gray-600; 
   }
   
-  /* Mantenemos el glow de fondo si te gustaba, o lo puedes quitar */
-  .hero-glow:after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05), transparent 70%);
-    pointer-events: none;
+  /* Modo Oscuro (Tu original) */
+  .dark .text-gradient-sub {
+    @apply from-[#E9E9E9] to-[#9192A1]; 
   }
 
-  /* Clase para forzar la fuente de código si la necesitas */
-  .font-code {
-    font-family: 'Inter Tight', monospace !important; 
-    /* O 'Fira Code' si lograste cargarla */
+  /* El Cyan no necesita cambios porque se ve bien en ambos, pero si quieres ajustarlo: */
+  .text-gradient-cyan {
+    @apply bg-gradient-to-b from-[#3ac6ad] to-[#208b78] bg-clip-text text-transparent;
+  }
+  .dark .text-gradient-cyan {
+    @apply from-[#E9E9E9] to-[#3ac6ad];
   }
 }
 
