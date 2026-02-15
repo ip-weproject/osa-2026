@@ -66,7 +66,10 @@ const Services = () => {
             <img
               src={Crm}
               alt="Crm"
-              className={`${imgSpace} absolute max-w-none w-[22rem] bottom-5 -right-[0rem] md:-bottom-[0rem] md:-right-[0.5rem] md:w-[24rem] lg:w-[24rem] xl:w-[37rem] xl:-right-[1rem] xl:-bottom-[2rem]`} 
+              className={`${imgSpace} 
+                absolute max-w-none w-[24rem] bottom-5 -right-[1.5rem] 
+                md:-bottom-[0rem] md:-right-[0.5rem] md:w-[24rem] 
+                lg:w-[24rem] min-[1280px]:max-[1400px]:w-[33em] xl:w-[37rem] xl:-right-[1rem] xl:-bottom-[2rem]`} 
             />
           </div>
 

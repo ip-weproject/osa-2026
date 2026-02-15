@@ -10,17 +10,17 @@ const RevOps = () => {
   const getBorderClasses = (index, totalLength) => {
     // Móvil: primera y última tarjeta tienen bordes exteriores grandes.
     if (index === 0) {
-      return "rounded-t-[50px] rounded-b-2xl md:rounded-l-[40px] md:rounded-r-2xl md:rounded-t-2xl";
+      return "rounded-t-[50px] rounded-b-2xl md:rounded-l-[40px] md:rounded-r-2xl md:rounded-tl-[40px] md:rounded-tr-2xl";
     }
     if (index === totalLength - 1) {
-      return "rounded-t-2xl rounded-b-[50px] md:rounded-r-[40px] md:rounded-l-2xl md:rounded-b-2xl";
+      return "rounded-t-2xl rounded-b-[50px] md:rounded-r-[40px] md:rounded-l-2xl md:rounded-br-[40px] md:rounded-bl-2xl";
     }
     // Tarjetas intermedias
-    return "rounded-2xl";
+    return "rounded-2xl md:rounded-3xl";
   };
 
   return (
-    <section id="how-it-works" className="py-24 bg-background transition-colors duration-300">
+    <section id="revops" className="py-24 bg-background transition-colors duration-300">
       <div className="container mx-auto px-6 md:px-12 lg:px-32">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl mb-4 text-gradient">
@@ -42,7 +42,10 @@ const RevOps = () => {
                 getBorderClasses(index, t.revops.steps.length)
               )}
             >
-              <span className="absolute -top-2 pt-4 left-6 text-[7rem] leading-none text-white/10 select-none z-0 transition-colors group-hover:text-white/[0.15]">
+              <span className="
+                absolute -top-2 pt-4 left-6 text-[7rem] leading-none select-none z-0 transition-colors duration-500
+                text-[#45C8B1] md:text-white/10 md:group-hover:text-[#45C8B1]
+              ">
                 {step.number}
               </span>
 

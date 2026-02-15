@@ -3,7 +3,7 @@
     "private": true,
     "version": "1.0.0",
     "type": "module",
-    "homepage": "https://themewagon.github.io/osaflow",
+    "homepage": "https://themewagon.github.io/osa",
     "scripts": {
         "dev": "vite",
         "build": "vite build",

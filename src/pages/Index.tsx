@@ -1,5 +1,5 @@
 
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
@@ -14,10 +14,9 @@ import Clients from '@/components/Clients';
 import useScrollAnimation from '@/utils/useScrollAnimation';
 
 const Index = () => {
-  // Initialize scroll animations
-  useScrollAnimation();
+  useScrollAnimation(); // Mantenemos tu hook de animación
 
-  // Set page title
+  // --- GESTOR DE ANCLAS PARA PÁGINAS OCULTAS ---
   useEffect(() => {
     document.title = "OSA | Consulting Services";
   }, []);

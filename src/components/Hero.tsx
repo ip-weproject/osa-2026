@@ -1,3 +1,5 @@
+
+import { useRef, useEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import HeroPng from '../assets/hero.png';
@@ -12,9 +14,18 @@ import { useLanguage } from '../context/LanguageContext';
 const Hero = () => {
   const { t } = useLanguage();
 
-const logoImgClasses = "filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300";
+  // 1. AQUÍ VA LA LÓGICA Y LOS HOOKS (ANTES DEL RETURN)
+  const videoRef = useRef(null);
 
-  return (
+  useEffect(() => {
+    // Cuando el componente carga, forzamos el mute a nivel DOM
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+    }
+  }, []);
+
+return (
     // Agregamos bg-background para asegurar que cambie el color de fondo
     <section className="relative min-h-screen flex flex-col justify-center bg-background transition-colors duration-300">
       
@@ -66,38 +77,24 @@ const logoImgClasses = "filter grayscale opacity-60 hover:grayscale-0 hover:opac
                 className="w-full h-auto object-contain relative z-10"
               />
 
-              {/* 2. VIDEO DE DESTELLOS (El Ajuste con Hacks para iOS) */}
+              {/* VIDEO DE DESTELLOS BLINDADO (TypeScript Fix) */}
               <video
-                autoPlay={true}
-                loop={true}
-                muted={true}
-                playsInline={true}
-                disablePictureInPicture={true}
+                ref={videoRef}
+                autoPlay
+                loop
+                muted
+                playsInline
                 controls={false}
                 className="
-                  absolute 
-                  z-20 
-                  pointer-events-none 
-                  
-                  /* CENTRADO PERFECTO */
-                  top-[30%] left-1/2 
-                  -translate-x-1/2 -translate-y-1/2
-
-                  /* TAMAÑO */
-                  w-[150%] 
-                  h-[150%]
-
-                  /* --- HACKS ANTI-BUG DE SAFARI iOS --- */
-                  transform-gpu 
-                  opacity-[0.99]
+                  absolute z-20 pointer-events-none 
+                  top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2
+                  w-[150%] h-[150%]
                 "
-                /* Obligamos a aplicarlo inline para que WebKit no lo ignore */
-                style={{ mixBlendMode: 'screen' }} 
               >
-                {/* 1. Opción para iOS / Mac */}
+                {/* 1. iOS / Mac (HEVC Transparente) */}
                 <source src={HeroMov} type='video/quicktime; codecs="hvc1"' />
                 
-                {/* 2. Opción para Chrome / Android */}
+                {/* 2. Chrome / Android (WebM Transparente) */}
                 <source src={HeroWebm} type="video/webm" />
               </video>
 
@@ -116,7 +113,7 @@ const logoImgClasses = "filter grayscale opacity-60 hover:grayscale-0 hover:opac
                <img 
                  src={hubspotLogo} 
                  alt="HubSpot" 
-                 className={`h-6 w-auto ${logoImgClasses}`} 
+                 className="h-6 w-auto transition-all duration-300 md:grayscale md:opacity-60 md:group-hover:grayscale-0 md:group-hover:opacity-100" 
                />
              </a>
 
@@ -125,7 +122,7 @@ const logoImgClasses = "filter grayscale opacity-60 hover:grayscale-0 hover:opac
                <img 
                  src={salesforceLogo} 
                  alt="Salesforce" 
-                 className={`h-12 w-auto ${logoImgClasses}`} 
+                 className="h-12 w-auto transition-all duration-300 md:grayscale md:opacity-60 md:group-hover:grayscale-0 md:group-hover:opacity-100" 
                />
              </a>
 

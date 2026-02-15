@@ -75,7 +75,7 @@ const Navbar = () => {
     </a>
   </li>
   <li>
-    <a href="#faq" className="inline-block min-w-[80px] text-center transition-colors text-base font-medium text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white">
+    <a href="#challenges" className="inline-block min-w-[80px] text-center transition-colors text-base font-medium text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white">
       {t.navbar.challenges}
     </a>
   </li>
@@ -90,7 +90,7 @@ const Navbar = () => {
     </a>
   </li>
   <li>
-    <a href="#how-it-works" className="inline-block min-w-[80px] text-center transition-colors text-base font-medium text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white">
+    <a href="#revops" className="inline-block min-w-[80px] text-center transition-colors text-base font-medium text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white">
       {t.navbar.revops}
     </a>
   </li>
@@ -154,10 +154,10 @@ const Navbar = () => {
 
             {/* 2. Links de navegación */}
             <a href="#" className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors block py-2 text-center" onClick={handleNavClick}>{t.navbar.home}</a>
-            <a href="#faq" className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors block py-2 text-center" onClick={handleNavClick}>{t.navbar.challenges}</a>
+            <a href="#challenges" className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors block py-2 text-center" onClick={handleNavClick}>{t.navbar.challenges}</a>
             <a href="#about" className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors block py-2 text-center" onClick={handleNavClick}>{t.navbar.about}</a>
             <a href="#services" className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors block py-2 text-center" onClick={handleNavClick}>{t.navbar.services}</a>
-            <a href="#how-it-works" className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors block py-2 text-center" onClick={handleNavClick}>{t.navbar.revops}</a>
+            <a href="#revops" className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors block py-2 text-center" onClick={handleNavClick}>{t.navbar.revops}</a>
 
             {/* 3. Botón de Contacto */}
             <div className="pt-4">

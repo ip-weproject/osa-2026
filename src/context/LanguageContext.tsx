@@ -181,6 +181,28 @@ footer: {
   rights: "Todos los derechos reservados.",
   partnersText: "Partners orgullosos de las principales plataformas CRM del mundo."
 },
+    freelance: {
+      title: "Acceso Directo a los Fundadores",
+      titleHighlight: "Servicio Contractor",
+      subtitle: "Para proyectos específicos que requieren máxima agilidad y la experiencia directa de quienes crearon la visión de OSA.",
+      description: "Este es un canal exclusivo para colaborar mano a mano con nuestros fundadores. Obtené una consultoría ultra-personalizada, sin intermediarios, ideal para desafíos complejos, mentorías o implementaciones rápidas que necesitan una mano experta desde el día uno.",
+      benefits: [
+        {
+          icon: "UserCheck",
+          title: "Trato Directo",
+          text: "Comunicación y ejecución directa con los socios fundadores."
+        },
+        {
+          icon: "Zap",
+          title: "Máxima Agilidad",
+          text: "Procesos simplificados para arrancar y entregar resultados en tiempo récord."
+        }
+      ],
+      button: "Consultar por este servicio"
+    },
+    clients: {
+      title: "Algunos de nuestros clientes"
+    }
   },
   en: {
     navbar: {
@@ -362,6 +384,28 @@ footer: {
   rights: "All rights reserved.",
   partnersText: "Proud partners of leading CRM platforms worldwide."
 },
+    freelance: {
+      title: "Direct Access to the Founders",
+      titleHighlight: "Contractor Service",
+      subtitle: "For specific projects requiring maximum agility and the direct expertise of those who created the OSA vision.",
+      description: "This is an exclusive channel to collaborate side-by-side with our founders. Get ultra-personalized consulting, with no intermediaries, ideal for complex challenges, mentoring, or rapid implementations that need an expert hand from day one.",
+      benefits: [
+        {
+          icon: "UserCheck",
+          title: "Direct Contact",
+          text: "Direct communication and execution with the founding partners."
+        },
+        {
+          icon: "Zap",
+          title: "Maximum Agility",
+          text: "Simplified processes to start and deliver results in record time."
+        }
+      ],
+      button: "Inquire about this service"
+    },
+    clients: {
+      title: "Some of our clients"
+    }
   },
 };
 

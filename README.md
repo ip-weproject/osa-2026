@@ -1,18 +1,9 @@
-# Osa – One Page Template
-#### Preview
-
- - [Demo](https://themewagon.github.io/osaflow/)
-
-#### Download
- - [Download from ThemeWagon](https://themewagon.com/themes/osaflow/)
+# OSA Consulting - Sitio Web
+Este es el repositorio para el sitio web oficial de OSA Consulting, una consultora especializada en Revenue Operations (RevOps).
 
 ## Getting Started
 
-1. Clone Repository
-```
-git clone https://github.com/themewagon/osaflow.git
-```
-2. Install Dependencies
+1. Install Dependencies
 ```
 npm i
 ```
@@ -38,4 +29,3 @@ Design and code is completely written by codescandy and development team.
  - Design and Code is Copyright &copy; [codescandy](https://codescandy.com)
  - Licensed cover under [MIT]
  - Distributed by [ThemeWagon](https://themewagon.com)
-

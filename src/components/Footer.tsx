@@ -64,7 +64,7 @@ const Footer = () => {
               <a href="https://www.salesforce.com" target="_blank" rel="noreferrer" className="group transition-transform hover:scale-105 opacity-80 hover:opacity-100">
                 <img src={salesforceLogo} alt="Salesforce" className={`h-12 md:h-14 w-auto ${logoImgClasses}`} />
               </a>
-              <a href="#" target="_blank" rel="noreferrer" className="group transition-transform hover:scale-105 opacity-80 hover:opacity-100">
+              <a href="https://appexchange.salesforce.com/appxConsultingListingDetail?listingId=a79fb861-7a78-46e3-a87b-8c182242e9a0" target="_blank" rel="noreferrer" className="group transition-transform hover:scale-105 opacity-80 hover:opacity-100">
                 <img src={partnerLogo} alt="Partner" className={`h-16 md:h-20 w-auto ${logoImgClasses}`} />
               </a>
             </div>

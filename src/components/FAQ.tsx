@@ -10,7 +10,7 @@ const FAQ = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="faq" className="py-24 bg-background transition-colors duration-300">
+    <section id="challenges" className="py-24 bg-background transition-colors duration-300">
       <div className="container mx-auto px-6 md:px-12 lg:px-32">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl mb-4 text-gradient">

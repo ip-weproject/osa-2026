@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import FreelancePage from "./pages/FreelancePage"; // 1. Importar la nueva página
 import { LanguageProvider } from "./context/LanguageContext"; 
 import { ThemeProvider } from "./context/ThemeContext";
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
             <BrowserRouter>
               <Routes>
                 <Route path="/" element={<Index />} />
+                <Route path="/freelance" element={<FreelancePage />} /> {/* 2. Añadir la nueva ruta */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>
