@@ -45,7 +45,7 @@ const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-rows-2 gap-6">
 
           {/* === CARD 1: DASHBOARD / ANALYTICS === */}
-          <div className={`${cardBaseClasses} md:col-span-3 row-span-1 rounded-tl-[40px] rounded-tr-2xl rounded-bl-2xl rounded-br-2xl min-h-[350px] md:min-h-0`}>
+          <div className={`${cardBaseClasses} md:col-span-3 row-span-1 rounded-t-[50px] rounded-b-2xl lg:rounded-tl-[40px] lg:rounded-tr-2xl lg:rounded-bl-2xl lg:rounded-br-2xl min-h-[350px] md:min-h-0`}>
             <div className="p-8 pb-0 relative z-10">
               <h3 className={`text-lg mb-4 font-medium ${textTitle}`}>{t.services.cards.audit.title}</h3>
               <p className={`text-sm max-w-sm ${textDesc}`}>{t.services.cards.audit.desc}</p>
@@ -58,7 +58,7 @@ const Services = () => {
           </div>
 
           {/* === CARD 2: CRM === */}
-          <div className={`${cardBaseClasses} md:col-span-3 row-span-1 rounded-tr-[40px] rounded-tl-2xl rounded-bl-2xl rounded-br-2xl min-h-[350px] md:min-h-0`}>
+          <div className={`${cardBaseClasses} md:col-span-3 row-span-1 rounded-2xl lg:rounded-tr-[40px] lg:rounded-tl-2xl lg:rounded-bl-2xl lg:rounded-br-2xl min-h-[350px] md:min-h-0`}>
             <div className="p-8 relative z-10">
               <h3 className={`text-lg mb-4 font-medium ${textTitle}`}>{t.services.cards.crm.title}</h3>
               <p className={`text-sm max-w-sm ${textDesc}`}>{t.services.cards.crm.desc}</p>
@@ -66,12 +66,12 @@ const Services = () => {
             <img
               src={Crm}
               alt="Crm"
-              className={`${imgSpace} absolute max-w-none w-[22rem] bottom-5 -right-[0rem] md:-bottom-[0rem] md:-right-[0.5rem] md:w-[24rem]`} 
+              className={`${imgSpace} absolute max-w-none w-[22rem] bottom-5 -right-[0rem] md:-bottom-[0rem] md:-right-[0.5rem] md:w-[24rem] lg:w-[24rem] xl:w-[37rem] xl:-right-[1rem] xl:-bottom-[2rem]`} 
             />
           </div>
 
           {/* === CARD 3: AUTOMATION === */}
-          <div className={`${cardBaseClasses} md:col-span-2 row-span-1 rounded-bl-[40px] rounded-tl-2xl rounded-tr-2xl rounded-br-2xl min-h-[300px] md:min-h-0`}>
+          <div className={`${cardBaseClasses} md:col-span-2 row-span-1 rounded-2xl lg:rounded-bl-[40px] lg:rounded-tl-2xl lg:rounded-tr-2xl lg:rounded-br-2xl min-h-[300px] md:min-h-0`}>
             <div className="p-6 h-full flex flex-col relative z-10">
               <h3 className={`text-lg mb-3 font-medium ${textTitle}`}>{t.services.cards.automation.title}</h3>
               <p className={`text-sm mb-8 ${textDesc}`}>{t.services.cards.automation.desc}</p>
@@ -79,7 +79,7 @@ const Services = () => {
             <img
               src={Auto}
               alt="Auto"
-              className={`${imgSpace} absolute max-w-none w-[22rem] -bottom-6 -right-[0rem] md:-bottom-[2rem] md:-right-[3rem] md:w-[22rem]`} 
+              className={`${imgSpace} absolute max-w-none w-[22rem] -bottom-6 -right-[0rem] md:-bottom-[2rem] md:-right-[3rem] md:w-[22rem] lg:w-[24rem] xl:w-[26rem]`} 
             />
           </div>
 
@@ -99,7 +99,7 @@ const Services = () => {
           </div>
 
           {/* === CARD 5: NETWORK / SCALE === */}
-          <div className={`${cardBaseClasses} md:col-span-2 row-span-1 rounded-br-[40px] rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl min-h-[300px] md:min-h-0`}>
+          <div className={`${cardBaseClasses} md:col-span-2 row-span-1 rounded-t-2xl rounded-b-[50px] lg:rounded-br-[40px] lg:rounded-tl-2xl lg:rounded-tr-2xl lg:rounded-bl-2xl min-h-[300px] md:min-h-0`}>
             <div className="p-6 h-full flex flex-col relative z-10">
               <h3 className={`text-lg mb-3 font-medium ${textTitle}`}>{t.services.cards.scalability.title}</h3>
               <p className={`text-sm mb-6 ${textDesc}`}>{t.services.cards.scalability.desc}</p>

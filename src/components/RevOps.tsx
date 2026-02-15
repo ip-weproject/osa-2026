@@ -6,10 +6,17 @@ import { useLanguage } from "../context/LanguageContext";
 const RevOps = () => {
   const { t } = useLanguage();
   
+  // Lógica de bordes para el bento grid en móvil y escritorio
   const getBorderClasses = (index, totalLength) => {
-    if (index === 0) return "md:rounded-l-[40px] md:rounded-r-2xl rounded-3xl"; 
-    if (index === totalLength - 1) return "md:rounded-r-[40px] md:rounded-l-2xl rounded-3xl"; 
-    return "md:rounded-2xl rounded-3xl"; 
+    // Móvil: primera y última tarjeta tienen bordes exteriores grandes.
+    if (index === 0) {
+      return "rounded-t-[50px] rounded-b-2xl md:rounded-l-[40px] md:rounded-r-2xl md:rounded-t-2xl";
+    }
+    if (index === totalLength - 1) {
+      return "rounded-t-2xl rounded-b-[50px] md:rounded-r-[40px] md:rounded-l-2xl md:rounded-b-2xl";
+    }
+    // Tarjetas intermedias
+    return "rounded-2xl";
   };
 
   return (

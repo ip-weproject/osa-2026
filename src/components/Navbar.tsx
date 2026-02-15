@@ -29,19 +29,19 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`
-      fixed z-50 transition-all duration-500 ease-in-out
-      left-1/2 -translate-x-1/2
-      rounded-full
-      max-w-7xl
-      w-[90%] md:w-[80%] 
-      top-2
-      ${isScrolled 
-        ? 'border border-white/20 bg-osa-black/20 backdrop-blur-md py-4 shadow-2xl dark:border-white/10 dark:bg-osa-black/20 border-gray-200 bg-white/60' 
-        : 'border border-transparent bg-transparent py-2 shadow-none' 
-      }
-    `}>
-      <div className="container mx-auto px-6 md:px-8 flex justify-between items-center">
+    // Contenedor fijo para ambos elementos (barra y menú móvil)
+    // para que se posicionen correctamente.
+    <div className="fixed z-50 top-2 left-1/2 -translate-x-1/2 w-[90%] md:w-[80%] max-w-7xl">
+      
+      <nav className={`
+        w-full transition-all duration-500 ease-in-out rounded-full
+        ${isMobileMenuOpen ? 'hidden lg:flex' : 'flex'}
+        ${isScrolled 
+          ? `py-4 shadow-2xl backdrop-blur-md border bg-white/80 border-gray-200/80 dark:bg-black/80 dark:border-white/10` 
+          : 'py-2 bg-transparent border-transparent shadow-none'
+        }
+      `}>
+        <div className="container mx-auto px-6 md:px-8 flex justify-between items-center">
         
         {/* LOGO */}
         <div className="flex items-center justify-start w-40">
@@ -114,35 +114,56 @@ const Navbar = () => {
         </div>
 
         {/* MOBILE MENU TOGGLE */}
-        <button className="lg:hidden text-white p-1" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button 
+          className="lg:hidden text-gray-800 dark:text-white p-1" 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-      </div>
-
-      {/* ================= MOBILE MENU ================= */}
+        </div>
+      </nav>
+      
+      {/* --- PANEL DE MENÚ MÓVIL (FLOTANTE) --- */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-osa-black/95 backdrop-blur-xl absolute top-full left-0 w-full mt-4 rounded-3xl border border-white/10 p-6 shadow-2xl animate-in slide-in-from-top-5">
+        <div className="
+          lg:hidden w-full p-6 rounded-3xl animate-in slide-in-from-top-5
+          shadow-2xl backdrop-blur-md border bg-white/80 border-gray-200/80
+          dark:bg-black/80 dark:border-white/10
+        ">
           <div className="flex flex-col space-y-4">
-            
-            {/* 3. AGREGAR CONTROLES EN MÓVIL (IDIOMA + TEMA) */}
-            <div className="flex justify-between items-center pb-4 border-b border-white/10 mb-2">
-                <span className="text-gray-400 text-sm">Configuración</span>
-                <div className="flex gap-4">
-                    <LanguageSwitch />
-                    <ModeToggle />
-                </div>
+            {/* 1. Cabecera del menú móvil con Logo y Botón de Cierre */}
+            <div className="flex justify-between items-center pb-4 border-b border-gray-200 dark:border-white/10 mb-2">
+              <a href="#" onClick={handleNavClick}>
+                <img 
+                  src={theme === 'dark' ? logoLight : logoDark} 
+                  alt="OSA-logo" 
+                  className="w-12 h-12"
+                />
+              </a>
+              <div className="flex items-center gap-4">
+                <LanguageSwitch />
+                <ModeToggle />
+                <button 
+                  className="text-gray-800 dark:text-white p-1" 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <X size={28} />
+                </button>
+              </div>
             </div>
 
-            <a href="#" className="text-gray-300 hover:text-white transition-colors block py-2 text-center" onClick={handleNavClick}>{t.navbar.home}</a>
-            <a href="#faq" className="text-gray-300 hover:text-white transition-colors block py-2 text-center" onClick={handleNavClick}>{t.navbar.challenges}</a>
-            <a href="#about" className="text-gray-300 hover:text-white transition-colors block py-2 text-center" onClick={handleNavClick}>{t.navbar.about}</a>
-            <a href="#services" className="text-gray-300 hover:text-white transition-colors block py-2 text-center" onClick={handleNavClick}>{t.navbar.services}</a>
-            <a href="#how-it-works" className="text-gray-300 hover:text-white transition-colors block py-2 text-center" onClick={handleNavClick}>{t.navbar.revops}</a>
+            {/* 2. Links de navegación */}
+            <a href="#" className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors block py-2 text-center" onClick={handleNavClick}>{t.navbar.home}</a>
+            <a href="#faq" className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors block py-2 text-center" onClick={handleNavClick}>{t.navbar.challenges}</a>
+            <a href="#about" className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors block py-2 text-center" onClick={handleNavClick}>{t.navbar.about}</a>
+            <a href="#services" className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors block py-2 text-center" onClick={handleNavClick}>{t.navbar.services}</a>
+            <a href="#how-it-works" className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors block py-2 text-center" onClick={handleNavClick}>{t.navbar.revops}</a>
 
+            {/* 3. Botón de Contacto */}
             <div className="pt-4">
               <a href="#contact" onClick={handleNavClick}>
-                <Button className="w-full group bg-white text-black hover:bg-gray-200 rounded-full">
-                  Contacto
+                <Button variant="glow" className="w-full group">
+                  {t.navbar.contact}
                   <ChevronRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>
@@ -150,7 +171,7 @@ const Navbar = () => {
           </div>
         </div>
       )}
-    </nav>
+    </div>
   );
 };
 

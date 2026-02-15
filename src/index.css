@@ -73,14 +73,11 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
 
   /* APLICAMOS INTER TIGHT A TODO EL SITIO (MANTENIDO IGUAL) */
   body {
     /* Aquí conectamos las variables RGB */
-    @apply bg-[rgb(var(--background))] text-[rgb(var(--foreground))];
+    @apply text-[rgb(var(--foreground))];
     font-family: 'Inter Tight', sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
     letter-spacing: -0.02em; 

@@ -12,24 +12,23 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     
-    {/* 2. ENVOLVER CON THEME PROVIDER (Puede ir antes o después de Language, pero debe envolver el contenido) */}
     <ThemeProvider>
-        
       <LanguageProvider>
-        
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </TooltipProvider>
+        {/* Este div ahora controla el fondo de la página */}
+        <div className="bg-background transition-colors duration-300">
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+          </TooltipProvider>
+        </div>
 
       </LanguageProvider>
-
     </ThemeProvider>
 
   </QueryClientProvider>

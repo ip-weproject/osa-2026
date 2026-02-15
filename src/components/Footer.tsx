@@ -14,12 +14,13 @@ const Footer = () => {
   const logoImgClasses = "transition-all duration-300 dark:brightness-100 brightness-90";
 
   return (
-    <footer className="pt-16 pb-8 border-t border-gray-200 dark:border-white/10 relative z-10 overflow-hidden bg-background transition-colors duration-300">
+    <footer className="pt-16 pb-8 relative z-10 bg-background transition-colors duration-300">
       
       {/* --- 2. CONTENIDO --- */}
       <div className="container mx-auto px-6 md:px-12 lg:px-32 relative z-10">
+        <div className="pt-8 border-t border-gray-200 dark:border-white/10 text-center"></div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 items-start">
           
           {/* COLUMNA 1: Contacto */}
           <div className="text-center md:text-left">
@@ -51,12 +52,6 @@ const Footer = () => {
                 {t.footer.location}
               </p>
             </div>
-            
-            <div className="mt-4 pt-8 border-t border-gray-100 dark:border-white/5 md:border-none">
-              <small className="text-gray-500 dark:text-gray-500">
-                {currentYear} © OSA Consulting LLC. {t.footer.rights}
-              </small>
-            </div>
           </div>
 
           {/* COLUMNA 2: Partners */}
@@ -77,7 +72,13 @@ const Footer = () => {
           </div>
 
         </div>
-      </div>
+
+        {/* DERECHOS RESERVADOS (Ahora fuera del grid, al final para ambos) */}
+        <div className="mt-1 pt-2 border-t border-gray-200 dark:border-white/10 text-center"></div>
+          <small className="text-gray-500 dark:text-gray-500">
+            {currentYear} © OSA Consulting LLC. {t.footer.rights}
+          </small>
+        </div>
     </footer>
   );
 };

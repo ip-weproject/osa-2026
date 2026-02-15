@@ -1,6 +1,8 @@
 import { ChevronRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import HeroPng from '../assets/Hero.svg';
+import HeroPng from '../assets/hero.png';
+import HeroWebm from '../assets/chip-hero.webm';
+import HeroMov from '../assets/chip-hero.mov';
 import { RotatingText } from '@/components/ui/rotating-text';
 import hubspotLogo from '../assets/HubSpot_Logo.svg'; 
 import salesforceLogo from '../assets/salesforce-with-type-logo.svg';
@@ -14,7 +16,7 @@ const logoImgClasses = "filter grayscale opacity-60 hover:grayscale-0 hover:opac
 
   return (
     // Agregamos bg-background para asegurar que cambie el color de fondo
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-background transition-colors duration-300">
+    <section className="relative min-h-screen flex flex-col justify-center bg-background transition-colors duration-300">
       
       <div className="container px-4 md:px-10 lg:px-32 pt-32 relative z-10">
         
@@ -39,33 +41,68 @@ const logoImgClasses = "filter grayscale opacity-60 hover:grayscale-0 hover:opac
             <a href="https://meetings.hubspot.com/osa-consulting" target="_blank" rel="noopener noreferrer">
               {/* NOTA: Los botones se verán oscuros en ambos modos por ahora (porque 'ghablemos' es teal-900). 
                   Eso se arregla en button.tsx después. */}
-              <Button variant="ghablemos" size="lg"> 
+              <Button variant="ghablemos" size="lg" className="w-full sm:w-auto"> 
                 {t.hero.buttonTalk}
                 <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
             </a>
             <a href="#services">
-              <Button variant="glow" size="lg">
+              <Button variant="glow" size="lg" className="w-full sm:w-auto">
                 {t.hero.buttonSolutions}
                 <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
             </a>
           </div>
-
-          {/* Bloque Imagen Central (Hero) */}
-          <div className="w-full flex justify-center relative -mt-[6rem] lg:-mt-[4rem] pointer-events-none z-0">
-              {/* TRUCO PARA LA IMAGEN:
-                  - dark:filter-none: En modo oscuro, se ve normal (blanco/colores).
-                  - filter invert: En modo claro, invierte los colores (blanco -> negro).
-                  - Si tu SVG tiene colores complejos, esto puede verse raro, pero si es lineal/wireframe, queda GENIAL.
-              */}
+          
+          {/* WRAPPER: Este div define el tamaño final del "bloque" en la pantalla */}
+            {/* Ajusta los max-w-[...] aquí para cambiar el tamaño general de todo el conjunto */}
+            <div className="relative w-full max-w-[20rem] md:max-w-[30rem] lg:max-w-[30rem] mx-auto z-0">
+              
+              {/* 1. IMAGEN DEL CHIP (La Referencia) */}
+              {/* No toques nada aquí, esta imagen define la proporción del contenedor */}
               <img
                 src={HeroPng}
-                alt="Hero-png"
-                className="w-full max-w-[20rem] md:max-w-[30rem] lg:max-w-[30rem] h-auto object-contain animate-fade-in transition-all duration-300"
+                alt="Hero-chip"
+                className="w-full h-auto object-contain relative z-10"
               />
-          </div>
-          
+
+              {/* 2. VIDEO DE DESTELLOS (El Ajuste con Hacks para iOS) */}
+              <video
+                autoPlay={true}
+                loop={true}
+                muted={true}
+                playsInline={true}
+                disablePictureInPicture={true}
+                controls={false}
+                className="
+                  absolute 
+                  z-20 
+                  pointer-events-none 
+                  
+                  /* CENTRADO PERFECTO */
+                  top-[30%] left-1/2 
+                  -translate-x-1/2 -translate-y-1/2
+
+                  /* TAMAÑO */
+                  w-[150%] 
+                  h-[150%]
+
+                  /* --- HACKS ANTI-BUG DE SAFARI iOS --- */
+                  transform-gpu 
+                  opacity-[0.99]
+                "
+                /* Obligamos a aplicarlo inline para que WebKit no lo ignore */
+                style={{ mixBlendMode: 'screen' }} 
+              >
+                {/* 1. Opción para iOS / Mac */}
+                <source src={HeroMov} type='video/quicktime; codecs="hvc1"' />
+                
+                {/* 2. Opción para Chrome / Android */}
+                <source src={HeroWebm} type="video/webm" />
+              </video>
+
+            </div>
+
           {/* Texto Partners: Color adaptativo */}
           <p className="text-sm text-gray-500 dark:text-gray-500 font-medium tracking-wide -mt-6 relative z-20 transition-colors">
             {t.hero.partners}

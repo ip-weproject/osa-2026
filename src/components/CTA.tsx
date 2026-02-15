@@ -70,7 +70,7 @@ const ContactForm = () => {
           max-w-5xl mx-auto 
           bg-[#1a1c23] border border-white/5 
           dark:bg-white/5 dark:backdrop-blur-xl dark:border-white/10 
-          rounded-[32px] p-8 md:p-12 shadow-2xl transition-all duration-300
+          rounded-[50px] p-8 md:p-12 shadow-2xl transition-all duration-300
         ">
           
           <form 
